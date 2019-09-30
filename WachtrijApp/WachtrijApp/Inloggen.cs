@@ -11,8 +11,8 @@ namespace WachtrijApp
 {
     public partial class Inloggen : Form
     {
-    
-        private vollige
+
+      
         public Inloggen()
         {
             InitializeComponent();

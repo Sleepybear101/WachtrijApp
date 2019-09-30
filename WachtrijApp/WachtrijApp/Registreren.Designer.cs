@@ -33,10 +33,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.tbVolledigNaam = new System.Windows.Forms.TextBox();
+            this.tbWachtwoord = new System.Windows.Forms.TextBox();
+            this.tbWachtwoordRe = new System.Windows.Forms.TextBox();
+            this.tbDocentCode = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
+            this.lbl_Incorrect = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lblVolledigNaam
@@ -79,49 +81,75 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 202);
+            this.label5.Location = new System.Drawing.Point(12, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(273, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "*Laat dit veld leeg als je geen docent bent";
             // 
-            // textBox1
+            // tbVolledigNaam
             // 
-            this.textBox1.Location = new System.Drawing.Point(185, 36);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 5;
+            this.tbVolledigNaam.Location = new System.Drawing.Point(185, 36);
+            this.tbVolledigNaam.Name = "tbVolledigNaam";
+            this.tbVolledigNaam.Size = new System.Drawing.Size(100, 22);
+            this.tbVolledigNaam.TabIndex = 5;
             // 
-            // textBox2
+            // tbWachtwoord
             // 
-            this.textBox2.Location = new System.Drawing.Point(185, 78);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 6;
+            this.tbWachtwoord.Location = new System.Drawing.Point(185, 78);
+            this.tbWachtwoord.Name = "tbWachtwoord";
+            this.tbWachtwoord.Size = new System.Drawing.Size(100, 22);
+            this.tbWachtwoord.TabIndex = 6;
+            this.tbWachtwoord.UseSystemPasswordChar = true;
+            this.tbWachtwoord.TextChanged += new System.EventHandler(this.TbWachtwoord_TextChanged);
             // 
-            // textBox3
+            // tbWachtwoordRe
             // 
-            this.textBox3.Location = new System.Drawing.Point(185, 120);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 22);
-            this.textBox3.TabIndex = 7;
+            this.tbWachtwoordRe.Location = new System.Drawing.Point(185, 120);
+            this.tbWachtwoordRe.Name = "tbWachtwoordRe";
+            this.tbWachtwoordRe.Size = new System.Drawing.Size(100, 22);
+            this.tbWachtwoordRe.TabIndex = 7;
+            this.tbWachtwoordRe.UseSystemPasswordChar = true;
             // 
-            // textBox4
+            // tbDocentCode
             // 
-            this.textBox4.Location = new System.Drawing.Point(185, 160);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 22);
-            this.textBox4.TabIndex = 8;
+            this.tbDocentCode.Location = new System.Drawing.Point(186, 160);
+            this.tbDocentCode.Name = "tbDocentCode";
+            this.tbDocentCode.Size = new System.Drawing.Size(100, 22);
+            this.tbDocentCode.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(237, 225);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 33);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Registreer";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // lbl_Incorrect
+            // 
+            this.lbl_Incorrect.AutoSize = true;
+            this.lbl_Incorrect.ForeColor = System.Drawing.Color.DarkRed;
+            this.lbl_Incorrect.Location = new System.Drawing.Point(31, 103);
+            this.lbl_Incorrect.Name = "lbl_Incorrect";
+            this.lbl_Incorrect.Size = new System.Drawing.Size(179, 17);
+            this.lbl_Incorrect.TabIndex = 10;
+            this.lbl_Incorrect.Text = "*Wachtwoord zijn niet gelijk";
+            this.lbl_Incorrect.Visible = false;
             // 
             // Registreren
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(394, 268);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.ClientSize = new System.Drawing.Size(337, 270);
+            this.Controls.Add(this.lbl_Incorrect);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.tbDocentCode);
+            this.Controls.Add(this.tbWachtwoordRe);
+            this.Controls.Add(this.tbWachtwoord);
+            this.Controls.Add(this.tbVolledigNaam);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -140,10 +168,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox tbVolledigNaam;
+        private System.Windows.Forms.TextBox tbWachtwoord;
+        private System.Windows.Forms.TextBox tbWachtwoordRe;
         private System.Windows.Forms.Label lblWachtwoord;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox tbDocentCode;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label lbl_Incorrect;
     }
 }
