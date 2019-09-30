@@ -84,13 +84,12 @@
             this.label5.Size = new System.Drawing.Size(273, 17);
             this.label5.TabIndex = 4;
             this.label5.Text = "*Laat dit veld leeg als je geen docent bent";
-            this.label5.Click += new System.EventHandler(this.Label5_Click);
             // 
             // btnRegisteren
             // 
             this.btnRegisteren.Location = new System.Drawing.Point(230, 200);
             this.btnRegisteren.Name = "btnRegisteren";
-            this.btnRegisteren.Size = new System.Drawing.Size(129, 29);
+            this.btnRegisteren.Size = new System.Drawing.Size(88, 33);
             this.btnRegisteren.TabIndex = 5;
             this.btnRegisteren.Text = "Registreer";
             this.btnRegisteren.UseVisualStyleBackColor = true;
@@ -127,7 +126,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(392, 245);
+            this.ClientSize = new System.Drawing.Size(334, 242);
             this.Controls.Add(this.tbDocentCode);
             this.Controls.Add(this.tbWachtwoordRewrite);
             this.Controls.Add(this.tbWachtwoord);
@@ -140,6 +139,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Registeren";
             this.Text = "Registeren";
+            this.Load += new System.EventHandler(this.Registeren_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

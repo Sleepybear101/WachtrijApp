@@ -10,25 +10,16 @@ using System.Windows.Forms;
 
 namespace WachtrijApp
 {
-    public partial class Registeren : Form
+    public partial class KeuzeScherm : Form
     {
-        private Inloggen inloggen;
-
-        public Registeren(Inloggen form1)
+        public KeuzeScherm()
         {
             InitializeComponent();
-
         }
 
-        public void VoegGebruiker()
+        private void KeuzeScherm_Load(object sender, EventArgs e)
         {
 
-
-
-
         }
-
-
-
     }
 }

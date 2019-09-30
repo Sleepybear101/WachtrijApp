@@ -45,7 +45,6 @@
             this.lblVolledigNaam.Size = new System.Drawing.Size(101, 17);
             this.lblVolledigNaam.TabIndex = 0;
             this.lblVolledigNaam.Text = "Volledig naam:";
-            this.lblVolledigNaam.Click += new System.EventHandler(this.Label1_Click);
             // 
             // lblWachtwoord
             // 
@@ -87,7 +86,7 @@
             this.btnRegisteren.TabIndex = 5;
             this.btnRegisteren.Text = "Registeren";
             this.btnRegisteren.UseVisualStyleBackColor = true;
-            this.btnRegisteren.Click += new System.EventHandler(this.Button1_Click);
+            this.btnRegisteren.Click += new System.EventHandler(this.BtnRegisteren_Click);
             // 
             // btnInloggen
             // 
@@ -97,7 +96,7 @@
             this.btnInloggen.TabIndex = 6;
             this.btnInloggen.Text = "Inloggen";
             this.btnInloggen.UseVisualStyleBackColor = true;
-            this.btnInloggen.Click += new System.EventHandler(this.Button2_Click);
+            this.btnInloggen.Click += new System.EventHandler(this.BtnInloggen_Click);
             // 
             // Inloggen
             // 

@@ -10,25 +10,11 @@ using System.Windows.Forms;
 
 namespace WachtrijApp
 {
-    public partial class Registeren : Form
+    public partial class VraagStellen : Form
     {
-        private Inloggen inloggen;
-
-        public Registeren(Inloggen form1)
+        public VraagStellen()
         {
             InitializeComponent();
-
         }
-
-        public void VoegGebruiker()
-        {
-
-
-
-
-        }
-
-
-
     }
 }
