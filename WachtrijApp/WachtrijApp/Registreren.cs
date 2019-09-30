@@ -18,28 +18,24 @@ namespace WachtrijApp
         }
         string Wachtwoord;
         string WachtwoordR;
+        int rol;
+        string DocentCode = "234";
         public void VoegGebruiker()
         {
             SqlDbConnection con = new SqlDbConnection();
             string VolledigNaam;
-            string DocentCode;
-            int rol;
 
-            DocentCode = "DocentCode";
+            
             VolledigNaam = tbVolledigNaam.Text;
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
-            lbl_Incorrect.Visible = false;
-            if (tbDocentCode.Text == DocentCode )
-            {
-                label5.Text = VolledigNaam;
-                rol = 1;
-
-            }else if (tbDocentCode.Text == null)
+             if (tbDocentCode.Text == null)
             {
                 rol = 0;
-                label5.Text = "wachtwoord correct";
+
+               
             }
+           
 
             /*
             var qeury = "INTO `Gebruiker`(`Volledige_Naam`, `Wachtwoord`, `Rol`) VALUES ('Henk', 'heyHallo', 0)";
@@ -52,20 +48,38 @@ namespace WachtrijApp
             VoegGebruiker();
 
         }
-
-        private void TbWachtwoord_TextChanged(object sender, EventArgs e)
+        public void Incorrect()
         {
-             Wachtwoord = tbWachtwoord.Text;
+            Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
             if (WachtwoordR != Wachtwoord)
             {
                 lbl_Incorrect.Visible = true;
-                
+
             }
-            else
+            else if(WachtwoordR == null || WachtwoordR == Wachtwoord)
             {
                 lbl_Incorrect.Visible = false;
             }
+        }
+        private void TbWachtwoord_TextChanged(object sender, EventArgs e)
+        {
+             Incorrect();
+        }
+        private void TbWachtwoordRe_TextChanged(object sender, EventArgs e)
+        {
+            Incorrect();
+        }
+
+        private void TbDocentCode_TextChanged(object sender, EventArgs e)
+        {
+            if(tbDocentCode.Text != DocentCode)
+            {
+                button1.Enabled = false;
+
+            }
+
+            rol = 1;
 
         }
     }

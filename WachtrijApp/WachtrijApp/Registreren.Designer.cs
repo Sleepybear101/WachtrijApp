@@ -53,7 +53,7 @@
             // lblWachtwoord
             // 
             this.lblWachtwoord.AutoSize = true;
-            this.lblWachtwoord.Location = new System.Drawing.Point(31, 78);
+            this.lblWachtwoord.Location = new System.Drawing.Point(31, 94);
             this.lblWachtwoord.Name = "lblWachtwoord";
             this.lblWachtwoord.Size = new System.Drawing.Size(90, 17);
             this.lblWachtwoord.TabIndex = 1;
@@ -62,7 +62,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(31, 120);
+            this.label3.Location = new System.Drawing.Point(29, 117);
             this.label3.Name = "label3";
             this.label3.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label3.Size = new System.Drawing.Size(150, 17);
@@ -96,7 +96,7 @@
             // 
             // tbWachtwoord
             // 
-            this.tbWachtwoord.Location = new System.Drawing.Point(185, 78);
+            this.tbWachtwoord.Location = new System.Drawing.Point(185, 89);
             this.tbWachtwoord.Name = "tbWachtwoord";
             this.tbWachtwoord.Size = new System.Drawing.Size(100, 22);
             this.tbWachtwoord.TabIndex = 6;
@@ -105,11 +105,12 @@
             // 
             // tbWachtwoordRe
             // 
-            this.tbWachtwoordRe.Location = new System.Drawing.Point(185, 120);
+            this.tbWachtwoordRe.Location = new System.Drawing.Point(185, 117);
             this.tbWachtwoordRe.Name = "tbWachtwoordRe";
             this.tbWachtwoordRe.Size = new System.Drawing.Size(100, 22);
             this.tbWachtwoordRe.TabIndex = 7;
             this.tbWachtwoordRe.UseSystemPasswordChar = true;
+            this.tbWachtwoordRe.TextChanged += new System.EventHandler(this.TbWachtwoordRe_TextChanged);
             // 
             // tbDocentCode
             // 
@@ -117,6 +118,7 @@
             this.tbDocentCode.Name = "tbDocentCode";
             this.tbDocentCode.Size = new System.Drawing.Size(100, 22);
             this.tbDocentCode.TabIndex = 8;
+            this.tbDocentCode.TextChanged += new System.EventHandler(this.TbDocentCode_TextChanged);
             // 
             // button1
             // 
@@ -132,7 +134,7 @@
             // 
             this.lbl_Incorrect.AutoSize = true;
             this.lbl_Incorrect.ForeColor = System.Drawing.Color.DarkRed;
-            this.lbl_Incorrect.Location = new System.Drawing.Point(31, 103);
+            this.lbl_Incorrect.Location = new System.Drawing.Point(29, 69);
             this.lbl_Incorrect.Name = "lbl_Incorrect";
             this.lbl_Incorrect.Size = new System.Drawing.Size(179, 17);
             this.lbl_Incorrect.TabIndex = 10;
