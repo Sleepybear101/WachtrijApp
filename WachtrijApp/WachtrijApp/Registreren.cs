@@ -32,8 +32,6 @@ namespace WachtrijApp
              if (tbDocentCode.Text == null)
             {
                 rol = 0;
-
-               
             }
            
 
@@ -73,14 +71,12 @@ namespace WachtrijApp
 
         private void TbDocentCode_TextChanged(object sender, EventArgs e)
         {
-            if(tbDocentCode.Text != DocentCode)
+            if(tbDocentCode.Text == DocentCode)
             {
-                button1.Enabled = false;
+                rol = 1; 
 
             }
-
-            rol = 1;
-
+       
         }
     }
 }
