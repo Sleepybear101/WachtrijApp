@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace WachtrijApp
 {
-    public partial class VraagVanStudenten : Form
+    public partial class Archief : Form
     {
-        public VraagVanStudenten()
+        public Archief()
         {
             InitializeComponent();
-        }
-
-        private void Label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Label6_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

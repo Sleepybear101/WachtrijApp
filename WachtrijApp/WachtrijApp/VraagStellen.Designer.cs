@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.cbxPersoonlijkeVraag = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbxGegoogled = new System.Windows.Forms.CheckBox();
+            this.cbxAnderegesteld = new System.Windows.Forms.CheckBox();
+            this.btnStelVraag = new System.Windows.Forms.Button();
+            this.tbVraag = new System.Windows.Forms.TextBox();
+            this.tbOnderwerp = new System.Windows.Forms.TextBox();
+            this.cobGevraagdDocent = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
-            // checkBox1
+            // cbxPersoonlijkeVraag
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(15, 12);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(147, 21);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Persoonlijke vraag";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.cbxPersoonlijkeVraag.AutoSize = true;
+            this.cbxPersoonlijkeVraag.Location = new System.Drawing.Point(15, 12);
+            this.cbxPersoonlijkeVraag.Name = "cbxPersoonlijkeVraag";
+            this.cbxPersoonlijkeVraag.Size = new System.Drawing.Size(147, 21);
+            this.cbxPersoonlijkeVraag.TabIndex = 0;
+            this.cbxPersoonlijkeVraag.Text = "Persoonlijke vraag";
+            this.cbxPersoonlijkeVraag.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
@@ -77,72 +77,72 @@
             this.label3.TabIndex = 3;
             this.label3.Text = "Gevraagd docent";
             // 
-            // checkBox2
+            // cbxGegoogled
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(31, 173);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(208, 21);
-            this.checkBox2.TabIndex = 4;
-            this.checkBox2.Text = "Ik heb mijn vraag gegoogled";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.cbxGegoogled.AutoSize = true;
+            this.cbxGegoogled.Location = new System.Drawing.Point(31, 173);
+            this.cbxGegoogled.Name = "cbxGegoogled";
+            this.cbxGegoogled.Size = new System.Drawing.Size(208, 21);
+            this.cbxGegoogled.TabIndex = 4;
+            this.cbxGegoogled.Text = "Ik heb mijn vraag gegoogled";
+            this.cbxGegoogled.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // cbxAnderegesteld
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(31, 200);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(331, 21);
-            this.checkBox3.TabIndex = 5;
-            this.checkBox3.Text = "Ik heb mijn vraag aan andere studenten gesteld";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.cbxAnderegesteld.AutoSize = true;
+            this.cbxAnderegesteld.Location = new System.Drawing.Point(31, 200);
+            this.cbxAnderegesteld.Name = "cbxAnderegesteld";
+            this.cbxAnderegesteld.Size = new System.Drawing.Size(331, 21);
+            this.cbxAnderegesteld.TabIndex = 5;
+            this.cbxAnderegesteld.Text = "Ik heb mijn vraag aan andere studenten gesteld";
+            this.cbxAnderegesteld.UseVisualStyleBackColor = true;
             // 
-            // button1
+            // btnStelVraag
             // 
-            this.button1.Location = new System.Drawing.Point(15, 240);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 33);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Stel vraag";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnStelVraag.Location = new System.Drawing.Point(15, 240);
+            this.btnStelVraag.Name = "btnStelVraag";
+            this.btnStelVraag.Size = new System.Drawing.Size(88, 33);
+            this.btnStelVraag.TabIndex = 6;
+            this.btnStelVraag.Text = "Stel vraag";
+            this.btnStelVraag.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // tbVraag
             // 
-            this.textBox1.Location = new System.Drawing.Point(96, 54);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
-            this.textBox1.TabIndex = 7;
+            this.tbVraag.Location = new System.Drawing.Point(96, 54);
+            this.tbVraag.Name = "tbVraag";
+            this.tbVraag.Size = new System.Drawing.Size(100, 22);
+            this.tbVraag.TabIndex = 7;
             // 
-            // textBox2
+            // tbOnderwerp
             // 
-            this.textBox2.Location = new System.Drawing.Point(96, 90);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 22);
-            this.textBox2.TabIndex = 8;
+            this.tbOnderwerp.Location = new System.Drawing.Point(96, 90);
+            this.tbOnderwerp.Name = "tbOnderwerp";
+            this.tbOnderwerp.Size = new System.Drawing.Size(100, 22);
+            this.tbOnderwerp.TabIndex = 8;
             // 
-            // comboBox1
+            // cobGevraagdDocent
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(136, 132);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 9;
+            this.cobGevraagdDocent.FormattingEnabled = true;
+            this.cobGevraagdDocent.Location = new System.Drawing.Point(136, 132);
+            this.cobGevraagdDocent.Name = "cobGevraagdDocent";
+            this.cobGevraagdDocent.Size = new System.Drawing.Size(121, 24);
+            this.cobGevraagdDocent.TabIndex = 9;
             // 
             // VraagStellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(402, 295);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
+            this.Controls.Add(this.cobGevraagdDocent);
+            this.Controls.Add(this.tbOnderwerp);
+            this.Controls.Add(this.tbVraag);
+            this.Controls.Add(this.btnStelVraag);
+            this.Controls.Add(this.cbxAnderegesteld);
+            this.Controls.Add(this.cbxGegoogled);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.cbxPersoonlijkeVraag);
             this.Name = "VraagStellen";
             this.Text = "Vraag stellen";
             this.ResumeLayout(false);
@@ -152,15 +152,15 @@
 
         #endregion
 
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox cbxPersoonlijkeVraag;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.CheckBox cbxGegoogled;
+        private System.Windows.Forms.CheckBox cbxAnderegesteld;
+        private System.Windows.Forms.Button btnStelVraag;
+        private System.Windows.Forms.TextBox tbVraag;
+        private System.Windows.Forms.TextBox tbOnderwerp;
+        private System.Windows.Forms.ComboBox cobGevraagdDocent;
     }
 }
