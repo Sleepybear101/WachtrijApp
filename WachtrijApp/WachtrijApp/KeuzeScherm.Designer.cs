@@ -36,16 +36,17 @@
             // 
             this.btnVraagStellen.Location = new System.Drawing.Point(26, 36);
             this.btnVraagStellen.Name = "btnVraagStellen";
-            this.btnVraagStellen.Size = new System.Drawing.Size(118, 41);
+            this.btnVraagStellen.Size = new System.Drawing.Size(118, 51);
             this.btnVraagStellen.TabIndex = 0;
             this.btnVraagStellen.Text = "Vraag stellen";
             this.btnVraagStellen.UseVisualStyleBackColor = true;
+            this.btnVraagStellen.Click += new System.EventHandler(this.btnVraagStellen_Click);
             // 
             // btnVraagbekijken
             // 
-            this.btnVraagbekijken.Location = new System.Drawing.Point(166, 36);
+            this.btnVraagbekijken.Location = new System.Drawing.Point(165, 36);
             this.btnVraagbekijken.Name = "btnVraagbekijken";
-            this.btnVraagbekijken.Size = new System.Drawing.Size(118, 41);
+            this.btnVraagbekijken.Size = new System.Drawing.Size(150, 51);
             this.btnVraagbekijken.TabIndex = 1;
             this.btnVraagbekijken.Text = "Vragen bekijken";
             this.btnVraagbekijken.UseVisualStyleBackColor = true;
@@ -54,7 +55,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(304, 105);
+            this.ClientSize = new System.Drawing.Size(339, 112);
             this.Controls.Add(this.btnVraagbekijken);
             this.Controls.Add(this.btnVraagStellen);
             this.Name = "KeuzeScherm";

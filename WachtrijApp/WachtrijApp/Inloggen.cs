@@ -32,7 +32,7 @@ namespace WachtrijApp
             SqlDbConnection con = new SqlDbConnection();
       
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text); 
-            con.SqlQuery("SELECT * FROM `gebruiker` WHERE `Volledige_Naam`=@VolledigNaam ");
+            con.SqlQuery("SELECT * FROM `Gebruiker` WHERE `Volledige_Naam`=@VolledigNaam ");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
             con.QueryEx();
 

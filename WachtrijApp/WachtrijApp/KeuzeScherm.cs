@@ -26,5 +26,12 @@ namespace WachtrijApp
         {
             throw new NotImplementedException();
         }
+
+        private void btnVraagStellen_Click(object sender, EventArgs e)
+        {
+            VraagStellen vraagstellen = new VraagStellen(new Inloggen());
+            vraagstellen.ShowDialog();
+            this.Close();
+        }
     }
 }

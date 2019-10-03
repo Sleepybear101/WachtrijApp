@@ -43,17 +43,18 @@
             // cbxPersoonlijkeVraag
             // 
             this.cbxPersoonlijkeVraag.AutoSize = true;
-            this.cbxPersoonlijkeVraag.Location = new System.Drawing.Point(15, 12);
+            this.cbxPersoonlijkeVraag.Location = new System.Drawing.Point(17, 10);
             this.cbxPersoonlijkeVraag.Name = "cbxPersoonlijkeVraag";
             this.cbxPersoonlijkeVraag.Size = new System.Drawing.Size(147, 21);
             this.cbxPersoonlijkeVraag.TabIndex = 0;
             this.cbxPersoonlijkeVraag.Text = "Persoonlijke vraag";
             this.cbxPersoonlijkeVraag.UseVisualStyleBackColor = true;
+            this.cbxPersoonlijkeVraag.CheckedChanged += new System.EventHandler(this.cbxPersoonlijkeVraag_CheckedChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 54);
+            this.label1.Location = new System.Drawing.Point(14, 40);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 1;
@@ -62,7 +63,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 93);
+            this.label2.Location = new System.Drawing.Point(14, 106);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(78, 17);
             this.label2.TabIndex = 2;
@@ -71,7 +72,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 135);
+            this.label3.Location = new System.Drawing.Point(14, 134);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(118, 17);
             this.label3.TabIndex = 3;
@@ -80,7 +81,7 @@
             // cbxGegoogled
             // 
             this.cbxGegoogled.AutoSize = true;
-            this.cbxGegoogled.Location = new System.Drawing.Point(31, 173);
+            this.cbxGegoogled.Location = new System.Drawing.Point(17, 161);
             this.cbxGegoogled.Name = "cbxGegoogled";
             this.cbxGegoogled.Size = new System.Drawing.Size(208, 21);
             this.cbxGegoogled.TabIndex = 4;
@@ -90,7 +91,7 @@
             // cbxAnderegesteld
             // 
             this.cbxAnderegesteld.AutoSize = true;
-            this.cbxAnderegesteld.Location = new System.Drawing.Point(31, 200);
+            this.cbxAnderegesteld.Location = new System.Drawing.Point(17, 188);
             this.cbxAnderegesteld.Name = "cbxAnderegesteld";
             this.cbxAnderegesteld.Size = new System.Drawing.Size(331, 21);
             this.cbxAnderegesteld.TabIndex = 5;
@@ -99,31 +100,33 @@
             // 
             // btnStelVraag
             // 
-            this.btnStelVraag.Location = new System.Drawing.Point(15, 240);
+            this.btnStelVraag.Location = new System.Drawing.Point(17, 216);
             this.btnStelVraag.Name = "btnStelVraag";
             this.btnStelVraag.Size = new System.Drawing.Size(88, 33);
             this.btnStelVraag.TabIndex = 6;
             this.btnStelVraag.Text = "Stel vraag";
             this.btnStelVraag.UseVisualStyleBackColor = true;
+            this.btnStelVraag.Click += new System.EventHandler(this.btnStelVraag_Click);
             // 
             // tbVraag
             // 
-            this.tbVraag.Location = new System.Drawing.Point(96, 54);
+            this.tbVraag.Location = new System.Drawing.Point(98, 37);
+            this.tbVraag.Multiline = true;
             this.tbVraag.Name = "tbVraag";
-            this.tbVraag.Size = new System.Drawing.Size(100, 22);
+            this.tbVraag.Size = new System.Drawing.Size(294, 55);
             this.tbVraag.TabIndex = 7;
             // 
             // tbOnderwerp
             // 
-            this.tbOnderwerp.Location = new System.Drawing.Point(96, 90);
+            this.tbOnderwerp.Location = new System.Drawing.Point(129, 103);
             this.tbOnderwerp.Name = "tbOnderwerp";
-            this.tbOnderwerp.Size = new System.Drawing.Size(100, 22);
+            this.tbOnderwerp.Size = new System.Drawing.Size(263, 22);
             this.tbOnderwerp.TabIndex = 8;
             // 
             // cobGevraagdDocent
             // 
             this.cobGevraagdDocent.FormattingEnabled = true;
-            this.cobGevraagdDocent.Location = new System.Drawing.Point(136, 132);
+            this.cobGevraagdDocent.Location = new System.Drawing.Point(138, 131);
             this.cobGevraagdDocent.Name = "cobGevraagdDocent";
             this.cobGevraagdDocent.Size = new System.Drawing.Size(121, 24);
             this.cobGevraagdDocent.TabIndex = 9;
@@ -132,7 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(402, 295);
+            this.ClientSize = new System.Drawing.Size(408, 266);
             this.Controls.Add(this.cobGevraagdDocent);
             this.Controls.Add(this.tbOnderwerp);
             this.Controls.Add(this.tbVraag);

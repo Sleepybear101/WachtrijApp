@@ -32,9 +32,9 @@ namespace WachtrijApp
             
 
             con.SqlQuery("INSERT INTO `Gebruiker`(`Volledige_Naam`, `Wachtwoord`, `Rol`) VALUES(@VolledigNaam , @Wachtwoord , @Rol)");
-            con.Cmd.Parameters.Add("@VolledigNaam", VolledigNaam);
-            con.Cmd.Parameters.Add("@Wachtwoord", hPassword);
-            con.Cmd.Parameters.Add("@Rol", rol);
+            con.Cmd.Parameters.AddWithValue("@VolledigNaam", VolledigNaam);
+            con.Cmd.Parameters.AddWithValue("@Wachtwoord", hPassword);
+            con.Cmd.Parameters.AddWithValue("@Rol", rol);
             con.NonQueryEx();
         }
 
