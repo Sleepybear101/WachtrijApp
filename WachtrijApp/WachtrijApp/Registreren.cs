@@ -29,7 +29,7 @@ namespace WachtrijApp
                 rol = 0;
             }
            var hPassword =  ComputeSha256Hash(Wachtwoord);
-            label5.Text = ComputeSha256Hash(WachtwoordR);
+            
 
             con.SqlQuery("INSERT INTO `Gebruiker`(`Volledige_Naam`, `Wachtwoord`, `Rol`) VALUES(@VolledigNaam , @Wachtwoord , @Rol)");
             con.Cmd.Parameters.Add("@VolledigNaam", VolledigNaam);

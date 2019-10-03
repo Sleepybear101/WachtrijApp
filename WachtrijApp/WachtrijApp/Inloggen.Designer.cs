@@ -110,7 +110,9 @@
             this.Controls.Add(this.lblRegisteren);
             this.Controls.Add(this.lblWachtwoord);
             this.Controls.Add(this.lblVolledigNaam);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Inloggen";
+            this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.Text = "Wachtrij - Inloggen";
             this.ResumeLayout(false);
             this.PerformLayout();

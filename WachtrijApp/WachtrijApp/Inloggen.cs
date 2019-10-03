@@ -33,17 +33,17 @@ namespace WachtrijApp
       
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text); 
             con.SqlQuery("SELECT * FROM `gebruiker` WHERE `Volledige_Naam`=@VolledigNaam ");
-            con.Cmd.Parameters.Add("@VolledigNaam", tbVolledigNaam.Text);
+            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
             con.QueryEx();
 
             foreach (DataRow dr in con.QueryEx().Rows)
             {
-                 string id_user = dr[0].ToString();
                 string wUser = dr[2].ToString();
                 string Tuser = hWachtwoord.ToString();
                 if(Tuser == wUser)
                 {
-                    MessageBox.Show("id =" );
+                    string id_user = dr[0].ToString();
+
                 }else
                 {
                     MessageBox.Show("Na");
