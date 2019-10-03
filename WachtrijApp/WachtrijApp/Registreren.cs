@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WachtrijApp
@@ -16,6 +11,7 @@ namespace WachtrijApp
         {
             InitializeComponent();
         }
+        string VolledigNaam;
         string Wachtwoord;
         string WachtwoordR;
         int rol;
@@ -23,7 +19,6 @@ namespace WachtrijApp
         public void VoegGebruiker()
         {
             SqlDbConnection con = new SqlDbConnection();
-            string VolledigNaam;
 
             
             VolledigNaam = tbVolledigNaam.Text;
@@ -33,14 +28,41 @@ namespace WachtrijApp
             {
                 rol = 0;
             }
-           
+           var hPassword =  ComputeSha256Hash(Wachtwoord);
+            label5.Text = ComputeSha256Hash(WachtwoordR);
 
-            /*
-            var qeury = "INTO `Gebruiker`(`Volledige_Naam`, `Wachtwoord`, `Rol`) VALUES ('Henk', 'heyHallo', 0)";
-            con.SqlQuery(qeury);
-            con.NonQueryEx();*/
+            con.SqlQuery("INSERT INTO `Gebruiker`(`Volledige_Naam`, `Wachtwoord`, `Rol`) VALUES(@VolledigNaam , @Wachtwoord , @Rol)");
+            con.Cmd.Parameters.Add("@VolledigNaam", VolledigNaam);
+            con.Cmd.Parameters.Add("@Wachtwoord", hPassword);
+            con.Cmd.Parameters.Add("@Rol", rol);
+            con.NonQueryEx();
         }
 
+            static string ComputeSha256Hash(string rawData)
+            {
+                // Create a SHA256   
+                using (SHA256 sha256Hash = SHA256.Create())
+                {
+                    // ComputeHash - returns byte array  
+                    byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                    // Convert byte array to a string   
+                    StringBuilder builder = new StringBuilder();
+                    for (int i = 0; i < bytes.Length; i++)
+                    {
+                        builder.Append(bytes[i].ToString("x2"));
+                    }
+                    return builder.ToString();
+                }
+            }
+        public string ComputeHash(string input, HashAlgorithm algorithm)
+        {
+            Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
+
+            Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
+
+            return BitConverter.ToString(hashedBytes);
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             VoegGebruiker();
