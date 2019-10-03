@@ -12,7 +12,7 @@ namespace WachtrijApp
 {
     public partial class KeuzeScherm : Form
     {
-        public KeuzeScherm()
+        public KeuzeScherm(Inloggen inloggen)
         {
             InitializeComponent();
         }
@@ -20,6 +20,11 @@ namespace WachtrijApp
         private void KeuzeScherm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        internal void DialogResult()
+        {
+            throw new NotImplementedException();
         }
     }
 }

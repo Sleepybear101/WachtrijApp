@@ -12,7 +12,7 @@ namespace WachtrijApp
 {
     public partial class VraagVanStudenten : Form
     {
-        public VraagVanStudenten()
+        public VraagVanStudenten(Inloggen inloggen)
         {
             InitializeComponent();
         }

@@ -54,7 +54,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(312, 105);
+            this.ClientSize = new System.Drawing.Size(304, 105);
             this.Controls.Add(this.btnVraagbekijken);
             this.Controls.Add(this.btnVraagStellen);
             this.Name = "KeuzeScherm";

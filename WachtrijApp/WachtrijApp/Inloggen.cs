@@ -36,20 +36,41 @@ namespace WachtrijApp
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
             con.QueryEx();
 
-            foreach (DataRow dr in con.QueryEx().Rows)
-            {
-                string wUser = dr[2].ToString();
-                string Tuser = hWachtwoord.ToString();
-                if(Tuser == wUser)
+                foreach (DataRow dr in con.QueryEx().Rows)
                 {
-                    string id_user = dr[0].ToString();
+                    string wUser = dr[2].ToString();
+                    string Tuser = hWachtwoord.ToString();
+                        if(Tuser == wUser)
+                        {
+                            string id_user = dr[0].ToString();
+                    this.Hide();
+                    if( "0" == dr[3].ToString())
+                        
+                    {
+                          KeuzeScherm keuzescherm = new KeuzeScherm(new Inloggen());
+                          keuzescherm.ShowDialog();
+                           this.Close();
+                    }
+                    else
+                    {
+                        VraagVanStudenten vanStudenten = new VraagVanStudenten(new Inloggen());
+                        vanStudenten.ShowDialog();
+                        this.Close();
 
-                }else
-                {
-                    MessageBox.Show("Na");
+                    }
+                  
+
+
+
                 }
-           
-            }
+                else
+                {
+                            MessageBox.Show("Na");
+                        }
+                }
+
+
+
         }
         static string ComputeSha256Hash(string rawData)
         {
