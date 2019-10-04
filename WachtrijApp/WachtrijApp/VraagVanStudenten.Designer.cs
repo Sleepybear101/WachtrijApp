@@ -36,13 +36,13 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.textBox5 = new System.Windows.Forms.TextBox();
+            this.cobGevraagdDocent = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -116,13 +116,6 @@
             this.textBox2.Size = new System.Drawing.Size(143, 22);
             this.textBox2.TabIndex = 7;
             // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(657, 124);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(90, 22);
-            this.textBox3.TabIndex = 8;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -173,18 +166,27 @@
             this.textBox5.Size = new System.Drawing.Size(143, 22);
             this.textBox5.TabIndex = 14;
             // 
+            // cobGevraagdDocent
+            // 
+            this.cobGevraagdDocent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cobGevraagdDocent.FormattingEnabled = true;
+            this.cobGevraagdDocent.Location = new System.Drawing.Point(658, 124);
+            this.cobGevraagdDocent.Name = "cobGevraagdDocent";
+            this.cobGevraagdDocent.Size = new System.Drawing.Size(130, 24);
+            this.cobGevraagdDocent.TabIndex = 15;
+            // 
             // VraagVanStudenten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(813, 310);
+            this.ClientSize = new System.Drawing.Size(811, 315);
+            this.Controls.Add(this.cobGevraagdDocent);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -211,12 +213,12 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.ComboBox cobGevraagdDocent;
     }
 }

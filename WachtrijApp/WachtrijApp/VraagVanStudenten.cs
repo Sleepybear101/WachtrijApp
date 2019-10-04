@@ -15,6 +15,13 @@ namespace WachtrijApp
         public VraagVanStudenten(Inloggen inloggen)
         {
             InitializeComponent();
+            SqlDbConnection con = new SqlDbConnection();
+            con.SqlQuery("SELECT Volledige_Naam FROM `Gebruiker` WHERE Rol = 1");
+            con.QueryEx();
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+                cobGevraagdDocent.Items.Add(dr[0].ToString());
+            }
         }
 
         private void Label3_Click(object sender, EventArgs e)

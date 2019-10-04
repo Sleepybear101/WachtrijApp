@@ -49,7 +49,7 @@
             this.cbxPersoonlijkeVraag.TabIndex = 0;
             this.cbxPersoonlijkeVraag.Text = "Persoonlijke vraag";
             this.cbxPersoonlijkeVraag.UseVisualStyleBackColor = true;
-            this.cbxPersoonlijkeVraag.CheckedChanged += new System.EventHandler(this.cbxPersoonlijkeVraag_CheckedChanged);
+            this.cbxPersoonlijkeVraag.CheckedChanged += new System.EventHandler(this.InputChanged);
             // 
             // label1
             // 
@@ -87,6 +87,7 @@
             this.cbxGegoogled.TabIndex = 4;
             this.cbxGegoogled.Text = "Ik heb mijn vraag gegoogled";
             this.cbxGegoogled.UseVisualStyleBackColor = true;
+            this.cbxGegoogled.CheckedChanged += new System.EventHandler(this.InputChanged);
             // 
             // cbxAnderegesteld
             // 
@@ -97,6 +98,7 @@
             this.cbxAnderegesteld.TabIndex = 5;
             this.cbxAnderegesteld.Text = "Ik heb mijn vraag aan andere studenten gesteld";
             this.cbxAnderegesteld.UseVisualStyleBackColor = true;
+            this.cbxAnderegesteld.CheckedChanged += new System.EventHandler(this.InputChanged);
             // 
             // btnStelVraag
             // 
@@ -115,6 +117,7 @@
             this.tbVraag.Name = "tbVraag";
             this.tbVraag.Size = new System.Drawing.Size(294, 55);
             this.tbVraag.TabIndex = 7;
+            this.tbVraag.TextChanged += new System.EventHandler(this.InputChanged);
             // 
             // tbOnderwerp
             // 
@@ -122,20 +125,23 @@
             this.tbOnderwerp.Name = "tbOnderwerp";
             this.tbOnderwerp.Size = new System.Drawing.Size(263, 22);
             this.tbOnderwerp.TabIndex = 8;
+            this.tbOnderwerp.TextChanged += new System.EventHandler(this.InputChanged);
             // 
             // cobGevraagdDocent
             // 
+            this.cobGevraagdDocent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cobGevraagdDocent.FormattingEnabled = true;
             this.cobGevraagdDocent.Location = new System.Drawing.Point(138, 131);
             this.cobGevraagdDocent.Name = "cobGevraagdDocent";
             this.cobGevraagdDocent.Size = new System.Drawing.Size(121, 24);
             this.cobGevraagdDocent.TabIndex = 9;
+            this.cobGevraagdDocent.SelectedIndexChanged += new System.EventHandler(this.InputChanged);
             // 
             // VraagStellen
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(408, 266);
+            this.ClientSize = new System.Drawing.Size(399, 266);
             this.Controls.Add(this.cobGevraagdDocent);
             this.Controls.Add(this.tbOnderwerp);
             this.Controls.Add(this.tbVraag);
