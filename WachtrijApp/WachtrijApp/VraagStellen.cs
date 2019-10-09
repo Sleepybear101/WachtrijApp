@@ -40,15 +40,36 @@ namespace WachtrijApp
         }
         public void EnableButton()
         {
-          if(cbxAnderegesteld.Checked == true && cbxGegoogled.Checked == true)
+            if (cbxPersoonlijkeVraag.Checked)
             {
-  btnStelVraag.Enabled = true;
-            }else if( cbxGegoogled.Checked == false || cbxAnderegesteld.Checked == false)
-            {
-                btnStelVraag.Enabled = false;
+                tbVraag.Enabled = false;
+                tbOnderwerp.Enabled = false;
+                cbxGegoogled.Enabled = false;
+                cbxAnderegesteld.Enabled = false;
+                if( cobGevraagdDocent.SelectedItem == null)
+                {
+                    btnStelVraag.Enabled = false;
+                }
+                else
+                {
+                    btnStelVraag.Enabled = true;
+                }
             }
-              
-
+            else if(cbxPersoonlijkeVraag.Checked == false)
+            {
+                tbVraag.Enabled = true;
+                tbOnderwerp.Enabled = true;
+                cbxGegoogled.Enabled = true;
+                cbxAnderegesteld.Enabled = true;
+                if (tbVraag.Text == "" || tbOnderwerp.Text == "" || cobGevraagdDocent.SelectedItem == null || cbxGegoogled.Checked == false || cbxAnderegesteld.Checked == false)
+                {
+                    btnStelVraag.Enabled = false;
+                }
+                else
+                {
+                    btnStelVraag.Enabled = true;
+                }
+            }
         }
 
         private void btnStelVraag_Click(object sender, EventArgs e)

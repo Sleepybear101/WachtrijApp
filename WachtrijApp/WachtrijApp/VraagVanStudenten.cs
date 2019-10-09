@@ -26,6 +26,8 @@ namespace WachtrijApp
             rolUser = _inloggen.rol;
             IUser = _inloggen.id_user;
             GetInfo();
+            InitializeComponent();
+       
         }
 
         public void GetInfo()
