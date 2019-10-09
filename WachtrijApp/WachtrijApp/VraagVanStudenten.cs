@@ -45,12 +45,12 @@ namespace WachtrijApp
             else if ("1" == rolUser)
             {
                
-                richTextBox1.Visible = false;
-                label5.Visible = false;
-                label4.Visible = false;
-                textBox4.Visible = false;
-                button2.Visible = false;
-                button1.Visible = false;
+                rtbNotities.Visible = false;
+                lbNotitie.Visible = false;
+                lbGeholpenDoor.Visible = false;
+                tbGeholpenDoor.Visible = false;
+                btnArchiefOpenen.Visible = false;
+                btnOpgelost.Visible = false;
             }
         }
         
@@ -63,10 +63,10 @@ namespace WachtrijApp
                 DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
                 vraag = row.Cells[0].Value.ToString();
                 //populate the textbox from specific value of the coordinates of column and row.
-                textBox5.Text = row.Cells[1].Value.ToString();
-                textBox1.Text = row.Cells[2].Value.ToString();
-                textBox2.Text = row.Cells[3].Value.ToString();
-                textBox3.Text = row.Cells[4].Value.ToString();
+                tbVolledig_naam.Text = row.Cells[1].Value.ToString();
+                tbVraag.Text = row.Cells[2].Value.ToString();
+                tbOnderwerp.Text = row.Cells[3].Value.ToString();
+                tbGevraagdDocent.Text = row.Cells[4].Value.ToString();
 
             }
         }
@@ -87,7 +87,7 @@ namespace WachtrijApp
             con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
             con.Cmd.Parameters.AddWithValue("@GeholpenDocent", IUser);
             con.Cmd.Parameters.AddWithValue("@Status", status);
-            con.Cmd.Parameters.AddWithValue("@Notitie", richTextBox1.Text);
+            con.Cmd.Parameters.AddWithValue("@Notitie", rtbNotities.Text);
             con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
             con.NonQueryEx();
             GetInfo();

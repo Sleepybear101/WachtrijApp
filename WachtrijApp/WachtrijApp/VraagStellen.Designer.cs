@@ -49,7 +49,6 @@
             this.cbxPersoonlijkeVraag.TabIndex = 0;
             this.cbxPersoonlijkeVraag.Text = "Persoonlijke vraag";
             this.cbxPersoonlijkeVraag.UseVisualStyleBackColor = true;
-            this.cbxPersoonlijkeVraag.CheckedChanged += new System.EventHandler(this.InputChanged);
             // 
             // label1
             // 
@@ -116,7 +115,6 @@
             this.tbVraag.Name = "tbVraag";
             this.tbVraag.Size = new System.Drawing.Size(294, 55);
             this.tbVraag.TabIndex = 7;
-            this.tbVraag.TextChanged += new System.EventHandler(this.InputChanged);
             // 
             // tbOnderwerp
             // 
@@ -124,7 +122,6 @@
             this.tbOnderwerp.Name = "tbOnderwerp";
             this.tbOnderwerp.Size = new System.Drawing.Size(263, 22);
             this.tbOnderwerp.TabIndex = 8;
-            this.tbOnderwerp.TextChanged += new System.EventHandler(this.InputChanged);
             // 
             // cobGevraagdDocent
             // 
@@ -134,7 +131,6 @@
             this.cobGevraagdDocent.Name = "cobGevraagdDocent";
             this.cobGevraagdDocent.Size = new System.Drawing.Size(121, 24);
             this.cobGevraagdDocent.TabIndex = 9;
-            this.cobGevraagdDocent.SelectedIndexChanged += new System.EventHandler(this.InputChanged);
             // 
             // VraagStellen
             // 

@@ -30,19 +30,19 @@
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbVraag = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btnOpgelost = new System.Windows.Forms.Button();
+            this.btnArchiefOpenen = new System.Windows.Forms.Button();
+            this.tbOnderwerp = new System.Windows.Forms.TextBox();
+            this.lbGeholpenDoor = new System.Windows.Forms.Label();
+            this.tbGeholpenDoor = new System.Windows.Forms.TextBox();
+            this.lbNotitie = new System.Windows.Forms.Label();
+            this.rtbNotities = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.cobGevraagdDocent = new System.Windows.Forms.ComboBox();
+            this.tbVolledig_naam = new System.Windows.Forms.TextBox();
+            this.tbGevraagdDocent = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,13 +66,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Vraag";
             // 
-            // textBox1
+            // tbVraag
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(645, 66);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(143, 22);
-            this.textBox1.TabIndex = 2;
+            this.tbVraag.Enabled = false;
+            this.tbVraag.Location = new System.Drawing.Point(645, 66);
+            this.tbVraag.Name = "tbVraag";
+            this.tbVraag.Size = new System.Drawing.Size(143, 22);
+            this.tbVraag.TabIndex = 2;
             // 
             // label2
             // 
@@ -92,75 +92,66 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "gevraagd docent:";
             // 
-            // button1
+            // btnOpgelost
             // 
-            this.button1.Location = new System.Drawing.Point(713, 273);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 33);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Opgelost?";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnOpgelost.Location = new System.Drawing.Point(713, 273);
+            this.btnOpgelost.Name = "btnOpgelost";
+            this.btnOpgelost.Size = new System.Drawing.Size(88, 33);
+            this.btnOpgelost.TabIndex = 5;
+            this.btnOpgelost.Text = "Opgelost?";
+            this.btnOpgelost.UseVisualStyleBackColor = true;
+            this.btnOpgelost.Click += new System.EventHandler(this.Button1_Click);
             // 
-            // button2
+            // btnArchiefOpenen
             // 
-            this.button2.Location = new System.Drawing.Point(536, 273);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(128, 31);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Archief openen";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            this.btnArchiefOpenen.Location = new System.Drawing.Point(536, 273);
+            this.btnArchiefOpenen.Name = "btnArchiefOpenen";
+            this.btnArchiefOpenen.Size = new System.Drawing.Size(128, 31);
+            this.btnArchiefOpenen.TabIndex = 6;
+            this.btnArchiefOpenen.Text = "Archief openen";
+            this.btnArchiefOpenen.UseVisualStyleBackColor = true;
+            this.btnArchiefOpenen.Click += new System.EventHandler(this.Button2_Click);
             // 
-            // textBox2
+            // tbOnderwerp
             // 
-            this.textBox2.Enabled = false;
-            this.textBox2.Location = new System.Drawing.Point(645, 94);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(143, 22);
-            this.textBox2.TabIndex = 7;
+            this.tbOnderwerp.Enabled = false;
+            this.tbOnderwerp.Location = new System.Drawing.Point(645, 94);
+            this.tbOnderwerp.Name = "tbOnderwerp";
+            this.tbOnderwerp.Size = new System.Drawing.Size(143, 22);
+            this.tbOnderwerp.TabIndex = 7;
             // 
-            // textBox3
+            // lbGeholpenDoor
             // 
-            this.textBox3.Enabled = false;
-            this.textBox3.Location = new System.Drawing.Point(657, 124);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(90, 22);
-            this.textBox3.TabIndex = 8;
+            this.lbGeholpenDoor.AutoSize = true;
+            this.lbGeholpenDoor.Location = new System.Drawing.Point(532, 156);
+            this.lbGeholpenDoor.Name = "lbGeholpenDoor";
+            this.lbGeholpenDoor.Size = new System.Drawing.Size(107, 17);
+            this.lbGeholpenDoor.TabIndex = 9;
+            this.lbGeholpenDoor.Text = "Geholpen door:";
             // 
-
-            // label4
+            // tbGeholpenDoor
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(532, 156);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 17);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Geholpen door:";
+            this.tbGeholpenDoor.Location = new System.Drawing.Point(645, 156);
+            this.tbGeholpenDoor.Name = "tbGeholpenDoor";
+            this.tbGeholpenDoor.Size = new System.Drawing.Size(143, 22);
+            this.tbGeholpenDoor.TabIndex = 10;
             // 
-            // textBox4
+            // lbNotitie
             // 
-            this.textBox4.Location = new System.Drawing.Point(645, 156);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(143, 22);
-            this.textBox4.TabIndex = 10;
+            this.lbNotitie.AutoSize = true;
+            this.lbNotitie.Location = new System.Drawing.Point(532, 188);
+            this.lbNotitie.Name = "lbNotitie";
+            this.lbNotitie.Size = new System.Drawing.Size(52, 17);
+            this.lbNotitie.TabIndex = 11;
+            this.lbNotitie.Text = "Notitie:";
             // 
-            // label5
+            // rtbNotities
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(532, 188);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(52, 17);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "Notitie:";
-            // 
-            // richTextBox1
-            // 
-            this.richTextBox1.Location = new System.Drawing.Point(586, 188);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(214, 68);
-            this.richTextBox1.TabIndex = 12;
-            this.richTextBox1.Text = "";
+            this.rtbNotities.Location = new System.Drawing.Point(586, 188);
+            this.rtbNotities.Name = "rtbNotities";
+            this.rtbNotities.Size = new System.Drawing.Size(214, 68);
+            this.rtbNotities.TabIndex = 12;
+            this.rtbNotities.Text = "";
             // 
             // label6
             // 
@@ -171,43 +162,41 @@
             this.label6.TabIndex = 13;
             this.label6.Text = "Volledig naam";
             // 
-            // textBox5
+            // tbVolledig_naam
             // 
-            this.textBox5.Enabled = false;
-            this.textBox5.Location = new System.Drawing.Point(645, 35);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(143, 22);
-            this.textBox5.TabIndex = 14;
+            this.tbVolledig_naam.Enabled = false;
+            this.tbVolledig_naam.Location = new System.Drawing.Point(645, 35);
+            this.tbVolledig_naam.Name = "tbVolledig_naam";
+            this.tbVolledig_naam.Size = new System.Drawing.Size(143, 22);
+            this.tbVolledig_naam.TabIndex = 14;
             // 
-            // cobGevraagdDocent
+            // tbGevraagdDocent
             // 
-            this.cobGevraagdDocent.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cobGevraagdDocent.FormattingEnabled = true;
-            this.cobGevraagdDocent.Location = new System.Drawing.Point(658, 124);
-            this.cobGevraagdDocent.Name = "cobGevraagdDocent";
-            this.cobGevraagdDocent.Size = new System.Drawing.Size(130, 24);
-            this.cobGevraagdDocent.TabIndex = 15;
+            this.tbGevraagdDocent.Enabled = false;
+            this.tbGevraagdDocent.Location = new System.Drawing.Point(645, 122);
+            this.tbGevraagdDocent.Name = "tbGevraagdDocent";
+            this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
+            this.tbGevraagdDocent.TabIndex = 15;
             // 
             // VraagVanStudenten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(813, 310);
             this.ClientSize = new System.Drawing.Size(811, 315);
-            this.Controls.Add(this.cobGevraagdDocent);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.tbGevraagdDocent);
+            this.Controls.Add(this.tbVolledig_naam);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.rtbNotities);
+            this.Controls.Add(this.lbNotitie);
+            this.Controls.Add(this.tbGeholpenDoor);
+            this.Controls.Add(this.lbGeholpenDoor);
+            this.Controls.Add(this.tbOnderwerp);
+            this.Controls.Add(this.btnArchiefOpenen);
+            this.Controls.Add(this.btnOpgelost);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbVraag);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "VraagVanStudenten";
@@ -222,18 +211,18 @@
 
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbVraag;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btnOpgelost;
+        private System.Windows.Forms.Button btnArchiefOpenen;
+        private System.Windows.Forms.TextBox tbOnderwerp;
+        private System.Windows.Forms.Label lbGeholpenDoor;
+        private System.Windows.Forms.TextBox tbGeholpenDoor;
+        private System.Windows.Forms.Label lbNotitie;
+        private System.Windows.Forms.RichTextBox rtbNotities;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.ComboBox cobGevraagdDocent;
+        private System.Windows.Forms.TextBox tbVolledig_naam;
+        private System.Windows.Forms.TextBox tbGevraagdDocent;
     }
 }

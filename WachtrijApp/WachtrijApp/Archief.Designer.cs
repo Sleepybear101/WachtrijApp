@@ -32,7 +32,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.cbxAlleDocenten = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -43,12 +43,12 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(585, 240);
+            this.dataGridView1.Size = new System.Drawing.Size(796, 303);
             this.dataGridView1.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(509, 259);
+            this.button1.Location = new System.Drawing.Point(720, 321);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 30);
             this.button1.TabIndex = 1;
@@ -59,7 +59,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(232, 263);
+            this.label1.Location = new System.Drawing.Point(385, 328);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 2;
@@ -67,29 +67,28 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(296, 263);
+            this.textBox1.Location = new System.Drawing.Point(480, 325);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(100, 22);
             this.textBox1.TabIndex = 3;
             // 
-            // radioButton1
+            // cbxAlleDocenten
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(12, 258);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(115, 21);
-            this.radioButton1.TabIndex = 4;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Alle docenten";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
+            this.cbxAlleDocenten.AutoSize = true;
+            this.cbxAlleDocenten.Location = new System.Drawing.Point(12, 324);
+            this.cbxAlleDocenten.Name = "cbxAlleDocenten";
+            this.cbxAlleDocenten.Size = new System.Drawing.Size(116, 21);
+            this.cbxAlleDocenten.TabIndex = 4;
+            this.cbxAlleDocenten.Text = "Alle docenten";
+            this.cbxAlleDocenten.UseVisualStyleBackColor = true;
+            this.cbxAlleDocenten.CheckedChanged += new System.EventHandler(this.CbxAlleDocenten_CheckedChanged);
             // 
             // Archief
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(610, 293);
-            this.Controls.Add(this.radioButton1);
+            this.ClientSize = new System.Drawing.Size(820, 352);
+            this.Controls.Add(this.cbxAlleDocenten);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
@@ -108,6 +107,6 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.CheckBox cbxAlleDocenten;
     }
 }
