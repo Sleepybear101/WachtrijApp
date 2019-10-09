@@ -14,7 +14,7 @@ namespace WachtrijApp
         string VolledigNaam;
         string Wachtwoord;
         string WachtwoordR;
-        int rol;
+    
         string DocentCode = "234";
         public void VoegGebruiker()
         {
@@ -24,21 +24,30 @@ namespace WachtrijApp
             VolledigNaam = tbVolledigNaam.Text;
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
-             if (tbDocentCode.Text == null)
-            {
-                rol = 0;
-            }
-           var hPassword =  ComputeSha256Hash(Wachtwoord);
-            
 
-            con.SqlQuery("INSERT INTO `Gebruiker`(`Volledige_Naam`, `Wachtwoord`, `Rol`) VALUES(@VolledigNaam , @Wachtwoord , @Rol)");
-            con.Cmd.Parameters.AddWithValue("@VolledigNaam", VolledigNaam);
-            con.Cmd.Parameters.AddWithValue("@Wachtwoord", hPassword);
-            con.Cmd.Parameters.AddWithValue("@Rol", rol);
-            con.NonQueryEx();
+            var hPassword =  ComputeSha256Hash(Wachtwoord);
+             if (tbDocentCode.Text != DocentCode || tbDocentCode.Text == null)
+            {
+                con.SqlQuery("INSERT INTO `student`(`Volledige_Naam`, `Wachtwoord`) VALUES (@VolledigNaam,@Wachtwoord)");
+                con.Cmd.Parameters.AddWithValue("@VolledigNaam", VolledigNaam);
+                con.Cmd.Parameters.AddWithValue("@Wachtwoord", hPassword);
+                      MessageBox.Show("Gelukt met opslaan ", " Students Gegevens", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                con.SqlQuery("INSERT INTO `docent`(`Volledige_Naam`, `Wachtwoord`) VALUES (@VolledigNaam,@Wachtwoord)");
+                con.Cmd.Parameters.AddWithValue("@VolledigNaam", VolledigNaam);
+                con.Cmd.Parameters.AddWithValue("@Wachtwoord", hPassword);
+                MessageBox.Show("Gelukt met opslaan ", "docent Gegevens", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+       
+         con.NonQueryEx();
+            this.Close();
         }
 
-            static string ComputeSha256Hash(string rawData)
+        static string ComputeSha256Hash(string rawData)
             {
                 // Create a SHA256   
                 using (SHA256 sha256Hash = SHA256.Create())
@@ -55,14 +64,7 @@ namespace WachtrijApp
                     return builder.ToString();
                 }
             }
-        public string ComputeHash(string input, HashAlgorithm algorithm)
-        {
-            Byte[] inputBytes = Encoding.UTF8.GetBytes(input);
 
-            Byte[] hashedBytes = algorithm.ComputeHash(inputBytes);
-
-            return BitConverter.ToString(hashedBytes);
-        }
         private void button1_Click(object sender, EventArgs e)
         {
             VoegGebruiker();
@@ -90,15 +92,15 @@ namespace WachtrijApp
         {
             Incorrect();
         }
-
-        private void TbDocentCode_TextChanged(object sender, EventArgs e)
+       /* private void TbDocentCode_TextChanged(object sender, EventArgs e)
         {
             if(tbDocentCode.Text == DocentCode)
             {
-                rol = 1; 
+              int rol = 1; 
 
             }
        
         }
+        */
     }
 }

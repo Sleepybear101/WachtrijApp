@@ -10,21 +10,85 @@ using System.Windows.Forms;
 
 namespace WachtrijApp
 {
+
     public partial class VraagVanStudenten : Form
     {
+
+        private SqlDbConnection con;
+        public Inloggen _inloggen;
+        public string vraag;
+        public string IUser;
+        public string rolUser;
+
         public VraagVanStudenten(Inloggen inloggen)
         {
+            _inloggen = inloggen;
+            rolUser = _inloggen.rol;
+            IUser = _inloggen.id_user;
+            GetInfo();
+        }
+
+        public void GetInfo()
+        {
+            this.Controls.Clear();
+            this.Refresh();
             InitializeComponent();
+            con = new SqlDbConnection();
+
+            if ("0" == rolUser) {
+                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' ");
+                dataGridView1.DataSource = con.QueryEx();
+                dataGridView1.Columns[0].Visible = false;
+            }
+            else if ("1" == rolUser)
+            {
+               
+                richTextBox1.Visible = false;
+                label5.Visible = false;
+                label4.Visible = false;
+                textBox4.Visible = false;
+                button2.Visible = false;
+                button1.Visible = false;
+            }
+        }
+        
+        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+              
+                //gets a collection that contains all the rows
+                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                vraag = row.Cells[0].Value.ToString();
+                //populate the textbox from specific value of the coordinates of column and row.
+                textBox5.Text = row.Cells[1].Value.ToString();
+                textBox1.Text = row.Cells[2].Value.ToString();
+                textBox2.Text = row.Cells[3].Value.ToString();
+                textBox3.Text = row.Cells[4].Value.ToString();
+
+            }
         }
 
-        private void Label3_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
 
+            Archief archief = new Archief(this);
+            archief.ShowDialog();
         }
 
-        private void Label6_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
-
+            
+           
+            SqlDbConnection con = new SqlDbConnection();
+            string status = "opgelost";
+            con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
+            con.Cmd.Parameters.AddWithValue("@GeholpenDocent", IUser);
+            con.Cmd.Parameters.AddWithValue("@Status", status);
+            con.Cmd.Parameters.AddWithValue("@Notitie", richTextBox1.Text);
+            con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
+            con.NonQueryEx();
+            GetInfo();
         }
     }
 }

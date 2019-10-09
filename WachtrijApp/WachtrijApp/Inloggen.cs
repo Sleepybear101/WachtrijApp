@@ -12,64 +12,67 @@ using System.Windows.Forms;
 namespace WachtrijApp
 {
     public partial class Inloggen : Form
-    {
-
+    { 
       
         public Inloggen()
         {
             InitializeComponent();
-            
-
+           
         }
 
         //tbWachtwoord
         //tbVolledigeNaam
-        
-
+        public string id_user;
+        public string rol;
         private void BtnInloggen_Click(object sender, EventArgs e)
         {
-           
+
             SqlDbConnection con = new SqlDbConnection();
-      
-            var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text); 
-            con.SqlQuery("SELECT * FROM `Gebruiker` WHERE `Volledige_Naam`=@VolledigNaam ");
+
+            var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
+
+            con.SqlQuery("SELECT COUNT(*), `id_student` FROM `student` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
+            con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
             con.QueryEx();
 
-                foreach (DataRow dr in con.QueryEx().Rows)
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+                if (dr[0].ToString() == "1")
                 {
-                    string wUser = dr[2].ToString();
-                    string Tuser = hWachtwoord.ToString();
-                        if(Tuser == wUser)
-                        {
-                            string id_user = dr[0].ToString();
+                    id_user = dr[1].ToString();
+                    KeuzeScherm keuzescherm = new KeuzeScherm(this);
+                    keuzescherm.ShowDialog();
                     this.Hide();
-                    if( "0" == dr[3].ToString())
-                        
-                    {
-                          KeuzeScherm keuzescherm = new KeuzeScherm(new Inloggen());
-                          keuzescherm.ShowDialog();
-                           this.Close();
-                    }
-                    else
-                    {
-                        VraagVanStudenten vanStudenten = new VraagVanStudenten(new Inloggen());
-                        vanStudenten.ShowDialog();
-                        this.Close();
-
-                    }
-                  
-
-
-
+                    this.Close();
+                     rol = "1";
+                 
                 }
-                else
+
+            }
+                
+
+            con.SqlQuery("SELECT COUNT(*),  `id_docent` FROM `docent` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
+            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
+            con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
+            con.QueryEx();
+
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+                if (dr[0].ToString() == "1")
                 {
-                            MessageBox.Show("Na");
-                        }
+                    id_user = dr[1].ToString();
+                    rol= "0";
+                    VraagVanStudenten vanStudenten = new VraagVanStudenten(this);              
+                    vanStudenten.ShowDialog();
+                    this.Hide();
+                    this.Close();
+
                 }
+     
 
-
+            }
+     
 
         }
         static string ComputeSha256Hash(string rawData)
@@ -91,9 +94,11 @@ namespace WachtrijApp
         }
         private void BtnRegisteren_Click(object sender, EventArgs e)
         {
-            Registreren registreren = new Registreren(new Inloggen());
+            Registreren registreren = new Registreren(this);
             registreren.ShowDialog();
+            this.Hide();
 
         }
+
     }
 }

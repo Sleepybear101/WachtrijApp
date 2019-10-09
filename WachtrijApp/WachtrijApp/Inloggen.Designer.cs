@@ -77,6 +77,7 @@
             this.tbWachtwoord.Name = "tbWachtwoord";
             this.tbWachtwoord.Size = new System.Drawing.Size(114, 22);
             this.tbWachtwoord.TabIndex = 4;
+            this.tbWachtwoord.UseSystemPasswordChar = true;
             // 
             // btnRegisteren
             // 

@@ -55,6 +55,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(514, 274);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // label1
             // 
@@ -67,6 +68,7 @@
             // 
             // textBox1
             // 
+            this.textBox1.Enabled = false;
             this.textBox1.Location = new System.Drawing.Point(645, 66);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(143, 22);
@@ -89,7 +91,6 @@
             this.label3.Size = new System.Drawing.Size(119, 17);
             this.label3.TabIndex = 4;
             this.label3.Text = "gevraagd docent:";
-            this.label3.Click += new System.EventHandler(this.Label3_Click);
             // 
             // button1
             // 
@@ -99,6 +100,7 @@
             this.button1.TabIndex = 5;
             this.button1.Text = "Opgelost?";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
@@ -108,9 +110,11 @@
             this.button2.TabIndex = 6;
             this.button2.Text = "Archief openen";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // textBox2
             // 
+            this.textBox2.Enabled = false;
             this.textBox2.Location = new System.Drawing.Point(645, 94);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(143, 22);
@@ -118,6 +122,7 @@
             // 
             // textBox3
             // 
+            this.textBox3.Enabled = false;
             this.textBox3.Location = new System.Drawing.Point(657, 124);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(90, 22);
@@ -164,10 +169,10 @@
             this.label6.Size = new System.Drawing.Size(97, 17);
             this.label6.TabIndex = 13;
             this.label6.Text = "Volledig naam";
-            this.label6.Click += new System.EventHandler(this.Label6_Click);
             // 
             // textBox5
             // 
+            this.textBox5.Enabled = false;
             this.textBox5.Location = new System.Drawing.Point(645, 35);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(143, 22);
@@ -177,6 +182,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(813, 310);
             this.Controls.Add(this.textBox5);
             this.Controls.Add(this.label6);

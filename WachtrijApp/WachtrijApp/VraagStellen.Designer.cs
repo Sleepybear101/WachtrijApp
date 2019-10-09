@@ -87,6 +87,7 @@
             this.cbxGegoogled.TabIndex = 4;
             this.cbxGegoogled.Text = "Ik heb mijn vraag gegoogled";
             this.cbxGegoogled.UseVisualStyleBackColor = true;
+            this.cbxGegoogled.CheckedChanged += new System.EventHandler(this.CbxGegoogled_CheckedChanged);
             // 
             // cbxAnderegesteld
             // 
@@ -97,9 +98,11 @@
             this.cbxAnderegesteld.TabIndex = 5;
             this.cbxAnderegesteld.Text = "Ik heb mijn vraag aan andere studenten gesteld";
             this.cbxAnderegesteld.UseVisualStyleBackColor = true;
+            this.cbxAnderegesteld.CheckedChanged += new System.EventHandler(this.CbxAnderegesteld_CheckedChanged);
             // 
             // btnStelVraag
             // 
+            this.btnStelVraag.Enabled = false;
             this.btnStelVraag.Location = new System.Drawing.Point(17, 216);
             this.btnStelVraag.Name = "btnStelVraag";
             this.btnStelVraag.Size = new System.Drawing.Size(88, 33);

@@ -118,7 +118,7 @@
             this.tbDocentCode.Name = "tbDocentCode";
             this.tbDocentCode.Size = new System.Drawing.Size(100, 22);
             this.tbDocentCode.TabIndex = 8;
-            this.tbDocentCode.TextChanged += new System.EventHandler(this.TbDocentCode_TextChanged);
+            //this.tbDocentCode.TextChanged += new System.EventHandler(this.TbDocentCode_TextChanged);
             // 
             // button1
             // 

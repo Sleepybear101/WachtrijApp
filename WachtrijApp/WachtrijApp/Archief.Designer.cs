@@ -54,6 +54,7 @@
             this.button1.TabIndex = 1;
             this.button1.Text = "Opslaan";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // label1
             // 
@@ -81,6 +82,7 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Alle docenten";
             this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.RadioButton1_CheckedChanged);
             // 
             // Archief
             // 

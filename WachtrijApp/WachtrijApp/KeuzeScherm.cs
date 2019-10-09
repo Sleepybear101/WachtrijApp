@@ -22,10 +22,6 @@ namespace WachtrijApp
 
         }
 
-        internal void DialogResult()
-        {
-            throw new NotImplementedException();
-        }
 
         private void btnVraagStellen_Click(object sender, EventArgs e)
         {

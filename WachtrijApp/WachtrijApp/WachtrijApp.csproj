@@ -54,6 +54,7 @@
     <Compile Include="Archief.Designer.cs">
       <DependentUpon>Archief.cs</DependentUpon>
     </Compile>
+    <Compile Include="Datarow.cs" />
     <Compile Include="Inloggen.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -15,16 +15,11 @@ namespace WachtrijApp
         public VraagStellen(Inloggen inloggen)
         {
             InitializeComponent();
-            btnStelVraag.Enabled = false;
-            SqlDbConnection con = new SqlDbConnection();
-            con.SqlQuery("SELECT Volledige_Naam FROM `Gebruiker` WHERE Rol = 1");
-            con.QueryEx();
-            foreach (DataRow dr in con.QueryEx().Rows)
-            {
-                cobGevraagdDocent.Items.Add(dr[0].ToString());
-            }
-                
+            VoegDocent();
+            EnableButton();
         }
+        
+
 
         private void cbxPersoonlijkeVraag_CheckedChanged(object sender, EventArgs e)
         {
@@ -43,9 +38,16 @@ namespace WachtrijApp
                 cbxAnderegesteld.Enabled = true;
             }
         }
-
-        private void InputChanged(object sender , EventArgs e)
+        public void EnableButton()
         {
+          if(cbxAnderegesteld.Checked == true && cbxGegoogled.Checked == true)
+            {
+  btnStelVraag.Enabled = true;
+            }else if( cbxGegoogled.Checked == false || cbxAnderegesteld.Checked == false)
+            {
+                btnStelVraag.Enabled = false;
+            }
+              
 
         }
 
@@ -53,5 +55,27 @@ namespace WachtrijApp
         {
 
         }
+        public void VoegDocent()
+        {
+            SqlDbConnection con = new SqlDbConnection();
+            con.SqlQuery("SELECT Volledige_Naam FROM `Gebruiker` WHERE Rol = 1");
+            con.QueryEx();
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+                cobGevraagdDocent.Items.Add(dr[0].ToString());
+            }
+        }
+
+
+        private void CbxAnderegesteld_CheckedChanged(object sender, EventArgs e)
+        {
+            EnableButton();
+        }
+
+        private void CbxGegoogled_CheckedChanged(object sender, EventArgs e)
+        {
+            EnableButton();
+        }
     }
+   
 }
