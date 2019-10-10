@@ -26,8 +26,8 @@ namespace WachtrijApp
             rolUser = _inloggen.rol;
             IUser = _inloggen.id_user;
             GetInfo();
-            InitializeComponent();
-       
+           
+
         }
 
         public void GetInfo()
@@ -37,14 +37,15 @@ namespace WachtrijApp
             InitializeComponent();
             con = new SqlDbConnection();
 
-            if ("0" == rolUser) {
-                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' ");
-                dataGridView1.DataSource = con.QueryEx();
-                dataGridView1.Columns[0].Visible = false;
+            if ("0" == rolUser)
+            {
+                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' ");
+                dtVraag.DataSource = con.QueryEx();
+                //    dtVraag.Columns[0].Visible = false;
             }
             else if ("1" == rolUser)
             {
-               
+
                 rtbNotities.Visible = false;
                 lbNotitie.Visible = false;
                 lbGeholpenDoor.Visible = false;
@@ -53,23 +54,8 @@ namespace WachtrijApp
                 btnOpgelost.Visible = false;
             }
         }
-        
-        private void DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
-        {
-            if (e.RowIndex >= 0)
-            {
-              
-                //gets a collection that contains all the rows
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
-                vraag = row.Cells[0].Value.ToString();
-                //populate the textbox from specific value of the coordinates of column and row.
-                tbVolledig_naam.Text = row.Cells[1].Value.ToString();
-                tbVraag.Text = row.Cells[2].Value.ToString();
-                tbOnderwerp.Text = row.Cells[3].Value.ToString();
-                tbGevraagdDocent.Text = row.Cells[4].Value.ToString();
 
-            }
-        }
+
 
         private void Button2_Click(object sender, EventArgs e)
         {
@@ -80,8 +66,8 @@ namespace WachtrijApp
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            
-           
+
+
             SqlDbConnection con = new SqlDbConnection();
             string status = "opgelost";
             con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
@@ -92,5 +78,25 @@ namespace WachtrijApp
             con.NonQueryEx();
             GetInfo();
         }
+
+     
+
+        private void DtVraag_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtVraag.Rows)
+            {
+                if (row.Selected)
+                {
+                     vraag =  dtVraag.Rows[row.Index].Cells["id_Vraag"].Value.ToString();
+                    tbVolledig_naam.Text = (string)dtVraag.Rows[row.Index].Cells["Volledige_Naam"].Value;
+                    tbVraag.Text = (string)dtVraag.Rows[row.Index].Cells["Vraag"].Value;
+                    tbOnderwerp.Text = (string)dtVraag.Rows[row.Index].Cells["Onderwerp"].Value;
+                    tbGevraagdDocent.Text = (string)dtVraag.Rows[row.Index].Cells["Volledige_Naam1"].Value;
+                }
+            }
+        
+        }
     }
 }
+
+

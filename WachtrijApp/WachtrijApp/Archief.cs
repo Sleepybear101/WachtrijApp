@@ -34,8 +34,8 @@ namespace WachtrijApp
                 SqlDbConnection con = new SqlDbConnection();
 
                 con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam, `Geholpen_Docent`, `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='opgelost'");
-                dataGridView1.DataSource = con.QueryEx();
-                dataGridView1.Columns[0].Visible = false;
+                dtArchief.DataSource = con.QueryEx();
+                dtArchief.Columns[0].Visible = false;
 
     
             }
@@ -43,8 +43,8 @@ namespace WachtrijApp
             {
                 con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam, `Geholpen_Docent`, `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='opgelost' AND `Geholpen_Docent`=@GeholpenDocent");
                 con.Cmd.Parameters.AddWithValue("@GeholpenDocent", IUser);
-                dataGridView1.DataSource = con.QueryEx();
-                dataGridView1.Columns[0].Visible = false;
+                dtArchief.DataSource = con.QueryEx();
+                dtArchief.Columns[0].Visible = false;
             }
 
         }
@@ -64,6 +64,11 @@ namespace WachtrijApp
         private void CbxAlleDocenten_CheckedChanged(object sender, EventArgs e)
         {
             GetInfo();
+        }
+
+        private void Label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

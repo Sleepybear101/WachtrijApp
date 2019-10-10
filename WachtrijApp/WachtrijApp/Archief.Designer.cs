@@ -28,27 +28,27 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dtArchief = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.cbxAlleDocenten = new System.Windows.Forms.CheckBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtArchief)).BeginInit();
             this.SuspendLayout();
             // 
-            // dataGridView1
+            // dtArchief
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 12);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(796, 303);
-            this.dataGridView1.TabIndex = 0;
+            this.dtArchief.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtArchief.Location = new System.Drawing.Point(12, 12);
+            this.dtArchief.Name = "dtArchief";
+            this.dtArchief.RowHeadersWidth = 51;
+            this.dtArchief.RowTemplate.Height = 24;
+            this.dtArchief.Size = new System.Drawing.Size(865, 354);
+            this.dtArchief.TabIndex = 0;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(720, 321);
+            this.button1.Location = new System.Drawing.Point(789, 371);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 30);
             this.button1.TabIndex = 1;
@@ -59,23 +59,24 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(385, 328);
+            this.label1.Location = new System.Drawing.Point(312, 379);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Notitie\'s";
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(480, 325);
+            this.textBox1.Location = new System.Drawing.Point(376, 379);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 22);
+            this.textBox1.Size = new System.Drawing.Size(213, 22);
             this.textBox1.TabIndex = 3;
             // 
             // cbxAlleDocenten
             // 
             this.cbxAlleDocenten.AutoSize = true;
-            this.cbxAlleDocenten.Location = new System.Drawing.Point(12, 324);
+            this.cbxAlleDocenten.Location = new System.Drawing.Point(12, 377);
             this.cbxAlleDocenten.Name = "cbxAlleDocenten";
             this.cbxAlleDocenten.Size = new System.Drawing.Size(116, 21);
             this.cbxAlleDocenten.TabIndex = 4;
@@ -87,15 +88,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(820, 352);
+            this.ClientSize = new System.Drawing.Size(889, 411);
             this.Controls.Add(this.cbxAlleDocenten);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.dtArchief);
             this.Name = "Archief";
             this.Text = "Archief";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtArchief)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -103,7 +104,7 @@
 
         #endregion
 
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dtArchief;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
