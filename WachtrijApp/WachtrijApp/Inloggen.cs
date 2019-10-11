@@ -60,6 +60,8 @@ namespace WachtrijApp
             if (e.KeyCode == Keys.Enter)
             {
                 inloggen();
+                e.Handled = true;
+                e.SuppressKeyPress = true;
             }
         }
 
@@ -107,7 +109,7 @@ namespace WachtrijApp
 
 
                     VraagVanStudenten vanStudenten = new VraagVanStudenten(this);
-                    vanStudenten.Show();
+                    vanStudenten.ShowDialog();
                     this.Close();
 
                 }
