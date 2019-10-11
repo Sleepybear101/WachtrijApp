@@ -38,9 +38,11 @@
             // 
             // dtArchief
             // 
+            this.dtArchief.AllowUserToDeleteRows = false;
             this.dtArchief.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtArchief.Location = new System.Drawing.Point(12, 12);
             this.dtArchief.Name = "dtArchief";
+            this.dtArchief.ReadOnly = true;
             this.dtArchief.RowHeadersWidth = 51;
             this.dtArchief.RowTemplate.Height = 24;
             this.dtArchief.Size = new System.Drawing.Size(865, 354);
