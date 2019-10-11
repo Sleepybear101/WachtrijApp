@@ -54,11 +54,13 @@ namespace WachtrijApp
 
         private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
         {
+           
             if (e.KeyCode == Keys.Enter)
             {
+                e.SuppressKeyPress = true;
                 inloggen();
                 e.Handled = true;
-                e.SuppressKeyPress = true;
+                
             }
         }
 
@@ -82,7 +84,6 @@ namespace WachtrijApp
                     rol = "1";
                     this.Hide();
                     KeuzeScherm keuzescherm = new KeuzeScherm(this);
-                    VraagVanStudenten vanStudenten = new VraagVanStudenten(this);
                     keuzescherm.ShowDialog();
                     this.Close();
 
@@ -125,18 +126,6 @@ namespace WachtrijApp
 
 
 
-        }
-
-
-        private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                BtnInloggen_Click(sender, e);
-                e.Handled = true;
-                e.SuppressKeyPress = true;
-
-            }
         }
     }
 }

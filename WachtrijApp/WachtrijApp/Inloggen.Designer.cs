@@ -75,6 +75,7 @@
             // 
             this.tbWachtwoord.Location = new System.Drawing.Point(153, 63);
             this.tbWachtwoord.Name = "tbWachtwoord";
+            this.tbWachtwoord.ShortcutsEnabled = false;
             this.tbWachtwoord.Size = new System.Drawing.Size(114, 22);
             this.tbWachtwoord.TabIndex = 2;
             this.tbWachtwoord.UseSystemPasswordChar = true;
