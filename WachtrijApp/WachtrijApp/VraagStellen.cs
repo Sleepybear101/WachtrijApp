@@ -55,7 +55,7 @@ namespace WachtrijApp
                     btnStelVraag.Enabled = true;
                 }
             }
-            else if(cbxPersoonlijkeVraag.Checked == false)
+            else if(!cbxPersoonlijkeVraag.Checked)
             {
                 tbVraag.Enabled = true;
                 tbOnderwerp.Enabled = true;
@@ -74,12 +74,13 @@ namespace WachtrijApp
 
         private void btnStelVraag_Click(object sender, EventArgs e)
         {
-
+            SqlDbConnection con = new SqlDbConnection();
+            con.SqlQuery("INSERT INTO `vragenlijst` (`id_Gebruiker`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Persoonlijke_Vraag`, `Geholpen_Docent`, `Status`, `Notities`) VALUES('1', 'poenk', 'poenk', '3', '0', '3', 'open', NULL);");
         }
         public void VoegDocent()
         {
             SqlDbConnection con = new SqlDbConnection();
-            con.SqlQuery("SELECT Volledige_Naam FROM `Gebruiker` WHERE Rol = 1");
+            con.SqlQuery("SELECT Volledige_Naam FROM `docent`");
             con.QueryEx();
             foreach (DataRow dr in con.QueryEx().Rows)
             {
@@ -88,12 +89,7 @@ namespace WachtrijApp
         }
 
 
-        private void CbxAnderegesteld_CheckedChanged(object sender, EventArgs e)
-        {
-            EnableButton();
-        }
-
-        private void CbxGegoogled_CheckedChanged(object sender, EventArgs e)
+        private void InputChanged(object sender, EventArgs e)
         {
             EnableButton();
         }

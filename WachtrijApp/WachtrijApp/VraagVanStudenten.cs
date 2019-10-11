@@ -34,7 +34,6 @@ namespace WachtrijApp
         {
             this.Controls.Clear();
             this.Refresh();
-            InitializeComponent();
             con = new SqlDbConnection();
 
             if ("0" == rolUser) {
@@ -60,7 +59,7 @@ namespace WachtrijApp
             {
               
                 //gets a collection that contains all the rows
-                DataGridViewRow row = this.dataGridView1.Rows[e.RowIndex];
+                var row = dataGridView1.SelectedRows[e.RowIndex];
                 vraag = row.Cells[0].Value.ToString();
                 //populate the textbox from specific value of the coordinates of column and row.
                 tbVolledig_naam.Text = row.Cells[1].Value.ToString();
