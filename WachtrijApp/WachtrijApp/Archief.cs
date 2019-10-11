@@ -35,7 +35,7 @@ namespace WachtrijApp
             {
                 SqlDbConnection con = new SqlDbConnection();
 
-                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam, `Geholpen_Docent`, `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='opgelost'");
+                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam AS 'Naam student', `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Geholpen docent`, `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Geholpen_Docent=docent.id_docent WHERE `Status`='opgelost'");
                 dtArchief.DataSource = con.QueryEx();
                 dtArchief.Columns[0].Visible = false;
 
@@ -43,7 +43,7 @@ namespace WachtrijApp
             }
             else
             {
-                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam, `Geholpen_Docent`, `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='opgelost' AND `Geholpen_Docent`=@GeholpenDocent");
+                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam AS 'Naam student', `Vraag`, `Onderwerp`, docent.Volledige_Naam AS 'geholpen docent', `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN `docent` ON vragenlijst.Geholpen_Docent=docent.id_docent WHERE `Status`='opgelost' AND `Geholpen_Docent`= @GeholpenDocent");
                 con.Cmd.Parameters.AddWithValue("@GeholpenDocent", IUser);
                 dtArchief.DataSource = con.QueryEx();
                 dtArchief.Columns[0].Visible = false;
@@ -70,14 +70,14 @@ namespace WachtrijApp
 
         private void DtArchief_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewRow row in dtArchief.Rows)
+            DataGridViewRow row = dtArchief.Rows[e.RowIndex];
+
+            if (e.RowIndex >= 0 )
             {
-                if (row.Selected)
-                {
-                    vraag = dtArchief.Rows[row.Index].Cells["id_Vraag"].Value.ToString();
-                    textBox1.Text = (string)dtArchief.Rows[row.Index].Cells["Notities"].Value;
+                     vraag = dtArchief.Rows[row.Index].Cells["id_Vraag"].Value.ToString();
+                textBox1.Text = dtArchief.Rows[row.Index].Cells["Notities"].Value.ToString();
                  
-                }
+               
             }
         }
     }
