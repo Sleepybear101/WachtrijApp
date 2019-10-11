@@ -69,22 +69,23 @@
             this.tbVolledigNaam.Location = new System.Drawing.Point(153, 24);
             this.tbVolledigNaam.Name = "tbVolledigNaam";
             this.tbVolledigNaam.Size = new System.Drawing.Size(114, 22);
-            this.tbVolledigNaam.TabIndex = 3;
+            this.tbVolledigNaam.TabIndex = 1;
             // 
             // tbWachtwoord
             // 
             this.tbWachtwoord.Location = new System.Drawing.Point(153, 63);
             this.tbWachtwoord.Name = "tbWachtwoord";
             this.tbWachtwoord.Size = new System.Drawing.Size(114, 22);
-            this.tbWachtwoord.TabIndex = 4;
+            this.tbWachtwoord.TabIndex = 2;
             this.tbWachtwoord.UseSystemPasswordChar = true;
+            this.tbWachtwoord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbWachtwoord_KeyDown);
             // 
             // btnRegisteren
             // 
             this.btnRegisteren.Location = new System.Drawing.Point(179, 148);
             this.btnRegisteren.Name = "btnRegisteren";
             this.btnRegisteren.Size = new System.Drawing.Size(88, 33);
-            this.btnRegisteren.TabIndex = 5;
+            this.btnRegisteren.TabIndex = 4;
             this.btnRegisteren.Text = "Registeren";
             this.btnRegisteren.UseVisualStyleBackColor = true;
             this.btnRegisteren.Click += new System.EventHandler(this.BtnRegisteren_Click);
@@ -94,7 +95,7 @@
             this.btnInloggen.Location = new System.Drawing.Point(179, 105);
             this.btnInloggen.Name = "btnInloggen";
             this.btnInloggen.Size = new System.Drawing.Size(88, 33);
-            this.btnInloggen.TabIndex = 6;
+            this.btnInloggen.TabIndex = 3;
             this.btnInloggen.Text = "Inloggen";
             this.btnInloggen.UseVisualStyleBackColor = true;
             this.btnInloggen.Click += new System.EventHandler(this.BtnInloggen_Click);

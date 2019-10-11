@@ -12,12 +12,12 @@ using System.Windows.Forms;
 namespace WachtrijApp
 {
     public partial class Inloggen : Form
-    { 
-      
+    {
+
         public Inloggen()
         {
             InitializeComponent();
-           
+
         }
 
         //tbWachtwoord
@@ -44,12 +44,12 @@ namespace WachtrijApp
                     KeuzeScherm keuzescherm = new KeuzeScherm(this);
                     keuzescherm.ShowDialog();
                     this.Close();
-                     rol = "1";
-                 
+                    rol = "1";
+
                 }
 
             }
-                
+
 
             con.SqlQuery("SELECT `id_docent` FROM `docent` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
@@ -61,14 +61,14 @@ namespace WachtrijApp
                 if (Convert.ToInt32(dr[0]) >= 0)
                 {
                     id_user = dr[0].ToString();
-                    rol= "0";
+                    rol = "0";
                     this.Hide();
-                    VraagVanStudenten vanStudenten = new VraagVanStudenten(this);              
+                    VraagVanStudenten vanStudenten = new VraagVanStudenten(this);
                     vanStudenten.ShowDialog();
                     this.Close();
 
                 }
-     
+
 
             }
 
@@ -99,5 +99,13 @@ namespace WachtrijApp
 
         }
 
+
+        private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                BtnInloggen_Click(sender, e);
+            }
+        }
     }
 }

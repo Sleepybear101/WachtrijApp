@@ -120,7 +120,7 @@
             this.tbVraag.Multiline = true;
             this.tbVraag.Name = "tbVraag";
             this.tbVraag.Size = new System.Drawing.Size(294, 55);
-            this.tbVraag.TabIndex = 7;
+            this.tbVraag.TabIndex = 1;
             this.tbVraag.TextChanged += new System.EventHandler(this.InputChanged);
             // 
             // tbOnderwerp
@@ -128,7 +128,7 @@
             this.tbOnderwerp.Location = new System.Drawing.Point(129, 103);
             this.tbOnderwerp.Name = "tbOnderwerp";
             this.tbOnderwerp.Size = new System.Drawing.Size(263, 22);
-            this.tbOnderwerp.TabIndex = 8;
+            this.tbOnderwerp.TabIndex = 2;
             this.tbOnderwerp.TextChanged += new System.EventHandler(this.InputChanged);
             // 
             // cobGevraagdDocent
@@ -138,7 +138,7 @@
             this.cobGevraagdDocent.Location = new System.Drawing.Point(138, 131);
             this.cobGevraagdDocent.Name = "cobGevraagdDocent";
             this.cobGevraagdDocent.Size = new System.Drawing.Size(121, 24);
-            this.cobGevraagdDocent.TabIndex = 9;
+            this.cobGevraagdDocent.TabIndex = 3;
             this.cobGevraagdDocent.SelectedValueChanged += new System.EventHandler(this.InputChanged);
             // 
             // VraagStellen

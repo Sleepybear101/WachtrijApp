@@ -61,7 +61,6 @@
             this.Controls.Add(this.btnVraagStellen);
             this.Name = "KeuzeScherm";
             this.Text = "KeuzeScherm";
-            this.Load += new System.EventHandler(this.KeuzeScherm_Load);
             this.ResumeLayout(false);
 
         }

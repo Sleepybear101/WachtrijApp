@@ -17,12 +17,6 @@ namespace WachtrijApp
             InitializeComponent();
         }
 
-        private void KeuzeScherm_Load(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void btnVraagStellen_Click(object sender, EventArgs e)
         {
             VraagStellen vraagstellen = new VraagStellen(new Inloggen());
