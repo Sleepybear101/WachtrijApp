@@ -70,5 +70,6 @@
 
         private System.Windows.Forms.Button btnVraagStellen;
         private System.Windows.Forms.Button btnVraagbekijken;
+
     }
 }

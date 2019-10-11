@@ -15,17 +15,17 @@ namespace WachtrijApp
     {
 
         private SqlDbConnection con;
-        public Inloggen _inloggen;
+        public KeuzeScherm KeuzeScherm;
         public string vraag;
-        public string IUser;
-        public string rolUser;
+        public string id;
+        public string rol;
 
-        public VraagVanStudenten(Inloggen inloggen)
+
+        public VraagVanStudenten(KeuzeScherm keuzeScherm)
         {
             InitializeComponent();
-            _inloggen = inloggen;
-            rolUser = _inloggen.rol;
-            IUser = _inloggen.id_user;
+            rol = keuzeScherm.rol;
+            id = keuzeScherm.id_user;
             GetInfo();
 
 
@@ -37,13 +37,13 @@ namespace WachtrijApp
 
             con = new SqlDbConnection();
 
-            if ("0" == rolUser)
+            if ("0" == rol)
             {
                 con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' ");
                 dtVraag.DataSource = con.QueryEx();
                 //    dtVraag.Columns[0].Visible = false;
             }
-            else if ("1" == rolUser)
+            else if ("1" == rol)
             {
 
                 rtbNotities.Visible = false;
@@ -71,7 +71,7 @@ namespace WachtrijApp
             SqlDbConnection con = new SqlDbConnection();
             string status = "opgelost";
             con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
-            con.Cmd.Parameters.AddWithValue("@GeholpenDocent", IUser);
+            con.Cmd.Parameters.AddWithValue("@GeholpenDocent", id);
             con.Cmd.Parameters.AddWithValue("@Status", status);
             con.Cmd.Parameters.AddWithValue("@Notitie", rtbNotities.Text);
             con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
@@ -87,7 +87,7 @@ namespace WachtrijApp
             {
                 if (row.Selected)
                 {
-                     vraag =  dtVraag.Rows[row.Index].Cells["id_Vraag"].Value.ToString();
+                    vraag =  dtVraag.Rows[row.Index].Cells["id_Vraag"].Value.ToString();
                     tbVolledig_naam.Text = (string)dtVraag.Rows[row.Index].Cells["Volledige_Naam"].Value;
                     tbVraag.Text = (string)dtVraag.Rows[row.Index].Cells["Vraag"].Value;
                     tbOnderwerp.Text = (string)dtVraag.Rows[row.Index].Cells["Onderwerp"].Value;
@@ -95,6 +95,12 @@ namespace WachtrijApp
                 }
             }
 
+        }
+
+        private void VraagVanStudenten_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
+            Environment.Exit(1);
         }
     }
 }

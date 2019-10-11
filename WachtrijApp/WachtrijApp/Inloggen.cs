@@ -20,8 +20,7 @@ namespace WachtrijApp
 
         }
 
-        //tbWachtwoord
-        //tbVolledigeNaam
+
         public string id_user;
         public string rol;
         private void BtnInloggen_Click(object sender, EventArgs e)
@@ -40,11 +39,12 @@ namespace WachtrijApp
                 if (Convert.ToInt32(dr[0]) >= 0)
                 {
                     id_user = dr[0].ToString();
+                    rol = "1";
                     this.Hide();
                     KeuzeScherm keuzescherm = new KeuzeScherm(this);
                     keuzescherm.ShowDialog();
                     this.Close();
-                    rol = "1";
+
 
                 }
 
@@ -63,9 +63,17 @@ namespace WachtrijApp
                     id_user = dr[0].ToString();
                     rol = "0";
                     this.Hide();
-                    VraagVanStudenten vanStudenten = new VraagVanStudenten(this);
-                    vanStudenten.ShowDialog();
+                    KeuzeScherm keuzescherm = new KeuzeScherm(this);
                     this.Close();
+                    try
+                    {
+                        keuzescherm.ShowDialog();
+                    }
+                    catch
+                    {
+                        Application.Exit();
+                    }
+
 
                 }
 
@@ -105,6 +113,9 @@ namespace WachtrijApp
             if (e.KeyCode == Keys.Enter)
             {
                 BtnInloggen_Click(sender, e);
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+
             }
         }
     }

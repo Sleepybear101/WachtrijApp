@@ -169,10 +169,15 @@
             // 
             // dtVraag
             // 
+            this.dtVraag.AllowUserToAddRows = false;
+            this.dtVraag.AllowUserToDeleteRows = false;
+            this.dtVraag.AllowUserToResizeColumns = false;
+            this.dtVraag.AllowUserToResizeRows = false;
             this.dtVraag.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtVraag.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dtVraag.Location = new System.Drawing.Point(13, 13);
             this.dtVraag.Name = "dtVraag";
+            this.dtVraag.ReadOnly = true;
             this.dtVraag.RowHeadersWidth = 51;
             this.dtVraag.RowTemplate.Height = 24;
             this.dtVraag.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -204,6 +209,7 @@
             this.Name = "VraagVanStudenten";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vraag van studenten";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.VraagVanStudenten_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dtVraag)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

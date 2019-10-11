@@ -20,7 +20,7 @@ namespace WachtrijApp
         {            InitializeComponent();
 
              _VraagVanStudenten = vraagVanStudenten;
-            IUser = vraagVanStudenten.IUser;
+            IUser = vraagVanStudenten.id;
             vraag = vraagVanStudenten.vraag;
             GetInfo();
 

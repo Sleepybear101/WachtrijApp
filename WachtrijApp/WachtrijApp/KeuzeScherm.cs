@@ -12,21 +12,32 @@ namespace WachtrijApp
 {
     public partial class KeuzeScherm : Form
     {
+        public string id_user;
+        public string rol;
         public KeuzeScherm(Inloggen inloggen)
         {
-            InitializeComponent();
-        }
 
+            id_user = inloggen.id_user;
+            rol = inloggen.rol;
+            InitializeComponent();
+
+            if (rol == "0")
+            {
+                VraagVanStudenten vraagVanStudenten = new VraagVanStudenten(this);
+                vraagVanStudenten.ShowDialog();
+
+            }
+        }
         private void btnVraagStellen_Click(object sender, EventArgs e)
         {
-            VraagStellen vraagstellen = new VraagStellen(new Inloggen());
+            VraagStellen vraagstellen = new VraagStellen(this);
             vraagstellen.ShowDialog();
 
         }
 
         private void btnVraagbekijken_Click(object sender, EventArgs e)
         {
-            VraagVanStudenten vraagVanStudenten = new VraagVanStudenten(new Inloggen());
+            VraagVanStudenten vraagVanStudenten = new VraagVanStudenten(this);
             vraagVanStudenten.ShowDialog();
         }
     }
