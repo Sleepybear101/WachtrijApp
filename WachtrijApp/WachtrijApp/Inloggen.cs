@@ -53,6 +53,16 @@ namespace WachtrijApp
 
 
         }
+      
+
+        private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                inloggen();
+            }
+        }
+
         void inloggen()
         {
             SqlDbConnection con = new SqlDbConnection();
@@ -97,7 +107,7 @@ namespace WachtrijApp
 
 
                     VraagVanStudenten vanStudenten = new VraagVanStudenten(this);
-                    vanStudenten.ShowDialog();
+                    vanStudenten.Show();
                     this.Close();
 
                 }
@@ -112,13 +122,5 @@ namespace WachtrijApp
         }
 
 
-        private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.Handled = true;
-                BtnInloggen_Click(sender, e);
-            }
-        }
     }
 }
