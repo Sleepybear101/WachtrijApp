@@ -26,53 +26,8 @@ namespace WachtrijApp
         public string rol;
         private void BtnInloggen_Click(object sender, EventArgs e)
         {
-            SqlDbConnection con = new SqlDbConnection();
 
-            var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
-
-            con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
-            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
-            con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
-            con.QueryEx();
-
-            foreach (DataRow dr in con.QueryEx().Rows)
-            {
-                if (Convert.ToInt32(dr[0]) >= 0)
-                {
-                    id_user = dr[0].ToString();
-                    this.Hide();
-                    KeuzeScherm keuzescherm = new KeuzeScherm(this);
-                    keuzescherm.ShowDialog();
-                    this.Close();
-                    rol = "1";
-
-                }
-
-            }
-
-
-            con.SqlQuery("SELECT `id_docent` FROM `docent` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
-            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
-            con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
-            con.QueryEx();
-
-            foreach (DataRow dr in con.QueryEx().Rows)
-            {
-                if (Convert.ToInt32(dr[0]) >= 0)
-                {
-                    id_user = dr[0].ToString();
-                    rol = "0";
-                    this.Hide();
-                    VraagVanStudenten vanStudenten = new VraagVanStudenten(this);
-                    vanStudenten.ShowDialog();
-                    this.Close();
-
-                }
-
-
-            }
-
-            MessageBox.Show("Combinatie volledige naam/wachtwoord niet gevonden.", "Verkeerde invoer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            inloggen();
         }
         static string ComputeSha256Hash(string rawData)
         {
@@ -98,12 +53,70 @@ namespace WachtrijApp
 
 
         }
+        void inloggen()
+        {
+            SqlDbConnection con = new SqlDbConnection();
+
+            var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
+
+            con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
+            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
+            con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
+            con.QueryEx();
+
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+                if (Convert.ToInt32(dr[0]) >= 0)
+                {
+                    id_user = dr[0].ToString();
+                    this.Hide();
+                    KeuzeScherm keuzescherm = new KeuzeScherm(this);
+                    VraagVanStudenten vanStudenten = new VraagVanStudenten(this);
+                    keuzescherm.ShowDialog();
+                    this.Close();
+                    rol = "1";
+
+                }
+
+            }
+
+
+            con.SqlQuery("SELECT `id_docent` FROM `docent` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
+            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
+            con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
+            con.QueryEx();
+
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+                if (Convert.ToInt32(dr[0]) >= 0)
+                {
+                    id_user = dr[0].ToString();
+                    rol = "0";
+                    this.Hide();
+
+
+
+                    VraagVanStudenten vanStudenten = new VraagVanStudenten(this);
+                    vanStudenten.ShowDialog();
+                    this.Close();
+
+                }
+
+
+            }
+
+            MessageBox.Show("Combinatie volledige naam/wachtwoord niet gevonden.", "Verkeerde invoer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+
+        }
 
 
         private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
+                e.Handled = true;
                 BtnInloggen_Click(sender, e);
             }
         }
