@@ -20,13 +20,11 @@ namespace WachtrijApp
 
         }
 
-        //tbWachtwoord
-        //tbVolledigeNaam
         public string id_user;
         public string rol;
         private void BtnInloggen_Click(object sender, EventArgs e)
         {
-
+            // functie om in te loggen
             inloggen();
         }
         static string ComputeSha256Hash(string rawData)
@@ -54,7 +52,6 @@ namespace WachtrijApp
 
         }
       
-
         private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
@@ -70,7 +67,8 @@ namespace WachtrijApp
             SqlDbConnection con = new SqlDbConnection();
 
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
-
+            
+            //
             con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
