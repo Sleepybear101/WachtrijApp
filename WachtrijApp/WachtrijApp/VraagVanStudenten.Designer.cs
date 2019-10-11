@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.tbVraag = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,19 +42,9 @@
             this.label6 = new System.Windows.Forms.Label();
             this.tbVolledig_naam = new System.Windows.Forms.TextBox();
             this.tbGevraagdDocent = new System.Windows.Forms.TextBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.dtVraag = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dtVraag)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(12, 22);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.RowHeadersWidth = 51;
-            this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(514, 274);
-            this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGridView1_CellClick);
             // 
             // label1
             // 
@@ -178,12 +167,26 @@
             this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
             this.tbGevraagdDocent.TabIndex = 15;
             // 
+            // dtVraag
+            // 
+            this.dtVraag.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
+            this.dtVraag.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtVraag.Location = new System.Drawing.Point(13, 13);
+            this.dtVraag.Name = "dtVraag";
+            this.dtVraag.RowHeadersWidth = 51;
+            this.dtVraag.RowTemplate.Height = 24;
+            this.dtVraag.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dtVraag.Size = new System.Drawing.Size(513, 290);
+            this.dtVraag.TabIndex = 16;
+            this.dtVraag.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtVraag_CellClick);
+            // 
             // VraagVanStudenten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(811, 315);
+            this.Controls.Add(this.dtVraag);
             this.Controls.Add(this.tbGevraagdDocent);
             this.Controls.Add(this.tbVolledig_naam);
             this.Controls.Add(this.label6);
@@ -198,18 +201,15 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbVraag);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.dataGridView1);
             this.Name = "VraagVanStudenten";
             this.Text = "Vraag van studenten";
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dtVraag)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox tbVraag;
         private System.Windows.Forms.Label label2;
@@ -224,5 +224,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbVolledig_naam;
         private System.Windows.Forms.TextBox tbGevraagdDocent;
+        private System.Windows.Forms.DataGridView dtVraag;
     }
 }
