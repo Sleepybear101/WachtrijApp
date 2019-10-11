@@ -64,8 +64,12 @@ namespace WachtrijApp
                 }
             }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnRegistreer_Click(object sender, EventArgs e)
         {
+            SqlDbConnection con = new SqlDbConnection();
+            con.SqlQuery("SELECT * FROM `student` WHERE `Volledige_Naam`=@VolledigNaam");
+            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
+            con.QueryEx();
             VoegGebruiker();
 
         }
@@ -91,15 +95,15 @@ namespace WachtrijApp
         {
             Incorrect();
         }
-       /* private void TbDocentCode_TextChanged(object sender, EventArgs e)
-        {
-            if(tbDocentCode.Text == DocentCode)
-            {
-              int rol = 1; 
+        /* private void TbDocentCode_TextChanged(object sender, EventArgs e)
+{
+if(tbDocentCode.Text == DocentCode)
+{
+int rol = 1; 
 
-            }
-       
-        }
-        */
+}
+
+}
+*/
     }
 }

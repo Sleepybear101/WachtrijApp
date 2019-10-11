@@ -41,8 +41,8 @@
             this.rtbNotities = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbVolledig_naam = new System.Windows.Forms.TextBox();
-            this.tbGevraagdDocent = new System.Windows.Forms.TextBox();
             this.dtVraag = new System.Windows.Forms.DataGridView();
+            this.tbGevraagdDocent = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtVraag)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,14 +159,6 @@
             this.tbVolledig_naam.Size = new System.Drawing.Size(143, 22);
             this.tbVolledig_naam.TabIndex = 14;
             // 
-            // tbGevraagdDocent
-            // 
-            this.tbGevraagdDocent.Enabled = false;
-            this.tbGevraagdDocent.Location = new System.Drawing.Point(645, 122);
-            this.tbGevraagdDocent.Name = "tbGevraagdDocent";
-            this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
-            this.tbGevraagdDocent.TabIndex = 15;
-            // 
             // dtVraag
             // 
             this.dtVraag.AllowUserToAddRows = false;
@@ -184,6 +176,14 @@
             this.dtVraag.Size = new System.Drawing.Size(513, 290);
             this.dtVraag.TabIndex = 16;
             this.dtVraag.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtVraag_CellClick);
+            // 
+            // tbGevraagdDocent
+            // 
+            this.tbGevraagdDocent.Enabled = false;
+            this.tbGevraagdDocent.Location = new System.Drawing.Point(645, 122);
+            this.tbGevraagdDocent.Name = "tbGevraagdDocent";
+            this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
+            this.tbGevraagdDocent.TabIndex = 15;
             // 
             // VraagVanStudenten
             // 
@@ -230,7 +230,7 @@
         private System.Windows.Forms.RichTextBox rtbNotities;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbVolledig_naam;
-        private System.Windows.Forms.TextBox tbGevraagdDocent;
         private System.Windows.Forms.DataGridView dtVraag;
+        private System.Windows.Forms.TextBox tbGevraagdDocent;
     }
 }

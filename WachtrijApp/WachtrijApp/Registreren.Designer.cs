@@ -37,7 +37,7 @@
             this.tbWachtwoord = new System.Windows.Forms.TextBox();
             this.tbWachtwoordRe = new System.Windows.Forms.TextBox();
             this.tbDocentCode = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnRegistreer = new System.Windows.Forms.Button();
             this.lbl_Incorrect = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
@@ -46,9 +46,9 @@
             this.lblVolledigNaam.AutoSize = true;
             this.lblVolledigNaam.Location = new System.Drawing.Point(31, 36);
             this.lblVolledigNaam.Name = "lblVolledigNaam";
-            this.lblVolledigNaam.Size = new System.Drawing.Size(101, 17);
+            this.lblVolledigNaam.Size = new System.Drawing.Size(109, 17);
             this.lblVolledigNaam.TabIndex = 0;
-            this.lblVolledigNaam.Text = "Volledig naam:";
+            this.lblVolledigNaam.Text = "Volledige naam:";
             // 
             // lblWachtwoord
             // 
@@ -118,17 +118,16 @@
             this.tbDocentCode.Name = "tbDocentCode";
             this.tbDocentCode.Size = new System.Drawing.Size(100, 22);
             this.tbDocentCode.TabIndex = 8;
-            //this.tbDocentCode.TextChanged += new System.EventHandler(this.TbDocentCode_TextChanged);
             // 
-            // button1
+            // btnRegistreer
             // 
-            this.button1.Location = new System.Drawing.Point(237, 225);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(88, 33);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Registreer";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnRegistreer.Location = new System.Drawing.Point(237, 225);
+            this.btnRegistreer.Name = "btnRegistreer";
+            this.btnRegistreer.Size = new System.Drawing.Size(88, 33);
+            this.btnRegistreer.TabIndex = 9;
+            this.btnRegistreer.Text = "Registreer";
+            this.btnRegistreer.UseVisualStyleBackColor = true;
+            this.btnRegistreer.Click += new System.EventHandler(this.btnRegistreer_Click);
             // 
             // lbl_Incorrect
             // 
@@ -147,7 +146,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(337, 270);
             this.Controls.Add(this.lbl_Incorrect);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRegistreer);
             this.Controls.Add(this.tbDocentCode);
             this.Controls.Add(this.tbWachtwoordRe);
             this.Controls.Add(this.tbWachtwoord);
@@ -175,7 +174,7 @@
         private System.Windows.Forms.TextBox tbWachtwoordRe;
         private System.Windows.Forms.Label lblWachtwoord;
         private System.Windows.Forms.TextBox tbDocentCode;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRegistreer;
         private System.Windows.Forms.Label lbl_Incorrect;
     }
 }
