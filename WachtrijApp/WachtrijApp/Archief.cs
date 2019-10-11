@@ -17,8 +17,8 @@ namespace WachtrijApp
         public string IUser;
         public string vraag;
         public Archief(VraagVanStudenten vraagVanStudenten)
-        {
-             InitializeComponent();
+        {            InitializeComponent();
+
              _VraagVanStudenten = vraagVanStudenten;
             IUser = vraagVanStudenten.IUser;
             vraag = vraagVanStudenten.vraag;
@@ -27,8 +27,10 @@ namespace WachtrijApp
         }
         public void GetInfo()
         {
-           
-          con = new SqlDbConnection();
+            dtArchief.Refresh();
+
+
+            con = new SqlDbConnection();
             if(cbxAlleDocenten.Checked == true)
             {
                 SqlDbConnection con = new SqlDbConnection();
@@ -51,9 +53,11 @@ namespace WachtrijApp
 
         private void Button1_Click(object sender, EventArgs e)
         {
+
+
+
             SqlDbConnection con = new SqlDbConnection();
-            con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,  WHERE `id_Vraag`=@idVraag");
-            con.Cmd.Parameters.AddWithValue("@GeholpenDocent", IUser);
+            con.SqlQuery("UPDATE `vragenlijst` SET  `Notities`=@Notitie WHERE `id_Vraag`=@idVraag");
             con.Cmd.Parameters.AddWithValue("@Notitie", textBox1.Text);
             con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
             con.NonQueryEx();
@@ -66,9 +70,18 @@ namespace WachtrijApp
             GetInfo();
         }
 
-        private void Label1_Click(object sender, EventArgs e)
-        {
 
+        private void DtArchief_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            foreach (DataGridViewRow row in dtArchief.Rows)
+            {
+                if (row.Selected)
+                {
+                    vraag = dtArchief.Rows[row.Index].Cells["id_Vraag"].Value.ToString();
+                    textBox1.Text = (string)dtArchief.Rows[row.Index].Cells["Notities"].Value;
+                 
+                }
+            }
         }
     }
 }

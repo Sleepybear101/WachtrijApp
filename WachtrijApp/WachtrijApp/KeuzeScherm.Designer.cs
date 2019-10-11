@@ -59,6 +59,7 @@
             this.Controls.Add(this.btnVraagbekijken);
             this.Controls.Add(this.btnVraagStellen);
             this.Name = "KeuzeScherm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KeuzeScherm";
             this.Load += new System.EventHandler(this.KeuzeScherm_Load);
             this.ResumeLayout(false);

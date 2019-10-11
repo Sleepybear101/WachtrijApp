@@ -45,6 +45,7 @@
             this.dtArchief.RowTemplate.Height = 24;
             this.dtArchief.Size = new System.Drawing.Size(865, 354);
             this.dtArchief.TabIndex = 0;
+            this.dtArchief.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtArchief_CellClick);
             // 
             // button1
             // 
@@ -64,7 +65,6 @@
             this.label1.Size = new System.Drawing.Size(58, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Notitie\'s";
-            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // textBox1
             // 
