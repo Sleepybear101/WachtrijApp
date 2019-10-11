@@ -202,6 +202,7 @@
             this.Controls.Add(this.tbVraag);
             this.Controls.Add(this.label1);
             this.Name = "VraagVanStudenten";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vraag van studenten";
             ((System.ComponentModel.ISupportInitialize)(this.dtVraag)).EndInit();
             this.ResumeLayout(false);

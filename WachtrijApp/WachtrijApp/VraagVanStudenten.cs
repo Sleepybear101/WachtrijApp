@@ -22,6 +22,7 @@ namespace WachtrijApp
 
         public VraagVanStudenten(Inloggen inloggen)
         {
+            InitializeComponent();
             _inloggen = inloggen;
             rolUser = _inloggen.rol;
             IUser = _inloggen.id_user;
@@ -32,8 +33,8 @@ namespace WachtrijApp
 
         public void GetInfo()
         {
-            this.Controls.Clear();
-            this.Refresh();
+            dtVraag.Refresh();
+
             con = new SqlDbConnection();
 
             if ("0" == rolUser)
