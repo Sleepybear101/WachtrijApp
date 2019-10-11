@@ -12,9 +12,14 @@ namespace WachtrijApp
 {
     public partial class VraagStellen : Form
     {
+        public string id_user;
+        public string vraag;
+        public string onderwerp;
+      
         public VraagStellen(KeuzeScherm keuzeScherm)
         {
             InitializeComponent();
+            id_user = keuzeScherm.id_user;
             VoegDocent();
             EnableButton();
         }
@@ -29,6 +34,9 @@ namespace WachtrijApp
                 tbOnderwerp.Enabled = false;
                 cbxGegoogled.Enabled = false;
                 cbxAnderegesteld.Enabled = false;
+                btnStelVraag.Enabled = true;
+
+
             }
             if (!cbxPersoonlijkeVraag.Checked)
             {
@@ -36,6 +44,8 @@ namespace WachtrijApp
                 tbOnderwerp.Enabled = true;
                 cbxGegoogled.Enabled = true;
                 cbxAnderegesteld.Enabled = true;
+                btnStelVraag.Enabled = true;
+
             }
         }
         public void EnableButton()
@@ -46,7 +56,8 @@ namespace WachtrijApp
                 tbOnderwerp.Enabled = false;
                 cbxGegoogled.Enabled = false;
                 cbxAnderegesteld.Enabled = false;
-                if( cobGevraagdDocent.SelectedItem == null)
+                
+                if(cobGevraagdDocent.SelectedItem == null)
                 {
                     btnStelVraag.Enabled = false;
                 }
@@ -74,17 +85,52 @@ namespace WachtrijApp
 
         private void btnStelVraag_Click(object sender, EventArgs e)
         {
-            SqlDbConnection con = new SqlDbConnection();
-            con.SqlQuery("INSERT INTO `vragenlijst` (`id_Gebruiker`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Persoonlijke_Vraag`, `Geholpen_Docent`, `Status`, `Notities`) VALUES('1', 'poenk', 'poenk', '3', '0', '3', 'open', NULL);");
+             SqlDbConnection con = new SqlDbConnection();
+
+            con.SqlQuery("SELECT COUNT(*) FROM `vragenlijst` WHERE `id_Gebruiker`=@IdUser AND `Status`= 'open'");
+            con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
+            con.QueryEx();
+
+            if(cbxPersoonlijkeVraag.Checked == true)
+            {
+                vraag = "persoonlijke vraag";
+            }
+            else
+            {
+                vraag = tbVraag.Text;
+                onderwerp = tbOnderwerp.Text;
+          //      cobGevraagdDocent = cobGevraagdDocent.SelectedItem;
+            }
+            
+
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+
+                if (Convert.ToInt32(dr[0]) >= 1)
+                {
+                    MessageBox.Show("Je hebt al 1 vraag gestelt");
+                    this.Close();
+                }
+                else
+                {
+                    con.SqlQuery("INSERT INTO `vragenlijst` (`id_Gebruiker`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent)");
+                    con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
+                    con.Cmd.Parameters.AddWithValue("@vraag" ,vraag);
+                    con.Cmd.Parameters.AddWithValue("@onderwerp", onderwerp);
+                    con.Cmd.Parameters.AddWithValue("@gevraagdeDocent", id_user);
+                    MessageBox.Show("vraag gestelt");
+
+                }
+            }
         }
         public void VoegDocent()
         {
             SqlDbConnection con = new SqlDbConnection();
-            con.SqlQuery("SELECT Volledige_Naam FROM `docent`");
+            con.SqlQuery("SELECT id_docent, Volledige_Naam FROM `docent`");
             con.QueryEx();
             foreach (DataRow dr in con.QueryEx().Rows)
             {
-                cobGevraagdDocent.Items.Add(dr[0].ToString());
+                cobGevraagdDocent.Items.Add(dr[0].ToString() + dr[1].ToString());
             }
         }
 

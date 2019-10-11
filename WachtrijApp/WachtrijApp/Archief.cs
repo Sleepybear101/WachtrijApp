@@ -70,12 +70,13 @@ namespace WachtrijApp
 
         private void DtArchief_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+
             DataGridViewRow row = dtArchief.Rows[e.RowIndex];
 
-            if (e.RowIndex >= 0 )
+            if (e.RowIndex >= 0)
             {
-                     vraag = dtArchief.Rows[row.Index].Cells["id_Vraag"].Value.ToString();
-                textBox1.Text = dtArchief.Rows[row.Index].Cells["Notities"].Value.ToString();
+                vraag = row.Cells["id_Vraag"].Value.ToString();
+                textBox1.Text = row.Cells["Notities"].Value.ToString();
                  
                
             }
