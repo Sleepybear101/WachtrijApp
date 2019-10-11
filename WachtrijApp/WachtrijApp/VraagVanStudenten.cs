@@ -33,6 +33,7 @@ namespace WachtrijApp
 
         public void GetInfo()
         {
+            //datagridview wordt gerefresht
             dtVraag.Refresh();
 
             con = new SqlDbConnection();
@@ -41,11 +42,16 @@ namespace WachtrijApp
             {
                 con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' ");
                 dtVraag.DataSource = con.QueryEx();
-                //    dtVraag.Columns[0].Visible = false;
+
+                dtVraag.Columns[0].Visible = false;
+
+
+
+
             }
             else if ("1" == rol)
             {
-
+                //Wordt niet zichtbaar voor studenten
                 rtbNotities.Visible = false;
                 lbNotitie.Visible = false;
                 lbGeholpenDoor.Visible = false;
@@ -59,7 +65,7 @@ namespace WachtrijApp
 
         private void Button2_Click(object sender, EventArgs e)
         {
-
+            // Archief wordt geopend
             Archief archief = new Archief(this);
             archief.ShowDialog();
         }
@@ -67,9 +73,10 @@ namespace WachtrijApp
         private void Button1_Click(object sender, EventArgs e)
         {
 
-
             SqlDbConnection con = new SqlDbConnection();
             string status = "opgelost";
+
+            //Query voor het opgelost vraag
             con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
             con.Cmd.Parameters.AddWithValue("@GeholpenDocent", id);
             con.Cmd.Parameters.AddWithValue("@Status", status);
@@ -83,17 +90,20 @@ namespace WachtrijApp
 
         private void DtVraag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            foreach (DataGridViewRow row in dtVraag.Rows)
+            DataGridViewRow row = dtVraag.Rows[e.RowIndex];
+
+            if (e.RowIndex >= 0)
             {
-                if (row.Selected)
-                {
-                    vraag =  dtVraag.Rows[row.Index].Cells["id_Vraag"].Value.ToString();
-                    tbVolledig_naam.Text = (string)dtVraag.Rows[row.Index].Cells["Volledige_Naam"].Value;
-                    tbVraag.Text = (string)dtVraag.Rows[row.Index].Cells["Vraag"].Value;
-                    tbOnderwerp.Text = (string)dtVraag.Rows[row.Index].Cells["Onderwerp"].Value;
-                    tbGevraagdDocent.Text = (string)dtVraag.Rows[row.Index].Cells["Volledige_Naam1"].Value;
-                }
+                vraag = row.Cells["id_Vraag"].Value.ToString();
+                    tbVolledig_naam.Text = row.Cells["Volledige_Naam"].Value.ToString();
+                tbVraag.Text = row.Cells["Vraag"].Value.ToString();
+                   tbOnderwerp.Text = row.Cells["Onderwerp"].Value.ToString();
+                tbGevraagdDocent.Text = row.Cells["Volledige_Naam1"].Value.ToString();
             }
+
+                //Haalt de geselecteerde rij gegevens op van de datagridview
+
+
 
         }
 

@@ -53,9 +53,6 @@ namespace WachtrijApp
 
         private void Button1_Click(object sender, EventArgs e)
         {
-
-
-
             SqlDbConnection con = new SqlDbConnection();
             con.SqlQuery("UPDATE `vragenlijst` SET  `Notities`=@Notitie WHERE `id_Vraag`=@idVraag");
             con.Cmd.Parameters.AddWithValue("@Notitie", textBox1.Text);
