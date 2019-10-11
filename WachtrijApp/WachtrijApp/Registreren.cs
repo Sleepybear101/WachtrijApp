@@ -44,7 +44,6 @@ namespace WachtrijApp
             }
        
          con.NonQueryEx();
-            this.Close();
         }
 
         static string ComputeSha256Hash(string rawData)
@@ -85,7 +84,7 @@ namespace WachtrijApp
             }
         }
         private void TbWachtwoord_TextChanged(object sender, EventArgs e)
-        {
+           {
              Incorrect();
         }
         private void TbWachtwoordRe_TextChanged(object sender, EventArgs e)

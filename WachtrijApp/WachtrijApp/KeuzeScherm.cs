@@ -27,7 +27,13 @@ namespace WachtrijApp
         {
             VraagStellen vraagstellen = new VraagStellen(new Inloggen());
             vraagstellen.ShowDialog();
-            this.Close();
+
+        }
+
+        private void btnVraagbekijken_Click(object sender, EventArgs e)
+        {
+            VraagVanStudenten vraagVanStudenten = new VraagVanStudenten(new Inloggen());
+            vraagVanStudenten.ShowDialog();
         }
     }
 }

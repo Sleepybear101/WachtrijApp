@@ -26,24 +26,23 @@ namespace WachtrijApp
         public string rol;
         private void BtnInloggen_Click(object sender, EventArgs e)
         {
-
             SqlDbConnection con = new SqlDbConnection();
 
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
 
-            con.SqlQuery("SELECT COUNT(*), `id_student` FROM `student` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
+            con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
             con.QueryEx();
 
             foreach (DataRow dr in con.QueryEx().Rows)
             {
-                if (dr[0].ToString() == "1")
+                if (Convert.ToInt32(dr[0]) >= 0)
                 {
-                    id_user = dr[1].ToString();
+                    id_user = dr[0].ToString();
+                    this.Hide();
                     KeuzeScherm keuzescherm = new KeuzeScherm(this);
                     keuzescherm.ShowDialog();
-                    this.Hide();
                     this.Close();
                      rol = "1";
                  
@@ -52,28 +51,28 @@ namespace WachtrijApp
             }
                 
 
-            con.SqlQuery("SELECT COUNT(*),  `id_docent` FROM `docent` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
+            con.SqlQuery("SELECT `id_docent` FROM `docent` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
             con.QueryEx();
 
             foreach (DataRow dr in con.QueryEx().Rows)
             {
-                if (dr[0].ToString() == "1")
+                if (Convert.ToInt32(dr[0]) >= 0)
                 {
-                    id_user = dr[1].ToString();
+                    id_user = dr[0].ToString();
                     rol= "0";
+                    this.Hide();
                     VraagVanStudenten vanStudenten = new VraagVanStudenten(this);              
                     vanStudenten.ShowDialog();
-                    this.Hide();
                     this.Close();
 
                 }
      
 
             }
-     
 
+            MessageBox.Show("Combinatie volledige naam/wachtwoord niet gevonden.", "Verkeerde invoer", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         static string ComputeSha256Hash(string rawData)
         {
@@ -94,9 +93,9 @@ namespace WachtrijApp
         }
         private void BtnRegisteren_Click(object sender, EventArgs e)
         {
-            Registreren registreren = new Registreren(this);
+            Registreren registreren = new Registreren(new Inloggen());
             registreren.ShowDialog();
-            this.Hide();
+
 
         }
 

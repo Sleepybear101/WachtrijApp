@@ -27,13 +27,14 @@ namespace WachtrijApp
             rolUser = _inloggen.rol;
             IUser = _inloggen.id_user;
             GetInfo();
-           
+
 
         }
 
         public void GetInfo()
         {
             dtVraag.Refresh();
+
             con = new SqlDbConnection();
 
             if ("0" == rolUser)
@@ -78,7 +79,7 @@ namespace WachtrijApp
             GetInfo();
         }
 
-     
+
 
         private void DtVraag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -93,9 +94,7 @@ namespace WachtrijApp
                     tbGevraagdDocent.Text = (string)dtVraag.Rows[row.Index].Cells["Volledige_Naam1"].Value;
                 }
             }
-        
+
         }
     }
 }
-
-

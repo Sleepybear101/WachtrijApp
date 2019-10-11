@@ -77,9 +77,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(532, 127);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 17);
+            this.label3.Size = new System.Drawing.Size(130, 17);
             this.label3.TabIndex = 4;
-            this.label3.Text = "gevraagd docent:";
+            this.label3.Text = "Gevraagde docent:";
             // 
             // btnOpgelost
             // 

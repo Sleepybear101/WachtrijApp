@@ -50,6 +50,7 @@
             this.btnVraagbekijken.TabIndex = 1;
             this.btnVraagbekijken.Text = "Vragen bekijken";
             this.btnVraagbekijken.UseVisualStyleBackColor = true;
+            this.btnVraagbekijken.Click += new System.EventHandler(this.btnVraagbekijken_Click);
             // 
             // KeuzeScherm
             // 
