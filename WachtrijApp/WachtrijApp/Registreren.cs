@@ -26,7 +26,7 @@ namespace WachtrijApp
             WachtwoordR = tbWachtwoordRe.Text;
 
             var hPassword =  ComputeSha256Hash(Wachtwoord);
-             if (tbDocentCode.Text != DocentCode || tbDocentCode.Text == null)
+            if (tbDocentCode.Text != DocentCode || tbDocentCode.Text == null)
             {
                 con.SqlQuery("INSERT INTO `student`(`Volledige_Naam`, `Wachtwoord`) VALUES (@VolledigNaam,@Wachtwoord)");
                 con.Cmd.Parameters.AddWithValue("@VolledigNaam", VolledigNaam);
@@ -95,15 +95,5 @@ namespace WachtrijApp
         {
             Incorrect();
         }
-        /* private void TbDocentCode_TextChanged(object sender, EventArgs e)
-{
-if(tbDocentCode.Text == DocentCode)
-{
-int rol = 1; 
-
-}
-
-}
-*/
     }
 }

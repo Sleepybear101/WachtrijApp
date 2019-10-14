@@ -38,9 +38,15 @@ namespace WachtrijApp
 
             con = new SqlDbConnection();
 
+            con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' ");
+            dtVraag.DataSource = con.QueryEx();
+
+            dtVraag.Columns[0].Visible = false;
             if ("0" == rol)
             {
+
                 con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' ");
+
                 dtVraag.DataSource = con.QueryEx();
 
                 dtVraag.Columns[0].Visible = false;
@@ -94,27 +100,27 @@ namespace WachtrijApp
 
         private void DtVraag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridViewRow row = dtVraag.Rows[e.RowIndex];
-
-            if (e.RowIndex >= 0)
+            if (e.RowIndex == 0)
             {
+                //Haalt de geselecteerde rij gegevens op van de datagridview
+                DataGridViewRow row = dtVraag.Rows[e.RowIndex];
+
                 vraag = row.Cells["id_Vraag"].Value.ToString();
-                    tbVolledig_naam.Text = row.Cells["Volledige_Naam"].Value.ToString();
+                tbVolledig_naam.Text = row.Cells["Volledige_Naam"].Value.ToString();
                 tbVraag.Text = row.Cells["Vraag"].Value.ToString();
-                   tbOnderwerp.Text = row.Cells["Onderwerp"].Value.ToString();
+                tbOnderwerp.Text = row.Cells["Onderwerp"].Value.ToString();
                 tbGevraagdDocent.Text = row.Cells["Volledige_Naam1"].Value.ToString();
             }
-
-                //Haalt de geselecteerde rij gegevens op van de datagridview
-
-
 
         }
 
         private void VraagVanStudenten_FormClosed(object sender, FormClosedEventArgs e)
         {
-
-            Environment.Exit(1);
+            //als docent form sluit sluiten alle achtergrond processen
+            if (rol == "0")
+            {
+                Environment.Exit(1);
+            }
         }
     }
 }
