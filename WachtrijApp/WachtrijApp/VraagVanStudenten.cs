@@ -38,14 +38,10 @@ namespace WachtrijApp
 
             con = new SqlDbConnection();
 
-            con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' ");
-            dtVraag.DataSource = con.QueryEx();
-
-            dtVraag.Columns[0].Visible = false;
             if ("0" == rol)
             {
-
-                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' ");
+                VoegDocent();
+                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' AND `Status`='open'  ");
 
                 dtVraag.DataSource = con.QueryEx();
 
@@ -65,12 +61,22 @@ namespace WachtrijApp
                 rtbNotities.Visible = false;
                 lbNotitie.Visible = false;
                 lbGeholpenDoor.Visible = false;
-                tbGeholpenDoor.Visible = false;
+                cobGeholpenDocent.Visible = false;
                 btnArchiefOpenen.Visible = false;
                 btnOpgelost.Visible = false;
             }
         }
 
+        public void VoegDocent()
+        {
+            SqlDbConnection con = new SqlDbConnection();
+            con.SqlQuery("SELECT id_docent, Volledige_Naam FROM `docent`");
+            cobGeholpenDocent.ValueMember = "id_docent";
+            cobGeholpenDocent.DisplayMember = "Volledige_Naam";
+
+            cobGeholpenDocent.DataSource = con.QueryEx();
+
+        }
 
 
         private void Button2_Click(object sender, EventArgs e)
@@ -85,14 +91,22 @@ namespace WachtrijApp
 
             SqlDbConnection con = new SqlDbConnection();
             string status = "opgelost";
-
+            id = cobGeholpenDocent.SelectedValue.ToString();
             //Query voor het opgelost vraag
-            con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
-            con.Cmd.Parameters.AddWithValue("@GeholpenDocent", id);
-            con.Cmd.Parameters.AddWithValue("@Status", status);
-            con.Cmd.Parameters.AddWithValue("@Notitie", rtbNotities.Text);
-            con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
-            con.NonQueryEx();
+            if (tbVraag.Text == "persoonlijke vraag") {
+                con.SqlQuery("DELETE FROM `vragenlijst` WHERE `id_Vraag`=@idVraag AND `Persoonlijke_Vraag`=1");
+                con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
+                con.NonQueryEx();
+            }
+            else
+            {
+                con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
+                con.Cmd.Parameters.AddWithValue("@GeholpenDocent", id);
+                con.Cmd.Parameters.AddWithValue("@Status", status);
+                con.Cmd.Parameters.AddWithValue("@Notitie", rtbNotities.Text);
+                con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
+                con.NonQueryEx();
+            }
             GetInfo();
         }
 
@@ -100,7 +114,7 @@ namespace WachtrijApp
 
         private void DtVraag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == 0)
+            if (e.RowIndex >= 0)
             {
                 //Haalt de geselecteerde rij gegevens op van de datagridview
                 DataGridViewRow row = dtVraag.Rows[e.RowIndex];
@@ -113,6 +127,8 @@ namespace WachtrijApp
             }
 
         }
+
+    
 
         private void VraagVanStudenten_FormClosed(object sender, FormClosedEventArgs e)
         {

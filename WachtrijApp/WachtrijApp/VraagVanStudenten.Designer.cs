@@ -36,13 +36,13 @@
             this.btnArchiefOpenen = new System.Windows.Forms.Button();
             this.tbOnderwerp = new System.Windows.Forms.TextBox();
             this.lbGeholpenDoor = new System.Windows.Forms.Label();
-            this.tbGeholpenDoor = new System.Windows.Forms.TextBox();
             this.lbNotitie = new System.Windows.Forms.Label();
             this.rtbNotities = new System.Windows.Forms.RichTextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.tbVolledig_naam = new System.Windows.Forms.TextBox();
             this.dtVraag = new System.Windows.Forms.DataGridView();
             this.tbGevraagdDocent = new System.Windows.Forms.TextBox();
+            this.cobGeholpenDocent = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtVraag)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,13 +118,6 @@
             this.lbGeholpenDoor.TabIndex = 9;
             this.lbGeholpenDoor.Text = "Geholpen door:";
             // 
-            // tbGeholpenDoor
-            // 
-            this.tbGeholpenDoor.Location = new System.Drawing.Point(769, 141);
-            this.tbGeholpenDoor.Name = "tbGeholpenDoor";
-            this.tbGeholpenDoor.Size = new System.Drawing.Size(143, 22);
-            this.tbGeholpenDoor.TabIndex = 10;
-            // 
             // lbNotitie
             // 
             this.lbNotitie.AutoSize = true;
@@ -187,19 +180,27 @@
             this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
             this.tbGevraagdDocent.TabIndex = 15;
             // 
+            // cobGeholpenDocent
+            // 
+            this.cobGeholpenDocent.FormattingEnabled = true;
+            this.cobGeholpenDocent.Location = new System.Drawing.Point(769, 141);
+            this.cobGeholpenDocent.Name = "cobGeholpenDocent";
+            this.cobGeholpenDocent.Size = new System.Drawing.Size(141, 24);
+            this.cobGeholpenDocent.TabIndex = 17;
+            // 
             // VraagVanStudenten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(922, 315);
+            this.Controls.Add(this.cobGeholpenDocent);
             this.Controls.Add(this.dtVraag);
             this.Controls.Add(this.tbGevraagdDocent);
             this.Controls.Add(this.tbVolledig_naam);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.rtbNotities);
             this.Controls.Add(this.lbNotitie);
-            this.Controls.Add(this.tbGeholpenDoor);
             this.Controls.Add(this.lbGeholpenDoor);
             this.Controls.Add(this.tbOnderwerp);
             this.Controls.Add(this.btnArchiefOpenen);
@@ -227,12 +228,12 @@
         private System.Windows.Forms.Button btnArchiefOpenen;
         private System.Windows.Forms.TextBox tbOnderwerp;
         private System.Windows.Forms.Label lbGeholpenDoor;
-        private System.Windows.Forms.TextBox tbGeholpenDoor;
         private System.Windows.Forms.Label lbNotitie;
         private System.Windows.Forms.RichTextBox rtbNotities;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox tbVolledig_naam;
         private System.Windows.Forms.DataGridView dtVraag;
         private System.Windows.Forms.TextBox tbGevraagdDocent;
+        private System.Windows.Forms.ComboBox cobGeholpenDocent;
     }
 }
