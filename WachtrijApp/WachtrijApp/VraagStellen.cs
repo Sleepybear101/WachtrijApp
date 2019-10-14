@@ -15,7 +15,8 @@ namespace WachtrijApp
         public string id_user;
         public string vraag;
         public string onderwerp;
-      
+        private string idDocent;
+
         public VraagStellen(KeuzeScherm keuzeScherm)
         {
             InitializeComponent();
@@ -94,12 +95,15 @@ namespace WachtrijApp
             if(cbxPersoonlijkeVraag.Checked == true)
             {
                 vraag = "persoonlijke vraag";
+                idDocent = cobGevraagdDocent.SelectedValue.ToString(); 
+
             }
-            else
+            else 
             {
                 vraag = tbVraag.Text;
                 onderwerp = tbOnderwerp.Text;
-          //      cobGevraagdDocent = cobGevraagdDocent.SelectedItem;
+                idDocent = cobGevraagdDocent.SelectedValue.ToString();
+;
             }
             
 
@@ -117,23 +121,28 @@ namespace WachtrijApp
                     con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
                     con.Cmd.Parameters.AddWithValue("@vraag" ,vraag);
                     con.Cmd.Parameters.AddWithValue("@onderwerp", onderwerp);
-                    con.Cmd.Parameters.AddWithValue("@gevraagdeDocent", id_user);
+                    con.Cmd.Parameters.AddWithValue("@gevraagdeDocent", idDocent);
+                    con.NonQueryEx();
                     MessageBox.Show("vraag gestelt");
 
                 }
             }
         }
+
         public void VoegDocent()
         {
             SqlDbConnection con = new SqlDbConnection();
             con.SqlQuery("SELECT id_docent, Volledige_Naam FROM `docent`");
-            con.QueryEx();
-            foreach (DataRow dr in con.QueryEx().Rows)
-            {
-                cobGevraagdDocent.Items.Add(dr[0].ToString() + dr[1].ToString());
-            }
-        }
+          
 
+
+                cobGevraagdDocent.ValueMember = "id_docent";
+                cobGevraagdDocent.DisplayMember = "Volledige_Naam";
+         
+                cobGevraagdDocent.DataSource = con.QueryEx();
+
+        }
+   
 
         private void InputChanged(object sender, EventArgs e)
         {
