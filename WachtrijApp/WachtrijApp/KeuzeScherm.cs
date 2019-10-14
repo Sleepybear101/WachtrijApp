@@ -44,8 +44,8 @@ namespace WachtrijApp
                     return;
                 }
             }
-                VraagStellen vraagstellen = new VraagStellen(this);
-            vraagstellen.ShowDialog();
+           VraagStellen vraagstellen = new VraagStellen(this);
+           vraagstellen.ShowDialog();
 
         }
         

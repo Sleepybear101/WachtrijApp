@@ -13,15 +13,13 @@ namespace WachtrijApp
 {
     public partial class Inloggen : Form
     {
+        public string id_user;
+        public string rol;
 
         public Inloggen()
         {
             InitializeComponent();
-
         }
-
-        public string id_user;
-        public string rol;
         private void BtnInloggen_Click(object sender, EventArgs e)
         {
             // functie om in te loggen
@@ -48,19 +46,14 @@ namespace WachtrijApp
         {
             Registreren registreren = new Registreren(new Inloggen());
             registreren.ShowDialog();
-
-
         }
-
         private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
         {
-           
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
                 inloggen();
                 e.Handled = true;
-                
             }
         }
 
@@ -70,7 +63,6 @@ namespace WachtrijApp
 
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
 
-            //
             con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
@@ -84,11 +76,8 @@ namespace WachtrijApp
                     rol = "1";
                     this.Hide();
                     KeuzeScherm keuzescherm = new KeuzeScherm(this);
-
                     keuzescherm.ShowDialog();
                     this.Close();
-
-
                 }
 
             }
@@ -117,15 +106,10 @@ namespace WachtrijApp
                         Application.Exit();
                     }
 
-
                 }
-
-
             }
 
             MessageBox.Show("Combinatie volledige naam/wachtwoord niet gevonden.", "Verkeerde invoer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
-
 
         }
 

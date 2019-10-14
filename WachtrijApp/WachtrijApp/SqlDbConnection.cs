@@ -14,7 +14,6 @@ namespace WachtrijApp
         public MySqlCommand Cmd;
         private MySqlDataAdapter _da;
         private DataTable _dt;
-      //  private DataSet _ds;
 
         public SqlDbConnection()
         {
