@@ -40,7 +40,7 @@ namespace WachtrijApp
 
             if ("0" == rol)
             {
-                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' ");
+                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' ");
                 dtVraag.DataSource = con.QueryEx();
 
                 dtVraag.Columns[0].Visible = false;
@@ -51,6 +51,10 @@ namespace WachtrijApp
             }
             else if ("1" == rol)
             {
+                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='0'");
+                dtVraag.DataSource = con.QueryEx();
+
+
                 //Wordt niet zichtbaar voor studenten
                 rtbNotities.Visible = false;
                 lbNotitie.Visible = false;

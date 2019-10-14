@@ -16,6 +16,7 @@ namespace WachtrijApp
         public string vraag;
         public string onderwerp;
         private string idDocent;
+        private int persoonlijke;
 
         public VraagStellen(KeuzeScherm keuzeScherm)
         {
@@ -95,14 +96,15 @@ namespace WachtrijApp
             if(cbxPersoonlijkeVraag.Checked == true)
             {
                 vraag = "persoonlijke vraag";
-                idDocent = cobGevraagdDocent.SelectedValue.ToString(); 
-
+                idDocent = cobGevraagdDocent.SelectedValue.ToString();
+                persoonlijke = 1;
             }
             else 
             {
                 vraag = tbVraag.Text;
                 onderwerp = tbOnderwerp.Text;
                 idDocent = cobGevraagdDocent.SelectedValue.ToString();
+                persoonlijke = 0;
 ;
             }
             
@@ -117,11 +119,12 @@ namespace WachtrijApp
                 }
                 else
                 {
-                    con.SqlQuery("INSERT INTO `vragenlijst` (`id_Gebruiker`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent)");
+                    con.SqlQuery("INSERT INTO `vragenlijst` (`id_Gebruiker`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`, `Persoonlijke_Vraag`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent, @Persoonlijke)");
                     con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
                     con.Cmd.Parameters.AddWithValue("@vraag" ,vraag);
                     con.Cmd.Parameters.AddWithValue("@onderwerp", onderwerp);
                     con.Cmd.Parameters.AddWithValue("@gevraagdeDocent", idDocent);
+                    con.Cmd.Parameters.AddWithValue("@Persoonlijke", persoonlijke);
                     con.NonQueryEx();
                     MessageBox.Show("vraag gestelt");
 
