@@ -127,6 +127,7 @@ namespace WachtrijApp
                     con.Cmd.Parameters.AddWithValue("@Persoonlijke", persoonlijke);
                     con.NonQueryEx();
                     MessageBox.Show("vraag gestelt");
+                    this.Close();
 
                 }
             }

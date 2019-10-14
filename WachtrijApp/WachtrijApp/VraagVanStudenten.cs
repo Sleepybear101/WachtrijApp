@@ -38,26 +38,17 @@ namespace WachtrijApp
 
             con = new SqlDbConnection();
 
-            con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' ");
-            dtVraag.DataSource = con.QueryEx();
-
-            dtVraag.Columns[0].Visible = false;
             if ("0" == rol)
             {
 
-                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' ");
+                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student` , `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' ");
 
                 dtVraag.DataSource = con.QueryEx();
-
-                dtVraag.Columns[0].Visible = false;
-
-
-
 
             }
             else if ("1" == rol)
             {
-                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam, `Vraag`, `Onderwerp`, docent.Volledige_Naam FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='0'");
+                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='0'");
                 dtVraag.DataSource = con.QueryEx();
 
 
@@ -67,9 +58,11 @@ namespace WachtrijApp
                 lbGeholpenDoor.Visible = false;
                 tbGeholpenDoor.Visible = false;
                 btnArchiefOpenen.Visible = false;
-                btnOpgelost.Visible = false;
-            }
+                btnOpgelost.Visible = false;    
+            }   
+            dtVraag.Columns[0].Visible = false;
         }
+    
 
 
 
@@ -100,16 +93,16 @@ namespace WachtrijApp
 
         private void DtVraag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == 0)
+            if (e.RowIndex >= 0)
             {
                 //Haalt de geselecteerde rij gegevens op van de datagridview
                 DataGridViewRow row = dtVraag.Rows[e.RowIndex];
 
                 vraag = row.Cells["id_Vraag"].Value.ToString();
-                tbVolledig_naam.Text = row.Cells["Volledige_Naam"].Value.ToString();
+                tbVolledig_naam.Text = row.Cells["Naam student"].Value.ToString();
                 tbVraag.Text = row.Cells["Vraag"].Value.ToString();
                 tbOnderwerp.Text = row.Cells["Onderwerp"].Value.ToString();
-                tbGevraagdDocent.Text = row.Cells["Volledige_Naam1"].Value.ToString();
+                tbGevraagdDocent.Text = row.Cells["Gevraagde docent"].Value.ToString();
             }
 
         }

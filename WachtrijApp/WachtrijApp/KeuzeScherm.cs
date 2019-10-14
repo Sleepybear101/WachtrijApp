@@ -30,7 +30,21 @@ namespace WachtrijApp
         }
         private void btnVraagStellen_Click(object sender, EventArgs e)
         {
-            VraagStellen vraagstellen = new VraagStellen(this);
+            SqlDbConnection con = new SqlDbConnection();
+            con.SqlQuery("SELECT COUNT(*) FROM `vragenlijst` WHERE `id_Gebruiker`=@IdUser AND `Status`= 'open'");
+            con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
+            con.QueryEx();
+
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
+
+                if (Convert.ToInt32(dr[0]) >= 1)
+                {
+                    MessageBox.Show("Je hebt al 1 vraag gestelt");
+                    return;
+                }
+            }
+                VraagStellen vraagstellen = new VraagStellen(this);
             vraagstellen.ShowDialog();
 
         }
