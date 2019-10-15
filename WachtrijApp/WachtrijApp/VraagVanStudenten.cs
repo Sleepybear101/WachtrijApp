@@ -72,7 +72,6 @@ namespace WachtrijApp
             cobGeholpenDocent.DisplayMember = "Volledige_Naam";
 
             cobGeholpenDocent.DataSource = con.QueryEx();
-
         }
 
 

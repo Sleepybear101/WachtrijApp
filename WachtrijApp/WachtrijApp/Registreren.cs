@@ -77,6 +77,7 @@ namespace WachtrijApp
         {
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
+            VolledigNaam = tbVolledigNaam.Text;
             if (WachtwoordR != Wachtwoord)
             {
                 lbl_Incorrect.Visible = true;
@@ -86,14 +87,19 @@ namespace WachtrijApp
             {
                 lbl_Incorrect.Visible = false;
             }
+            if (lbl_Incorrect.Visible || tbWachtwoord.Text.Length == 0 || tbWachtwoordRe.Text.Length == 0 || tbVolledigNaam.Text.Length == 0)
+            {
+                btnRegistreer.Enabled = false;
+            }
+            else
+            {
+                btnRegistreer.Enabled = true;
+            }
         }
         private void TbWachtwoord_TextChanged(object sender, EventArgs e)
-           {
+        {
              Incorrect();
         }
-        private void TbWachtwoordRe_TextChanged(object sender, EventArgs e)
-        {
-            Incorrect();
-        }
+
     }
 }

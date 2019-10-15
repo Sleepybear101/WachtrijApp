@@ -156,6 +156,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.cbxPersoonlijkeVraag);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "VraagStellen";
             this.Text = "Vraag stellen";
             this.ResumeLayout(false);

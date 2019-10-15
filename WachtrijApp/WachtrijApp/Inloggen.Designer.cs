@@ -40,7 +40,7 @@
             // lblVolledigNaam
             // 
             this.lblVolledigNaam.AutoSize = true;
-            this.lblVolledigNaam.Location = new System.Drawing.Point(39, 30);
+            this.lblVolledigNaam.Location = new System.Drawing.Point(10, 17);
             this.lblVolledigNaam.Name = "lblVolledigNaam";
             this.lblVolledigNaam.Size = new System.Drawing.Size(101, 17);
             this.lblVolledigNaam.TabIndex = 0;
@@ -49,7 +49,7 @@
             // lblWachtwoord
             // 
             this.lblWachtwoord.AutoSize = true;
-            this.lblWachtwoord.Location = new System.Drawing.Point(39, 63);
+            this.lblWachtwoord.Location = new System.Drawing.Point(10, 50);
             this.lblWachtwoord.Name = "lblWachtwoord";
             this.lblWachtwoord.Size = new System.Drawing.Size(90, 17);
             this.lblWachtwoord.TabIndex = 1;
@@ -58,7 +58,7 @@
             // lblRegisteren
             // 
             this.lblRegisteren.AutoSize = true;
-            this.lblRegisteren.Location = new System.Drawing.Point(39, 156);
+            this.lblRegisteren.Location = new System.Drawing.Point(10, 143);
             this.lblRegisteren.Name = "lblRegisteren";
             this.lblRegisteren.Size = new System.Drawing.Size(132, 17);
             this.lblRegisteren.TabIndex = 2;
@@ -66,14 +66,14 @@
             // 
             // tbVolledigNaam
             // 
-            this.tbVolledigNaam.Location = new System.Drawing.Point(153, 24);
+            this.tbVolledigNaam.Location = new System.Drawing.Point(124, 11);
             this.tbVolledigNaam.Name = "tbVolledigNaam";
             this.tbVolledigNaam.Size = new System.Drawing.Size(114, 22);
             this.tbVolledigNaam.TabIndex = 1;
             // 
             // tbWachtwoord
             // 
-            this.tbWachtwoord.Location = new System.Drawing.Point(153, 63);
+            this.tbWachtwoord.Location = new System.Drawing.Point(124, 50);
             this.tbWachtwoord.Name = "tbWachtwoord";
             this.tbWachtwoord.ShortcutsEnabled = false;
             this.tbWachtwoord.Size = new System.Drawing.Size(114, 22);
@@ -83,7 +83,7 @@
             // 
             // btnRegisteren
             // 
-            this.btnRegisteren.Location = new System.Drawing.Point(179, 148);
+            this.btnRegisteren.Location = new System.Drawing.Point(150, 135);
             this.btnRegisteren.Name = "btnRegisteren";
             this.btnRegisteren.Size = new System.Drawing.Size(88, 33);
             this.btnRegisteren.TabIndex = 4;
@@ -93,7 +93,7 @@
             // 
             // btnInloggen
             // 
-            this.btnInloggen.Location = new System.Drawing.Point(179, 105);
+            this.btnInloggen.Location = new System.Drawing.Point(150, 92);
             this.btnInloggen.Name = "btnInloggen";
             this.btnInloggen.Size = new System.Drawing.Size(88, 33);
             this.btnInloggen.TabIndex = 3;
@@ -105,7 +105,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(317, 199);
+            this.ClientSize = new System.Drawing.Size(247, 181);
             this.Controls.Add(this.btnInloggen);
             this.Controls.Add(this.btnRegisteren);
             this.Controls.Add(this.tbWachtwoord);
@@ -113,7 +113,9 @@
             this.Controls.Add(this.lblRegisteren);
             this.Controls.Add(this.lblWachtwoord);
             this.Controls.Add(this.lblVolledigNaam);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "Inloggen";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -160,7 +160,7 @@
             this.dtVraag.AllowUserToResizeRows = false;
             this.dtVraag.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dtVraag.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dtVraag.Location = new System.Drawing.Point(12, 1);
+            this.dtVraag.Location = new System.Drawing.Point(12, 4);
             this.dtVraag.MultiSelect = false;
             this.dtVraag.Name = "dtVraag";
             this.dtVraag.ReadOnly = true;
@@ -193,7 +193,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(922, 315);
+            this.ClientSize = new System.Drawing.Size(917, 315);
             this.Controls.Add(this.cobGeholpenDocent);
             this.Controls.Add(this.dtVraag);
             this.Controls.Add(this.tbGevraagdDocent);
@@ -209,6 +209,8 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.tbVraag);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "VraagVanStudenten";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Vraag van studenten";
