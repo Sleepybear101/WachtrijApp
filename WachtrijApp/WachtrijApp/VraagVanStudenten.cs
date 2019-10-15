@@ -27,8 +27,6 @@ namespace WachtrijApp
             rol = keuzeScherm.rol;
             id = keuzeScherm.id_user;
             GetInfo();
-
-
         }
 
         public void GetInfo()
@@ -40,7 +38,7 @@ namespace WachtrijApp
 
             if ("0" == rol)
             {
-                VoegDocent();
+                VoegGeholpenDocent();
                 con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' AND `Status`='open' ");
 
                 dtVraag.DataSource = con.QueryEx();
@@ -51,7 +49,15 @@ namespace WachtrijApp
                 con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='0'");
                 dtVraag.DataSource = con.QueryEx();
 
-
+                con.SqlQuery("SELECT student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `id_Gebruiker`=@Gebruiker AND `Status`='open' AND `Persoonlijke_Vraag`='0' OR  `id_Gebruiker`=@Gebruiker AND `Status`='open' AND `Persoonlijke_Vraag`='1'");
+                con.Cmd.Parameters.AddWithValue("@Gebruiker", id);
+                    foreach (DataRow dr in con.QueryEx().Rows)
+                    {
+                        tbVolledig_naam.Text = dr[0].ToString();
+                        tbVraag.Text = dr[1].ToString();
+                        tbOnderwerp.Text = dr[2].ToString();
+                        tbGevraagdDocent.Text = dr[3].ToString();
+                    }
                 //Wordt niet zichtbaar voor studenten
                 rtbNotities.Visible = false;
                 lbNotitie.Visible = false;
@@ -60,11 +66,11 @@ namespace WachtrijApp
                 btnArchiefOpenen.Visible = false;
                 btnOpgelost.Visible = false;
             }
-            dtVraag.Columns[0].Visible = false;
+          dtVraag.Columns[0].Visible = false;
         }
 
 
-        public void VoegDocent()
+        public void VoegGeholpenDocent()
         {
             SqlDbConnection con = new SqlDbConnection();
             con.SqlQuery("SELECT id_docent, Volledige_Naam FROM `docent`");
@@ -83,12 +89,11 @@ namespace WachtrijApp
         }
 
         private void Button1_Click(object sender, EventArgs e)
-        {
-
+        { 
             SqlDbConnection con = new SqlDbConnection();
             string status = "opgelost";
             id = cobGeholpenDocent.SelectedValue.ToString();
-            //Query voor het opgelost vraag
+            //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
             if (tbVraag.Text == "persoonlijke vraag") {
                 con.SqlQuery("DELETE FROM `vragenlijst` WHERE `id_Vraag`=@idVraag AND `Persoonlijke_Vraag`=1");
                 con.Cmd.Parameters.AddWithValue("@idVraag", vraag);

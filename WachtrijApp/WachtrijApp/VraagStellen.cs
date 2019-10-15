@@ -22,7 +22,7 @@ namespace WachtrijApp
         {
             InitializeComponent();
             id_user = keuzeScherm.id_user;
-            VoegDocent();
+            VoegGevraagdeDocent();
             EnableButton();
         }
         
@@ -87,7 +87,7 @@ namespace WachtrijApp
 
         private void btnStelVraag_Click(object sender, EventArgs e)
         {
-             SqlDbConnection con = new SqlDbConnection();
+            SqlDbConnection con = new SqlDbConnection();
 
             con.SqlQuery("SELECT COUNT(*) FROM `vragenlijst` WHERE `id_Gebruiker`=@IdUser AND `Status`= 'open'");
             con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
@@ -107,44 +107,37 @@ namespace WachtrijApp
                 persoonlijke = 0;
 ;
             }
-            
-
-            foreach (DataRow dr in con.QueryEx().Rows)
-            {
-
-                if (Convert.ToInt32(dr[0]) >= 1)
+                foreach (DataRow dr in con.QueryEx().Rows)
                 {
-                    MessageBox.Show("Je hebt al 1 vraag gestelt");
-                    this.Close();
-                }
-                else
-                {
-                    con.SqlQuery("INSERT INTO `vragenlijst` (`id_Gebruiker`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`, `Persoonlijke_Vraag`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent, @Persoonlijke)");
-                    con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
-                    con.Cmd.Parameters.AddWithValue("@vraag" ,vraag);
-                    con.Cmd.Parameters.AddWithValue("@onderwerp", onderwerp);
-                    con.Cmd.Parameters.AddWithValue("@gevraagdeDocent", idDocent);
-                    con.Cmd.Parameters.AddWithValue("@Persoonlijke", persoonlijke);
-                    con.NonQueryEx();
-                    MessageBox.Show("vraag gestelt");
-                    this.Close();
 
+                    if (Convert.ToInt32(dr[0]) >= 1)
+                    {
+                        MessageBox.Show("Je hebt al 1 vraag gestelt");
+                        this.Close();
+                    }
+                    else
+                    {
+                        con.SqlQuery("INSERT INTO `vragenlijst` (`id_Gebruiker`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`, `Persoonlijke_Vraag`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent, @Persoonlijke)");
+                        con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
+                        con.Cmd.Parameters.AddWithValue("@vraag" ,vraag);
+                        con.Cmd.Parameters.AddWithValue("@onderwerp", onderwerp);
+                        con.Cmd.Parameters.AddWithValue("@gevraagdeDocent", idDocent);
+                        con.Cmd.Parameters.AddWithValue("@Persoonlijke", persoonlijke);
+                        con.NonQueryEx();
+                        MessageBox.Show("vraag gestelt");
+                        this.Close();
+
+                    }
                 }
-            }
         }
 
-        public void VoegDocent()
+        public void VoegGevraagdeDocent()
         {
             SqlDbConnection con = new SqlDbConnection();
             con.SqlQuery("SELECT id_docent, Volledige_Naam FROM `docent`");
-          
-
-
-                cobGevraagdDocent.ValueMember = "id_docent";
-                cobGevraagdDocent.DisplayMember = "Volledige_Naam";
-         
-                cobGevraagdDocent.DataSource = con.QueryEx();
-
+               cobGevraagdDocent.ValueMember = "id_docent";
+               cobGevraagdDocent.DisplayMember = "Volledige_Naam";
+               cobGevraagdDocent.DataSource = con.QueryEx();
         }
    
 
