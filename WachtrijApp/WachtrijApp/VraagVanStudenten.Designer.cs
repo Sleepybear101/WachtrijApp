@@ -193,7 +193,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(917, 315);
+            this.ClientSize = new System.Drawing.Size(917, 301);
             this.Controls.Add(this.cobGeholpenDocent);
             this.Controls.Add(this.dtVraag);
             this.Controls.Add(this.tbGevraagdDocent);

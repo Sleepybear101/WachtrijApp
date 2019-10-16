@@ -89,7 +89,7 @@ namespace WachtrijApp
         {
             SqlDbConnection con = new SqlDbConnection();
 
-            con.SqlQuery("SELECT COUNT(*) FROM `vragenlijst` WHERE `id_Gebruiker`=@IdUser AND `Status`= 'open'");
+            con.SqlQuery("SELECT COUNT(*) FROM `vragenlijst` WHERE `id_student`=@IdUser AND `Status`= 'open'");
             con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
             con.QueryEx();
 
@@ -117,7 +117,7 @@ namespace WachtrijApp
                     }
                     else
                     {
-                        con.SqlQuery("INSERT INTO `vragenlijst` (`id_Gebruiker`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`, `Persoonlijke_Vraag`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent, @Persoonlijke)");
+                        con.SqlQuery("INSERT INTO `vragenlijst` (`id_student`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`, `Persoonlijke_Vraag`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent, @Persoonlijke)");
                         con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
                         con.Cmd.Parameters.AddWithValue("@vraag" ,vraag);
                         con.Cmd.Parameters.AddWithValue("@onderwerp", onderwerp);

@@ -63,8 +63,8 @@ namespace WachtrijApp
 
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
 
-            con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
-            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
+            con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Email_Adres`=@Email AND `Wachtwoord`=@Wachtwoord");
+            con.Cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
             con.QueryEx();
 
@@ -83,8 +83,8 @@ namespace WachtrijApp
             }
 
 
-            con.SqlQuery("SELECT `id_docent` FROM `docent` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
-            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
+            con.SqlQuery("SELECT `id_docent` FROM `docent` WHERE `Email_Adres`=@Email AND `Wachtwoord`=@Wachtwoord");
+            con.Cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
             con.QueryEx();
 
@@ -109,7 +109,7 @@ namespace WachtrijApp
                 }
             }
 
-            MessageBox.Show("Combinatie volledige naam/wachtwoord niet gevonden.", "Verkeerde invoer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show("Combinatie Email/wachtwoord niet gevonden.", "Verkeerde invoer", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 

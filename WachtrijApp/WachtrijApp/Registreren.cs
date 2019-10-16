@@ -15,6 +15,7 @@ namespace WachtrijApp
         string VolledigNaam;
         string Wachtwoord;
         string WachtwoordR;
+        string Email;
     
         string DocentCode = "234";
         public void VoegGebruiker()
@@ -25,20 +26,23 @@ namespace WachtrijApp
             VolledigNaam = tbVolledigNaam.Text;
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
+            Email = tbEmail.Text;
 
             var hPassword =  ComputeSha256Hash(Wachtwoord);
             if (tbDocentCode.Text != DocentCode || tbDocentCode.Text == null)
             {
-                con.SqlQuery("INSERT INTO `student`(`Volledige_Naam`, `Wachtwoord`) VALUES (@VolledigNaam,@Wachtwoord)");
+                con.SqlQuery("INSERT INTO `student`(`Volledige_Naam`, `Email_Adres`, `Wachtwoord`) VALUES (@VolledigNaam,@Email,@Wachtwoord)");
                 con.Cmd.Parameters.AddWithValue("@VolledigNaam", VolledigNaam);
+                con.Cmd.Parameters.AddWithValue("@Email", Email);
                 con.Cmd.Parameters.AddWithValue("@Wachtwoord", hPassword);
                       MessageBox.Show("Gelukt met opslaan ", " Students Gegevens", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else
             {
-                con.SqlQuery("INSERT INTO `docent`(`Volledige_Naam`, `Wachtwoord`) VALUES (@VolledigNaam,@Wachtwoord)");
+                con.SqlQuery("INSERT INTO `docent`(`Volledige_Naam`, `Email_Adres`, `Wachtwoord`) VALUES (@VolledigNaam,@Email,@Wachtwoord)");
                 con.Cmd.Parameters.AddWithValue("@VolledigNaam", VolledigNaam);
+                con.Cmd.Parameters.AddWithValue("@Email", Email);
                 con.Cmd.Parameters.AddWithValue("@Wachtwoord", hPassword);
                 MessageBox.Show("Gelukt met opslaan ", "docent Gegevens", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -69,15 +73,15 @@ namespace WachtrijApp
         private void btnRegistreer_Click(object sender, EventArgs e)
         {
             SqlDbConnection con = new SqlDbConnection();
-            con.SqlQuery("SELECT * FROM `student` WHERE `Volledige_Naam`=@VolledigNaam");
-            con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
+            con.SqlQuery("SELECT * FROM `student` WHERE `Email_Adres`=@Email");
+            con.Cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
             var result = con.QueryEx();
             foreach (DataRow dr in con.QueryEx().Rows)
             {
 
                 if (Convert.ToInt32(dr[0]) >= 1)
                 {
-                    MessageBox.Show("Volledige naam word al gebruikt");
+                    MessageBox.Show("E-mail is al in het systeem");
                     return;
                 }
             }           

@@ -33,13 +33,13 @@ namespace WachtrijApp
             {
                 SqlDbConnection con = new SqlDbConnection();
 
-                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam AS 'Naam student', `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Geholpen docent`, `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN docent ON vragenlijst.Geholpen_Docent=docent.id_docent WHERE `Status`='opgelost'");
+                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam AS 'Naam student', `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Geholpen docent`, `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Geholpen_Docent=docent.id_docent WHERE `Status`='opgelost'");
                 dtArchief.DataSource = con.QueryEx();
                 dtArchief.Columns[0].Visible = false;
             }
             else
             {
-                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam AS 'Naam student', `Vraag`, `Onderwerp`, docent.Volledige_Naam AS 'geholpen docent', `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_Gebruiker=student.id_student INNER JOIN `docent` ON vragenlijst.Geholpen_Docent=docent.id_docent WHERE `Status`='opgelost' AND `Geholpen_Docent`= @GeholpenDocent");
+                con.SqlQuery("SELECT`id_Vraag`, student.Volledige_Naam AS 'Naam student', `Vraag`, `Onderwerp`, docent.Volledige_Naam AS 'geholpen docent', `Notities` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN `docent` ON vragenlijst.Geholpen_Docent=docent.id_docent WHERE `Status`='opgelost' AND `Geholpen_Docent`= @GeholpenDocent");
                 con.Cmd.Parameters.AddWithValue("@GeholpenDocent", IUser);
                 dtArchief.DataSource = con.QueryEx();
                 dtArchief.Columns[0].Visible = false;

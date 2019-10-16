@@ -31,7 +31,7 @@
             this.lblVolledigNaam = new System.Windows.Forms.Label();
             this.lblWachtwoord = new System.Windows.Forms.Label();
             this.lblRegisteren = new System.Windows.Forms.Label();
-            this.tbVolledigNaam = new System.Windows.Forms.TextBox();
+            this.tbEmail = new System.Windows.Forms.TextBox();
             this.tbWachtwoord = new System.Windows.Forms.TextBox();
             this.btnRegisteren = new System.Windows.Forms.Button();
             this.btnInloggen = new System.Windows.Forms.Button();
@@ -42,9 +42,9 @@
             this.lblVolledigNaam.AutoSize = true;
             this.lblVolledigNaam.Location = new System.Drawing.Point(10, 17);
             this.lblVolledigNaam.Name = "lblVolledigNaam";
-            this.lblVolledigNaam.Size = new System.Drawing.Size(101, 17);
+            this.lblVolledigNaam.Size = new System.Drawing.Size(51, 17);
             this.lblVolledigNaam.TabIndex = 0;
-            this.lblVolledigNaam.Text = "Volledig naam:";
+            this.lblVolledigNaam.Text = "E-mail:";
             // 
             // lblWachtwoord
             // 
@@ -64,12 +64,12 @@
             this.lblRegisteren.TabIndex = 2;
             this.lblRegisteren.Text = "Nog geen account?";
             // 
-            // tbVolledigNaam
+            // tbEmail
             // 
-            this.tbVolledigNaam.Location = new System.Drawing.Point(124, 11);
-            this.tbVolledigNaam.Name = "tbVolledigNaam";
-            this.tbVolledigNaam.Size = new System.Drawing.Size(114, 22);
-            this.tbVolledigNaam.TabIndex = 1;
+            this.tbEmail.Location = new System.Drawing.Point(124, 11);
+            this.tbEmail.Name = "tbEmail";
+            this.tbEmail.Size = new System.Drawing.Size(114, 22);
+            this.tbEmail.TabIndex = 1;
             // 
             // tbWachtwoord
             // 
@@ -109,7 +109,7 @@
             this.Controls.Add(this.btnInloggen);
             this.Controls.Add(this.btnRegisteren);
             this.Controls.Add(this.tbWachtwoord);
-            this.Controls.Add(this.tbVolledigNaam);
+            this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.lblRegisteren);
             this.Controls.Add(this.lblWachtwoord);
             this.Controls.Add(this.lblVolledigNaam);
@@ -130,7 +130,7 @@
         private System.Windows.Forms.Label lblVolledigNaam;
         private System.Windows.Forms.Label lblWachtwoord;
         private System.Windows.Forms.Label lblRegisteren;
-        private System.Windows.Forms.TextBox tbVolledigNaam;
+        private System.Windows.Forms.TextBox tbEmail;
         private System.Windows.Forms.TextBox tbWachtwoord;
         private System.Windows.Forms.Button btnRegisteren;
         private System.Windows.Forms.Button btnInloggen;

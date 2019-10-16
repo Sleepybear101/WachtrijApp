@@ -31,7 +31,7 @@ namespace WachtrijApp
         private void btnVraagStellen_Click(object sender, EventArgs e)
         {
             SqlDbConnection con = new SqlDbConnection();
-            con.SqlQuery("SELECT COUNT(*) FROM `vragenlijst` WHERE `id_Gebruiker`=@IdUser AND `Status`= 'open'");
+            con.SqlQuery("SELECT COUNT(*) FROM `vragenlijst` WHERE `id_student`=@IdUser AND `Status`= 'open'");
             con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
             con.QueryEx();
 
