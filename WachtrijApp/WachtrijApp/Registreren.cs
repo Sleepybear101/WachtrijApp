@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -44,6 +45,7 @@ namespace WachtrijApp
             }
        
          con.NonQueryEx();
+            this.Close();
         }
 
         static string ComputeSha256Hash(string rawData)
@@ -69,9 +71,17 @@ namespace WachtrijApp
             SqlDbConnection con = new SqlDbConnection();
             con.SqlQuery("SELECT * FROM `student` WHERE `Volledige_Naam`=@VolledigNaam");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
-            con.QueryEx();
-            VoegGebruiker();
+            var result = con.QueryEx();
+            foreach (DataRow dr in con.QueryEx().Rows)
+            {
 
+                if (Convert.ToInt32(dr[0]) >= 1)
+                {
+                    MessageBox.Show("Volledige naam word al gebruikt");
+                    return;
+                }
+            }           
+            VoegGebruiker();
         }
         public void Incorrect()
         {
