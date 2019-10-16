@@ -34,7 +34,7 @@ namespace WachtrijApp
             //datagridview wordt gerefresht
             dtVraag.Refresh();
             tbOnderwerp.ReadOnly = true;
-            tbVraag.ReadOnly = true;
+            rtbVraag.ReadOnly = true;
             con = new SqlDbConnection();
 
             if ("0" == rol)
@@ -58,7 +58,7 @@ namespace WachtrijApp
                     foreach (DataRow dr in con.QueryEx().Rows)
                     {
                         tbVolledig_naam.Text = dr[0].ToString();
-                        tbVraag.Text = dr[1].ToString();
+                        rtbVraag.Text = dr[1].ToString();
                         tbOnderwerp.Text = dr[2].ToString();
                         tbGevraagdDocent.Text = dr[3].ToString();
                     }
@@ -101,7 +101,7 @@ namespace WachtrijApp
             string status = "opgelost";
             id = cobGeholpenDocent.SelectedValue.ToString();
             //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
-            if (tbVraag.Text == "persoonlijke vraag") {
+            if (rtbVraag.Text == "persoonlijke vraag") {
                 con.SqlQuery("DELETE FROM `vragenlijst` WHERE `id_Vraag`=@idVraag AND `Persoonlijke_Vraag`=1");
                 con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
                 con.NonQueryEx();
@@ -129,7 +129,7 @@ namespace WachtrijApp
 
                 vraag = row.Cells["id_Vraag"].Value.ToString();
                 tbVolledig_naam.Text = row.Cells["Naam student"].Value.ToString();
-                tbVraag.Text = row.Cells["Vraag"].Value.ToString();
+                rtbVraag.Text = row.Cells["Vraag"].Value.ToString();
                 tbOnderwerp.Text = row.Cells["Onderwerp"].Value.ToString();
                 tbGevraagdDocent.Text = row.Cells["Gevraagde docent"].Value.ToString();
             }

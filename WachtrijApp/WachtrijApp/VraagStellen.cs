@@ -89,47 +89,33 @@ namespace WachtrijApp
         {
             SqlDbConnection con = new SqlDbConnection();
 
-            con.SqlQuery("SELECT COUNT(*) FROM `vragenlijst` WHERE `id_student`=@IdUser AND `Status`= 'open'");
-            con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
-            con.QueryEx();
-
-            if(cbxPersoonlijkeVraag.Checked == true)
+            if (cbxPersoonlijkeVraag.Checked == true)
             {
                 vraag = "persoonlijke vraag";
                 idDocent = cobGevraagdDocent.SelectedValue.ToString();
                 persoonlijke = 1;
             }
-            else 
+            else
             {
                 vraag = tbVraag.Text;
                 onderwerp = tbOnderwerp.Text;
                 idDocent = cobGevraagdDocent.SelectedValue.ToString();
                 persoonlijke = 0;
-;
+                ;
             }
-                foreach (DataRow dr in con.QueryEx().Rows)
-                {
 
-                    if (Convert.ToInt32(dr[0]) >= 1)
-                    {
-                        MessageBox.Show("Je hebt al 1 vraag gestelt");
-                        this.Close();
-                    }
-                    else
-                    {
-                        con.SqlQuery("INSERT INTO `vragenlijst` (`id_student`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`, `Persoonlijke_Vraag`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent, @Persoonlijke)");
-                        con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
-                        con.Cmd.Parameters.AddWithValue("@vraag" ,vraag);
-                        con.Cmd.Parameters.AddWithValue("@onderwerp", onderwerp);
-                        con.Cmd.Parameters.AddWithValue("@gevraagdeDocent", idDocent);
-                        con.Cmd.Parameters.AddWithValue("@Persoonlijke", persoonlijke);
-                        con.NonQueryEx();
-                        MessageBox.Show("vraag gestelt");
-                        this.Close();
+            con.SqlQuery("INSERT INTO `vragenlijst` (`id_students`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`, `Persoonlijke_Vraag`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent, @Persoonlijke)");
+            con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
+            con.Cmd.Parameters.AddWithValue("@vraag", vraag);
+            con.Cmd.Parameters.AddWithValue("@onderwerp", onderwerp);
+            con.Cmd.Parameters.AddWithValue("@gevraagdeDocent", idDocent);
+            con.Cmd.Parameters.AddWithValue("@Persoonlijke", persoonlijke);
+            con.NonQueryEx();
+            MessageBox.Show("vraag gestelt");
+            this.Close();
 
-                    }
-                }
         }
+
 
         public void VoegGevraagdeDocent()
         {

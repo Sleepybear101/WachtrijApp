@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.tbVraag = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnOpgelost = new System.Windows.Forms.Button();
@@ -43,6 +42,7 @@
             this.dtVraag = new System.Windows.Forms.DataGridView();
             this.tbGevraagdDocent = new System.Windows.Forms.TextBox();
             this.cobGeholpenDocent = new System.Windows.Forms.ComboBox();
+            this.rtbVraag = new System.Windows.Forms.RichTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtVraag)).BeginInit();
             this.SuspendLayout();
             // 
@@ -55,17 +55,10 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Vraag";
             // 
-            // tbVraag
-            // 
-            this.tbVraag.Location = new System.Drawing.Point(769, 51);
-            this.tbVraag.Name = "tbVraag";
-            this.tbVraag.Size = new System.Drawing.Size(143, 22);
-            this.tbVraag.TabIndex = 2;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(629, 84);
+            this.label2.Location = new System.Drawing.Point(630, 103);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(82, 17);
             this.label2.TabIndex = 3;
@@ -74,7 +67,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(629, 112);
+            this.label3.Location = new System.Drawing.Point(629, 133);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 17);
             this.label3.TabIndex = 4;
@@ -82,7 +75,7 @@
             // 
             // btnOpgelost
             // 
-            this.btnOpgelost.Location = new System.Drawing.Point(824, 258);
+            this.btnOpgelost.Location = new System.Drawing.Point(817, 263);
             this.btnOpgelost.Name = "btnOpgelost";
             this.btnOpgelost.Size = new System.Drawing.Size(88, 33);
             this.btnOpgelost.TabIndex = 5;
@@ -92,7 +85,7 @@
             // 
             // btnArchiefOpenen
             // 
-            this.btnArchiefOpenen.Location = new System.Drawing.Point(633, 258);
+            this.btnArchiefOpenen.Location = new System.Drawing.Point(631, 263);
             this.btnArchiefOpenen.Name = "btnArchiefOpenen";
             this.btnArchiefOpenen.Size = new System.Drawing.Size(128, 31);
             this.btnArchiefOpenen.TabIndex = 6;
@@ -102,7 +95,7 @@
             // 
             // tbOnderwerp
             // 
-            this.tbOnderwerp.Location = new System.Drawing.Point(769, 79);
+            this.tbOnderwerp.Location = new System.Drawing.Point(769, 100);
             this.tbOnderwerp.Name = "tbOnderwerp";
             this.tbOnderwerp.Size = new System.Drawing.Size(143, 22);
             this.tbOnderwerp.TabIndex = 7;
@@ -110,7 +103,7 @@
             // lbGeholpenDoor
             // 
             this.lbGeholpenDoor.AutoSize = true;
-            this.lbGeholpenDoor.Location = new System.Drawing.Point(629, 141);
+            this.lbGeholpenDoor.Location = new System.Drawing.Point(629, 159);
             this.lbGeholpenDoor.Name = "lbGeholpenDoor";
             this.lbGeholpenDoor.Size = new System.Drawing.Size(107, 17);
             this.lbGeholpenDoor.TabIndex = 9;
@@ -119,7 +112,7 @@
             // lbNotitie
             // 
             this.lbNotitie.AutoSize = true;
-            this.lbNotitie.Location = new System.Drawing.Point(629, 173);
+            this.lbNotitie.Location = new System.Drawing.Point(630, 178);
             this.lbNotitie.Name = "lbNotitie";
             this.lbNotitie.Size = new System.Drawing.Size(52, 17);
             this.lbNotitie.TabIndex = 11;
@@ -127,7 +120,7 @@
             // 
             // rtbNotities
             // 
-            this.rtbNotities.Location = new System.Drawing.Point(698, 173);
+            this.rtbNotities.Location = new System.Drawing.Point(698, 189);
             this.rtbNotities.Name = "rtbNotities";
             this.rtbNotities.Size = new System.Drawing.Size(214, 68);
             this.rtbNotities.TabIndex = 12;
@@ -173,7 +166,7 @@
             // tbGevraagdDocent
             // 
             this.tbGevraagdDocent.Enabled = false;
-            this.tbGevraagdDocent.Location = new System.Drawing.Point(769, 107);
+            this.tbGevraagdDocent.Location = new System.Drawing.Point(769, 128);
             this.tbGevraagdDocent.Name = "tbGevraagdDocent";
             this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
             this.tbGevraagdDocent.TabIndex = 15;
@@ -181,10 +174,18 @@
             // cobGeholpenDocent
             // 
             this.cobGeholpenDocent.FormattingEnabled = true;
-            this.cobGeholpenDocent.Location = new System.Drawing.Point(769, 141);
+            this.cobGeholpenDocent.Location = new System.Drawing.Point(769, 159);
             this.cobGeholpenDocent.Name = "cobGeholpenDocent";
             this.cobGeholpenDocent.Size = new System.Drawing.Size(141, 24);
             this.cobGeholpenDocent.TabIndex = 17;
+            // 
+            // rtbVraag
+            // 
+            this.rtbVraag.Location = new System.Drawing.Point(769, 49);
+            this.rtbVraag.Name = "rtbVraag";
+            this.rtbVraag.Size = new System.Drawing.Size(143, 45);
+            this.rtbVraag.TabIndex = 18;
+            this.rtbVraag.Text = "";
             // 
             // VraagVanStudenten
             // 
@@ -192,6 +193,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(917, 301);
+            this.Controls.Add(this.rtbVraag);
             this.Controls.Add(this.cobGeholpenDocent);
             this.Controls.Add(this.dtVraag);
             this.Controls.Add(this.tbGevraagdDocent);
@@ -205,7 +207,6 @@
             this.Controls.Add(this.btnOpgelost);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tbVraag);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MaximizeBox = false;
@@ -221,7 +222,6 @@
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox tbVraag;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnOpgelost;
@@ -235,5 +235,6 @@
         private System.Windows.Forms.DataGridView dtVraag;
         private System.Windows.Forms.TextBox tbGevraagdDocent;
         private System.Windows.Forms.ComboBox cobGeholpenDocent;
+        private System.Windows.Forms.RichTextBox rtbVraag;
     }
 }
