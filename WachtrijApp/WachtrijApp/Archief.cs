@@ -29,7 +29,7 @@ namespace WachtrijApp
             dtArchief.Refresh();
             con = new SqlDbConnection();
 
-            if(cbxAlleDocenten.Checked == true)
+            if (cbxAlleDocenten.Checked == true)
             {
                 SqlDbConnection con = new SqlDbConnection();
 
@@ -57,7 +57,7 @@ namespace WachtrijApp
             GetInfo();
         }
 
-     
+
         private void CbxAlleDocenten_CheckedChanged(object sender, EventArgs e)
         {
             GetInfo();
@@ -72,14 +72,7 @@ namespace WachtrijApp
             {
                 vraag = row.Cells["id_Vraag"].Value.ToString();
                 textBox1.Text = row.Cells["Notities"].Value.ToString();
-                 
-               
             }
-        }
-
-        private void Archief_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }
