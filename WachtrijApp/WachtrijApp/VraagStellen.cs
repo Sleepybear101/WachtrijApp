@@ -26,30 +26,6 @@ namespace WachtrijApp
             EnableButton();
         }
         
-
-
-        private void cbxPersoonlijkeVraag_CheckedChanged(object sender, EventArgs e)
-        {
-            if (cbxPersoonlijkeVraag.Checked)
-            {
-                tbVraag.Enabled = false;
-                tbOnderwerp.Enabled = false;
-                cbxGegoogled.Enabled = false;
-                cbxAnderegesteld.Enabled = false;
-                btnStelVraag.Enabled = true;
-
-
-            }
-            if (!cbxPersoonlijkeVraag.Checked)
-            {
-                tbVraag.Enabled = false;
-                tbOnderwerp.Enabled = true;
-                cbxGegoogled.Enabled = true;
-                cbxAnderegesteld.Enabled = true;
-                btnStelVraag.Enabled = true;
-
-            }
-        }
         public void EnableButton()
         {
             if (cbxPersoonlijkeVraag.Checked)

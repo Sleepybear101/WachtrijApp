@@ -50,7 +50,6 @@
             this.cbxPersoonlijkeVraag.Text = "Persoonlijke vraag";
             this.cbxPersoonlijkeVraag.UseVisualStyleBackColor = true;
             this.cbxPersoonlijkeVraag.CheckStateChanged += new System.EventHandler(this.InputChanged);
-            this.cbxPersoonlijkeVraag.TextChanged += new System.EventHandler(this.InputChanged);
             // 
             // label1
             // 
@@ -89,7 +88,6 @@
             this.cbxGegoogled.Text = "Ik heb mijn vraag gegoogled";
             this.cbxGegoogled.UseVisualStyleBackColor = true;
             this.cbxGegoogled.CheckedChanged += new System.EventHandler(this.InputChanged);
-            this.cbxGegoogled.TextChanged += new System.EventHandler(this.InputChanged);
             // 
             // cbxAnderegesteld
             // 
@@ -101,7 +99,6 @@
             this.cbxAnderegesteld.Text = "Ik heb mijn vraag aan andere studenten gesteld";
             this.cbxAnderegesteld.UseVisualStyleBackColor = true;
             this.cbxAnderegesteld.CheckedChanged += new System.EventHandler(this.InputChanged);
-            this.cbxAnderegesteld.TextChanged += new System.EventHandler(this.InputChanged);
             // 
             // btnStelVraag
             // 

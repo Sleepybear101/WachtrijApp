@@ -95,7 +95,7 @@
             this.tbVolledigNaam.Name = "tbVolledigNaam";
             this.tbVolledigNaam.Size = new System.Drawing.Size(100, 22);
             this.tbVolledigNaam.TabIndex = 2;
-            this.tbVolledigNaam.TextChanged += new System.EventHandler(this.TbWachtwoord_TextChanged);
+            this.tbVolledigNaam.TextChanged += new System.EventHandler(this.Incorrect);
             // 
             // tbWachtwoord
             // 
@@ -104,7 +104,7 @@
             this.tbWachtwoord.Size = new System.Drawing.Size(100, 22);
             this.tbWachtwoord.TabIndex = 3;
             this.tbWachtwoord.UseSystemPasswordChar = true;
-            this.tbWachtwoord.TextChanged += new System.EventHandler(this.TbWachtwoord_TextChanged);
+            this.tbWachtwoord.TextChanged += new System.EventHandler(this.Incorrect);
             // 
             // tbWachtwoordRe
             // 
@@ -113,7 +113,7 @@
             this.tbWachtwoordRe.Size = new System.Drawing.Size(100, 22);
             this.tbWachtwoordRe.TabIndex = 4;
             this.tbWachtwoordRe.UseSystemPasswordChar = true;
-            this.tbWachtwoordRe.TextChanged += new System.EventHandler(this.TbWachtwoord_TextChanged);
+            this.tbWachtwoordRe.TextChanged += new System.EventHandler(this.Incorrect);
             // 
             // tbDocentCode
             // 
@@ -150,6 +150,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(100, 22);
             this.tbEmail.TabIndex = 1;
+            this.tbEmail.TextChanged += new System.EventHandler(this.Incorrect);
             // 
             // label1
             // 

@@ -16,7 +16,6 @@ namespace WachtrijApp
         public string rol;
         public KeuzeScherm(Inloggen inloggen)
         {
-
             id_user = inloggen.id_user;
             rol = inloggen.rol;
             InitializeComponent();
@@ -25,7 +24,6 @@ namespace WachtrijApp
             {
                 VraagVanStudenten vraagVanStudenten = new VraagVanStudenten(this);
                 vraagVanStudenten.ShowDialog();
-
             }
         }
         private void btnVraagStellen_Click(object sender, EventArgs e)
@@ -37,7 +35,6 @@ namespace WachtrijApp
 
             foreach (DataRow dr in con.QueryEx().Rows)
             {
-
                 if (Convert.ToInt32(dr[0]) >= 1)
                 {
                     MessageBox.Show("Je hebt al 1 vraag gestelt");
@@ -46,7 +43,6 @@ namespace WachtrijApp
             }
            VraagStellen vraagstellen = new VraagStellen(this);
            vraagstellen.ShowDialog();
-
         }
         
         private void btnVraagbekijken_Click(object sender, EventArgs e)

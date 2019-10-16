@@ -16,8 +16,8 @@ namespace WachtrijApp
         string Wachtwoord;
         string WachtwoordR;
         string Email;
-    
         string DocentCode = "234";
+
         public void VoegGebruiker()
         {
             SqlDbConnection con = new SqlDbConnection();
@@ -87,7 +87,7 @@ namespace WachtrijApp
             }           
             VoegGebruiker();
         }
-        public void Incorrect()
+        public void Incorrect(object sender, EventArgs e)
         {
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
@@ -101,7 +101,7 @@ namespace WachtrijApp
             {
                 lbl_Incorrect.Visible = false;
             }
-            if (lbl_Incorrect.Visible || tbWachtwoord.Text.Length == 0 || tbWachtwoordRe.Text.Length == 0 || tbVolledigNaam.Text.Length == 0)
+            if (lbl_Incorrect.Visible || tbWachtwoord.Text.Length == 0 || tbWachtwoordRe.Text.Length == 0 || tbVolledigNaam.Text.Length == 0|| tbEmail.Text.Length == 0)
             {
                 btnRegistreer.Enabled = false;
             }
@@ -110,10 +110,5 @@ namespace WachtrijApp
                 btnRegistreer.Enabled = true;
             }
         }
-        private void TbWachtwoord_TextChanged(object sender, EventArgs e)
-        {
-             Incorrect();
-        }
-
     }
 }

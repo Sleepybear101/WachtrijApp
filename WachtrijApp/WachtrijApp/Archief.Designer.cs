@@ -102,7 +102,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Name = "Archief";
             this.Text = "Archief";
-            this.Load += new System.EventHandler(this.Archief_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dtArchief)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

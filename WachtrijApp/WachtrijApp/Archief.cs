@@ -44,7 +44,6 @@ namespace WachtrijApp
                 dtArchief.DataSource = con.QueryEx();
                 dtArchief.Columns[0].Visible = false;
             }
-
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -57,12 +56,10 @@ namespace WachtrijApp
             GetInfo();
         }
 
-
         private void CbxAlleDocenten_CheckedChanged(object sender, EventArgs e)
         {
             GetInfo();
         }
-
 
         private void DtArchief_CellClick(object sender, DataGridViewCellEventArgs e)
         {

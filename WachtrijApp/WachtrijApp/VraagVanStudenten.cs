@@ -20,7 +20,6 @@ namespace WachtrijApp
         public string id;
         public string rol;
 
-
         public VraagVanStudenten(KeuzeScherm keuzeScherm)
         {
             InitializeComponent();
@@ -75,7 +74,6 @@ namespace WachtrijApp
           dtVraag.Columns[0].Visible = false;
         }
 
-
         public void VoegGeholpenDocent()
         {
             SqlDbConnection con = new SqlDbConnection();
@@ -86,7 +84,6 @@ namespace WachtrijApp
 
             cobGeholpenDocent.DataSource = con.QueryEx();
         }
-
 
         private void Button2_Click(object sender, EventArgs e)
         {
@@ -119,25 +116,19 @@ namespace WachtrijApp
             vraag = null;
         }
 
-
-
         private void DtVraag_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0)
             {
                 //Haalt de geselecteerde rij gegevens op van de datagridview
                 DataGridViewRow row = dtVraag.Rows[e.RowIndex];
-
                 vraag = row.Cells["id_Vraag"].Value.ToString();
                 tbVolledig_naam.Text = row.Cells["Naam student"].Value.ToString();
                 rtbVraag.Text = row.Cells["Vraag"].Value.ToString();
                 tbOnderwerp.Text = row.Cells["Onderwerp"].Value.ToString();
                 tbGevraagdDocent.Text = row.Cells["Gevraagde docent"].Value.ToString();
             }
-
         }
-
-
 
         private void VraagVanStudenten_FormClosed(object sender, FormClosedEventArgs e)
         {
