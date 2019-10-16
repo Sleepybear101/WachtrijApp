@@ -33,10 +33,12 @@ namespace WachtrijApp
         {
             //datagridview wordt gerefresht
             dtVraag.Refresh();
-
+            tbOnderwerp.ReadOnly = true;
+            tbVraag.ReadOnly = true;
             con = new SqlDbConnection();
 
             if ("0" == rol)
+
             {
                 VoegGeholpenDocent();
                 con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' AND `Status`='open' ");
@@ -69,7 +71,7 @@ namespace WachtrijApp
                     btnArchiefOpenen.Visible = false;
                     btnOpgelost.Visible = false;
                 }
-            
+
           dtVraag.Columns[0].Visible = false;
         }
 
@@ -77,6 +79,7 @@ namespace WachtrijApp
         public void VoegGeholpenDocent()
         {
             SqlDbConnection con = new SqlDbConnection();
+            //vult de com
             con.SqlQuery("SELECT id_docent, Volledige_Naam FROM `docent`");
             cobGeholpenDocent.ValueMember = "id_docent";
             cobGeholpenDocent.DisplayMember = "Volledige_Naam";
@@ -93,7 +96,7 @@ namespace WachtrijApp
         }
 
         private void Button1_Click(object sender, EventArgs e)
-        { 
+        {
             SqlDbConnection con = new SqlDbConnection();
             string status = "opgelost";
             id = cobGeholpenDocent.SelectedValue.ToString();

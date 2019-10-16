@@ -60,7 +60,7 @@ namespace WachtrijApp
         void inloggen()
         {
             SqlDbConnection con = new SqlDbConnection();
-
+            // hash de ingevoerd wachtwoord
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
 
             con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Email_Adres`=@Email AND `Wachtwoord`=@Wachtwoord");
