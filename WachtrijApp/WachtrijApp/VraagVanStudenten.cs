@@ -116,6 +116,7 @@ namespace WachtrijApp
                 con.NonQueryEx();
             }
             GetInfo();
+            vraag = null;
         }
 
 

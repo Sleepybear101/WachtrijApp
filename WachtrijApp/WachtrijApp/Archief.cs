@@ -76,5 +76,10 @@ namespace WachtrijApp
                
             }
         }
+
+        private void Archief_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
