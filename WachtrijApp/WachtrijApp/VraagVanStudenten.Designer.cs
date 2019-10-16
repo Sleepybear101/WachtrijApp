@@ -57,7 +57,6 @@
             // 
             // tbVraag
             // 
-            this.tbVraag.Enabled = false;
             this.tbVraag.Location = new System.Drawing.Point(769, 51);
             this.tbVraag.Name = "tbVraag";
             this.tbVraag.Size = new System.Drawing.Size(143, 22);
@@ -103,7 +102,6 @@
             // 
             // tbOnderwerp
             // 
-            this.tbOnderwerp.Enabled = false;
             this.tbOnderwerp.Location = new System.Drawing.Point(769, 79);
             this.tbOnderwerp.Name = "tbOnderwerp";
             this.tbOnderwerp.Size = new System.Drawing.Size(143, 22);

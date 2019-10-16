@@ -60,9 +60,9 @@ namespace WachtrijApp
         void inloggen()
         {
             SqlDbConnection con = new SqlDbConnection();
-
+            // hash de ingevoerd wachtwoord
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
-
+            //Controleert of de persoon een student
             con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
@@ -81,8 +81,7 @@ namespace WachtrijApp
                 }
 
             }
-
-
+            //Controleert of de persoon een docent is
             con.SqlQuery("SELECT `id_docent` FROM `docent` WHERE `Volledige_Naam`=@VolledigNaam AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@VolledigNaam", tbVolledigNaam.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
