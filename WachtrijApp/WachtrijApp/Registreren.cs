@@ -31,6 +31,7 @@ namespace WachtrijApp
             
             try
             {
+                var eMailValidator = new MailAddress(Email);
             }
             catch (FormatException ex)
             {
