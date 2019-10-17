@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Net;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
@@ -97,7 +98,34 @@ namespace WachtrijApp
                 }
             }           
             VoegGebruiker();
+            sendMail(VolledigNaam);
         }
+        public void sendMail(string VolledigNaam)
+        {
+
+            MailMessage mailMessage = new MailMessage("testersmailbloem1@gmail.com",tbEmail.Text); 
+            mailMessage.Subject = "Je bent ingeschreven";
+            mailMessage.Body = "Beste "+VolledigNaam+", \n \nJe account is aangemaakt, je kunt nu gebruikmaken van je account.\n \nFijn weekend ";
+
+            SmtpClient smtpClient = new SmtpClient();
+            //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.EnableSsl = true;
+            smtpClient.Host = "smtp.gmail.com";
+            smtpClient.Port = 587;
+
+            smtpClient.Credentials = new System.Net.NetworkCredential()
+            {
+                UserName = "testersmailbloem1@gmail.com",
+                Password = "1234test@"
+            };
+            //smtpClient.UseDefaultCredentials = false;
+            smtpClient.Send(mailMessage);
+            MessageBox.Show("Mail delivered successfully!!!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    
+         
+
+        }
+
         public void Incorrect(object sender, EventArgs e)
         {
             Wachtwoord = tbWachtwoord.Text;
