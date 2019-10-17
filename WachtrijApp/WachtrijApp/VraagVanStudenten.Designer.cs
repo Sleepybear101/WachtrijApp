@@ -44,6 +44,7 @@
             this.tbGevraagdDocent = new System.Windows.Forms.TextBox();
             this.cobGeholpenDocent = new System.Windows.Forms.ComboBox();
             this.rtbVraag = new System.Windows.Forms.RichTextBox();
+            this.btnLijst_vernieuw = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtVraag)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             // 
             // btnOpgelost
             // 
-            this.btnOpgelost.Location = new System.Drawing.Point(822, 358);
+            this.btnOpgelost.Location = new System.Drawing.Point(822, 361);
             this.btnOpgelost.Name = "btnOpgelost";
             this.btnOpgelost.Size = new System.Drawing.Size(88, 33);
             this.btnOpgelost.TabIndex = 5;
@@ -86,11 +87,11 @@
             // 
             // btnArchiefOpenen
             // 
-            this.btnArchiefOpenen.Location = new System.Drawing.Point(636, 358);
+            this.btnArchiefOpenen.Location = new System.Drawing.Point(622, 361);
             this.btnArchiefOpenen.Name = "btnArchiefOpenen";
-            this.btnArchiefOpenen.Size = new System.Drawing.Size(128, 31);
+            this.btnArchiefOpenen.Size = new System.Drawing.Size(80, 33);
             this.btnArchiefOpenen.TabIndex = 6;
-            this.btnArchiefOpenen.Text = "Archief openen";
+            this.btnArchiefOpenen.Text = "Archief ";
             this.btnArchiefOpenen.UseVisualStyleBackColor = true;
             this.btnArchiefOpenen.Click += new System.EventHandler(this.btnArchief_Click);
             // 
@@ -188,12 +189,23 @@
             this.rtbVraag.TabIndex = 18;
             this.rtbVraag.Text = "";
             // 
+            // btnLijst_vernieuw
+            // 
+            this.btnLijst_vernieuw.Location = new System.Drawing.Point(708, 361);
+            this.btnLijst_vernieuw.Name = "btnLijst_vernieuw";
+            this.btnLijst_vernieuw.Size = new System.Drawing.Size(108, 33);
+            this.btnLijst_vernieuw.TabIndex = 19;
+            this.btnLijst_vernieuw.Text = "Lijst vernieuw";
+            this.btnLijst_vernieuw.UseVisualStyleBackColor = true;
+            this.btnLijst_vernieuw.Click += new System.EventHandler(this.btnLijst_vernieuw_Click);
+            // 
             // VraagVanStudenten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(926, 404);
+            this.Controls.Add(this.btnLijst_vernieuw);
             this.Controls.Add(this.rtbVraag);
             this.Controls.Add(this.cobGeholpenDocent);
             this.Controls.Add(this.dtVraag);
@@ -238,5 +250,6 @@
         private System.Windows.Forms.TextBox tbGevraagdDocent;
         private System.Windows.Forms.ComboBox cobGeholpenDocent;
         private System.Windows.Forms.RichTextBox rtbVraag;
+        private System.Windows.Forms.Button btnLijst_vernieuw;
     }
 }

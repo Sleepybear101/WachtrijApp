@@ -58,7 +58,7 @@ namespace WachtrijApp
                         tbOnderwerp.Text = dr[2].ToString();
                         tbGevraagdDocent.Text = dr[3].ToString();
                     }
-                }           
+                }
                 dtVraag.DataSource = con.QueryEx();
 
                     //Wordt niet zichtbaar voor studenten
@@ -69,20 +69,8 @@ namespace WachtrijApp
                     btnArchiefOpenen.Visible = false;
                     btnOpgelost.Visible = false;
                 }
-
           dtVraag.Columns[0].Visible = false;
         }
-
-        public void VoegGeholpenDocent()
-        {
-            //vult de com
-            con.SqlQuery("SELECT id_docent, Volledige_Naam FROM `docent`");
-            cobGeholpenDocent.ValueMember = "id_docent";
-            cobGeholpenDocent.DisplayMember = "Volledige_Naam";
-
-            cobGeholpenDocent.DataSource = con.QueryEx();
-        }
-
         private void btnArchief_Click(object sender, EventArgs e)
         {
             // Archief wordt geopend
@@ -116,7 +104,7 @@ namespace WachtrijApp
         private void btnOpgelost_Click(object sender, EventArgs e)
         {
             string status = "opgelost";
-           string  idGeholpenDocent = cobGeholpenDocent.SelectedValue.ToString();
+            string idGeholpenDocent = id;
             //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
             if (rtbVraag.Text == "persoonlijke vraag")
             {
@@ -133,9 +121,14 @@ namespace WachtrijApp
                 con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
                 con.NonQueryEx();
             }
-            
+
             GetInfo();
             vraag = null;
+        }
+
+        private void btnLijst_vernieuw_Click(object sender, EventArgs e)
+        {
+            GetInfo();
         }
     }
 }
