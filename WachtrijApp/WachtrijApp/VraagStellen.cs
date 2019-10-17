@@ -17,7 +17,7 @@ namespace WachtrijApp
         public string onderwerp;
         private string idDocent;
         private int persoonlijke;
-
+        private SqlDbConnection con = new SqlDbConnection();
         public VraagStellen(KeuzeScherm keuzeScherm)
         {
             InitializeComponent();
@@ -63,7 +63,7 @@ namespace WachtrijApp
 
         private void btnStelVraag_Click(object sender, EventArgs e)
         {
-            SqlDbConnection con = new SqlDbConnection();
+
 
             if (cbxPersoonlijkeVraag.Checked == true)
             {
@@ -95,14 +95,12 @@ namespace WachtrijApp
 
         public void VoegGevraagdeDocent()
         {
-            SqlDbConnection con = new SqlDbConnection();
             con.SqlQuery("SELECT id_docent, Volledige_Naam FROM `docent`");
                cobGevraagdDocent.ValueMember = "id_docent";
                cobGevraagdDocent.DisplayMember = "Volledige_Naam";
                cobGevraagdDocent.DataSource = con.QueryEx();
         }
    
-
         private void InputChanged(object sender, EventArgs e)
         {
             EnableButton();

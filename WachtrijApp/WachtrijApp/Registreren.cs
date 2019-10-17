@@ -20,11 +20,9 @@ namespace WachtrijApp
         string Email;
         string DocentCode = "234";
         bool EmailBestaat = false;
+        private SqlDbConnection con = new SqlDbConnection();
         public void VoegGebruiker(object sender, EventArgs e)
-        {
-            SqlDbConnection con = new SqlDbConnection();
-
-            
+        {         
             VolledigNaam = tbVolledigNaam.Text;
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
@@ -88,7 +86,6 @@ namespace WachtrijApp
 
         public void Check_Email_In_Database(string Query)
         {
-            SqlDbConnection con = new SqlDbConnection();
             con.SqlQuery(Query);
             con.Cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
             con.QueryEx();
@@ -158,7 +155,7 @@ namespace WachtrijApp
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                if(tbWachtwoord.Text.Length != 0 || tbWachtwoordRe.Text.Length != 0 || tbVolledigNaam.Text.Length != 0 || tbEmail.Text.Length != 0)
+                if(!lbl_Incorrect.Visible || tbWachtwoord.Text.Length != 0 || tbWachtwoordRe.Text.Length != 0 || tbVolledigNaam.Text.Length != 0 || tbEmail.Text.Length != 0)
                 {
                     VoegGebruiker(sender, e);
                 }

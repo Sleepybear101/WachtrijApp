@@ -14,6 +14,7 @@ namespace WachtrijApp
     {
         public string id_user;
         public string rol;
+        private SqlDbConnection con = new SqlDbConnection();
         public KeuzeScherm(Inloggen inloggen)
         {
             id_user = inloggen.id_user;
@@ -28,7 +29,6 @@ namespace WachtrijApp
         }
         private void btnVraagStellen_Click(object sender, EventArgs e)
         {
-            SqlDbConnection con = new SqlDbConnection();
             con.SqlQuery("SELECT COUNT(*) FROM `vragenlijst` WHERE `id_students`=@IdUser AND `Status`= 'open'");
             con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
             con.QueryEx();

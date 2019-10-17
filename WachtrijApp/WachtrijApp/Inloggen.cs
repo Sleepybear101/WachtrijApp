@@ -15,7 +15,7 @@ namespace WachtrijApp
     {
         public string id_user;
         public string rol;
-
+        private SqlDbConnection con = new SqlDbConnection();
         public Inloggen()
         {
             InitializeComponent();
@@ -59,7 +59,6 @@ namespace WachtrijApp
 
         void inloggen()
         {
-            SqlDbConnection con = new SqlDbConnection();
             // hash de ingevoerd wachtwoord
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
 

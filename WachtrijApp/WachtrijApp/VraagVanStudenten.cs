@@ -14,7 +14,7 @@ namespace WachtrijApp
     public partial class VraagVanStudenten : Form
     {
 
-        private SqlDbConnection con;
+        private SqlDbConnection con = new SqlDbConnection();
         public KeuzeScherm KeuzeScherm;
         public string vraag;
         public string id;
@@ -75,7 +75,6 @@ namespace WachtrijApp
 
         public void VoegGeholpenDocent()
         {
-            SqlDbConnection con = new SqlDbConnection();
             //vult de com
             con.SqlQuery("SELECT id_docent, Volledige_Naam FROM `docent`");
             cobGeholpenDocent.ValueMember = "id_docent";
@@ -116,7 +115,6 @@ namespace WachtrijApp
 
         private void btnOpgelost_Click(object sender, EventArgs e)
         {
-            SqlDbConnection con = new SqlDbConnection();
             string status = "opgelost";
             id = cobGeholpenDocent.SelectedValue.ToString();
             //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
