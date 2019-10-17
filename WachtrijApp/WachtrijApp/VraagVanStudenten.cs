@@ -116,7 +116,7 @@ namespace WachtrijApp
         private void btnOpgelost_Click(object sender, EventArgs e)
         {
             string status = "opgelost";
-            id = cobGeholpenDocent.SelectedValue.ToString();
+           string  idGeholpenDocent = cobGeholpenDocent.SelectedValue.ToString();
             //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
             if (rtbVraag.Text == "persoonlijke vraag")
             {
@@ -127,12 +127,13 @@ namespace WachtrijApp
             else
             {
                 con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
-                con.Cmd.Parameters.AddWithValue("@GeholpenDocent", id);
+                con.Cmd.Parameters.AddWithValue("@GeholpenDocent", idGeholpenDocent);
                 con.Cmd.Parameters.AddWithValue("@Status", status);
                 con.Cmd.Parameters.AddWithValue("@Notitie", rtbNotities.Text);
                 con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
                 con.NonQueryEx();
             }
+            
             GetInfo();
             vraag = null;
         }
