@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text;
 using System.Windows.Forms;
@@ -17,7 +18,7 @@ namespace WachtrijApp
         string WachtwoordR;
         string Email;
         string DocentCode = "234";
-
+        
         public void VoegGebruiker()
         {
             SqlDbConnection con = new SqlDbConnection();
@@ -27,6 +28,15 @@ namespace WachtrijApp
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
             Email = tbEmail.Text;
+            
+            try
+            {
+            }
+            catch (FormatException ex)
+            {
+                MessageBox.Show("Hello, dat is geen email");
+                return;
+            }
 
             var hPassword =  ComputeSha256Hash(Wachtwoord);
             if (tbDocentCode.Text != DocentCode || tbDocentCode.Text == null)
@@ -35,7 +45,7 @@ namespace WachtrijApp
                 con.Cmd.Parameters.AddWithValue("@VolledigNaam", VolledigNaam);
                 con.Cmd.Parameters.AddWithValue("@Email", Email);
                 con.Cmd.Parameters.AddWithValue("@Wachtwoord", hPassword);
-                      MessageBox.Show("Gelukt met opslaan ", " Students Gegevens", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Gelukt met opslaan ", " Students Gegevens", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
             }
             else
@@ -92,6 +102,7 @@ namespace WachtrijApp
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
             VolledigNaam = tbVolledigNaam.Text;
+
             if (WachtwoordR != Wachtwoord)
             {
                 lbl_Incorrect.Visible = true;
