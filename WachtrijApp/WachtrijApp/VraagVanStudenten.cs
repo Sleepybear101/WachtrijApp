@@ -47,11 +47,8 @@ namespace WachtrijApp
             }
             else if ("1" == rol)
             {
-                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='0'");
-                dtVraag.DataSource = con.QueryEx();
-
-                con.SqlQuery("SELECT student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `id_students`=@Gebruiker AND `Status`='open' AND `Persoonlijke_Vraag`='0' OR  `id_student`=@Gebruiker AND `Status`='open' AND `Persoonlijke_Vraag`='1'");
-                con.Cmd.Parameters.AddWithValue("@Gebruiker", id);
+                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='0'  OR  `id_student`=@Gebruiker AND `Status`='open' AND `Persoonlijke_Vraag`='1'");
+                 con.Cmd.Parameters.AddWithValue("@Gebruiker", id);
                 if (con.QueryEx() != null)
                 {
                     foreach (DataRow dr in con.QueryEx().Rows)
@@ -61,7 +58,9 @@ namespace WachtrijApp
                         tbOnderwerp.Text = dr[2].ToString();
                         tbGevraagdDocent.Text = dr[3].ToString();
                     }
-                }
+                }           
+                dtVraag.DataSource = con.QueryEx();
+
                     //Wordt niet zichtbaar voor studenten
                     rtbNotities.Visible = false;
                     lbNotitie.Visible = false;
