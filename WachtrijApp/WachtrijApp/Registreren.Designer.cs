@@ -96,6 +96,7 @@
             this.tbVolledigNaam.Size = new System.Drawing.Size(100, 22);
             this.tbVolledigNaam.TabIndex = 2;
             this.tbVolledigNaam.TextChanged += new System.EventHandler(this.Incorrect);
+            this.tbVolledigNaam.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
             // 
             // tbWachtwoord
             // 
@@ -105,6 +106,7 @@
             this.tbWachtwoord.TabIndex = 3;
             this.tbWachtwoord.UseSystemPasswordChar = true;
             this.tbWachtwoord.TextChanged += new System.EventHandler(this.Incorrect);
+            this.tbWachtwoord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
             // 
             // tbWachtwoordRe
             // 
@@ -114,6 +116,7 @@
             this.tbWachtwoordRe.TabIndex = 4;
             this.tbWachtwoordRe.UseSystemPasswordChar = true;
             this.tbWachtwoordRe.TextChanged += new System.EventHandler(this.Incorrect);
+            this.tbWachtwoordRe.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
             // 
             // tbDocentCode
             // 
@@ -121,6 +124,7 @@
             this.tbDocentCode.Name = "tbDocentCode";
             this.tbDocentCode.Size = new System.Drawing.Size(100, 22);
             this.tbDocentCode.TabIndex = 5;
+            this.tbDocentCode.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
             // 
             // btnRegistreer
             // 
@@ -131,7 +135,7 @@
             this.btnRegistreer.TabIndex = 6;
             this.btnRegistreer.Text = "Registreer";
             this.btnRegistreer.UseVisualStyleBackColor = true;
-            this.btnRegistreer.Click += new System.EventHandler(this.btnRegistreer_Click);
+            this.btnRegistreer.Click += new System.EventHandler(this.VoegGebruiker);
             // 
             // lbl_Incorrect
             // 
@@ -151,6 +155,7 @@
             this.tbEmail.Size = new System.Drawing.Size(100, 22);
             this.tbEmail.TabIndex = 1;
             this.tbEmail.TextChanged += new System.EventHandler(this.Incorrect);
+            this.tbEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
             // 
             // label1
             // 

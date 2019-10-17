@@ -85,35 +85,11 @@ namespace WachtrijApp
             cobGeholpenDocent.DataSource = con.QueryEx();
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        private void btnArchief_Click(object sender, EventArgs e)
         {
             // Archief wordt geopend
             Archief archief = new Archief(this);
             archief.ShowDialog();
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            SqlDbConnection con = new SqlDbConnection();
-            string status = "opgelost";
-            id = cobGeholpenDocent.SelectedValue.ToString();
-            //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
-            if (rtbVraag.Text == "persoonlijke vraag") {
-                con.SqlQuery("DELETE FROM `vragenlijst` WHERE `id_Vraag`=@idVraag AND `Persoonlijke_Vraag`=1");
-                con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
-                con.NonQueryEx();
-            }
-            else
-            {
-                con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
-                con.Cmd.Parameters.AddWithValue("@GeholpenDocent", id);
-                con.Cmd.Parameters.AddWithValue("@Status", status);
-                con.Cmd.Parameters.AddWithValue("@Notitie", rtbNotities.Text);
-                con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
-                con.NonQueryEx();
-            }
-            GetInfo();
-            vraag = null;
         }
 
         private void DtVraag_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -137,6 +113,31 @@ namespace WachtrijApp
             {
                 Environment.Exit(1);
             }
+        }
+
+        private void btnOpgelost_Click(object sender, EventArgs e)
+        {
+            SqlDbConnection con = new SqlDbConnection();
+            string status = "opgelost";
+            id = cobGeholpenDocent.SelectedValue.ToString();
+            //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
+            if (rtbVraag.Text == "persoonlijke vraag")
+            {
+                con.SqlQuery("DELETE FROM `vragenlijst` WHERE `id_Vraag`=@idVraag AND `Persoonlijke_Vraag`=1");
+                con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
+                con.NonQueryEx();
+            }
+            else
+            {
+                con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
+                con.Cmd.Parameters.AddWithValue("@GeholpenDocent", id);
+                con.Cmd.Parameters.AddWithValue("@Status", status);
+                con.Cmd.Parameters.AddWithValue("@Notitie", rtbNotities.Text);
+                con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
+                con.NonQueryEx();
+            }
+            GetInfo();
+            vraag = null;
         }
     }
 }

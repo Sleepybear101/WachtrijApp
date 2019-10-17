@@ -49,7 +49,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(630, 56);
+            this.label1.Location = new System.Drawing.Point(633, 41);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(46, 17);
             this.label1.TabIndex = 1;
@@ -58,16 +58,16 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(630, 103);
+            this.label2.Location = new System.Drawing.Point(633, 159);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(82, 17);
+            this.label2.Size = new System.Drawing.Size(110, 17);
             this.label2.TabIndex = 3;
-            this.label2.Text = "Onderwerp:";
+            this.label2.Text = "Onderwerp/Vak:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(629, 133);
+            this.label3.Location = new System.Drawing.Point(633, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(130, 17);
             this.label3.TabIndex = 4;
@@ -75,27 +75,27 @@
             // 
             // btnOpgelost
             // 
-            this.btnOpgelost.Location = new System.Drawing.Point(817, 263);
+            this.btnOpgelost.Location = new System.Drawing.Point(822, 358);
             this.btnOpgelost.Name = "btnOpgelost";
             this.btnOpgelost.Size = new System.Drawing.Size(88, 33);
             this.btnOpgelost.TabIndex = 5;
             this.btnOpgelost.Text = "Opgelost?";
             this.btnOpgelost.UseVisualStyleBackColor = true;
-            this.btnOpgelost.Click += new System.EventHandler(this.Button1_Click);
+            this.btnOpgelost.Click += new System.EventHandler(this.btnOpgelost_Click);
             // 
             // btnArchiefOpenen
             // 
-            this.btnArchiefOpenen.Location = new System.Drawing.Point(631, 263);
+            this.btnArchiefOpenen.Location = new System.Drawing.Point(636, 358);
             this.btnArchiefOpenen.Name = "btnArchiefOpenen";
             this.btnArchiefOpenen.Size = new System.Drawing.Size(128, 31);
             this.btnArchiefOpenen.TabIndex = 6;
             this.btnArchiefOpenen.Text = "Archief openen";
             this.btnArchiefOpenen.UseVisualStyleBackColor = true;
-            this.btnArchiefOpenen.Click += new System.EventHandler(this.Button2_Click);
+            this.btnArchiefOpenen.Click += new System.EventHandler(this.btnArchief_Click);
             // 
             // tbOnderwerp
             // 
-            this.tbOnderwerp.Location = new System.Drawing.Point(769, 100);
+            this.tbOnderwerp.Location = new System.Drawing.Point(767, 156);
             this.tbOnderwerp.Name = "tbOnderwerp";
             this.tbOnderwerp.Size = new System.Drawing.Size(143, 22);
             this.tbOnderwerp.TabIndex = 7;
@@ -103,7 +103,7 @@
             // lbGeholpenDoor
             // 
             this.lbGeholpenDoor.AutoSize = true;
-            this.lbGeholpenDoor.Location = new System.Drawing.Point(629, 159);
+            this.lbGeholpenDoor.Location = new System.Drawing.Point(633, 215);
             this.lbGeholpenDoor.Name = "lbGeholpenDoor";
             this.lbGeholpenDoor.Size = new System.Drawing.Size(107, 17);
             this.lbGeholpenDoor.TabIndex = 9;
@@ -112,7 +112,7 @@
             // lbNotitie
             // 
             this.lbNotitie.AutoSize = true;
-            this.lbNotitie.Location = new System.Drawing.Point(630, 178);
+            this.lbNotitie.Location = new System.Drawing.Point(633, 242);
             this.lbNotitie.Name = "lbNotitie";
             this.lbNotitie.Size = new System.Drawing.Size(52, 17);
             this.lbNotitie.TabIndex = 11;
@@ -120,16 +120,16 @@
             // 
             // rtbNotities
             // 
-            this.rtbNotities.Location = new System.Drawing.Point(698, 189);
+            this.rtbNotities.Location = new System.Drawing.Point(696, 242);
             this.rtbNotities.Name = "rtbNotities";
-            this.rtbNotities.Size = new System.Drawing.Size(214, 68);
+            this.rtbNotities.Size = new System.Drawing.Size(214, 110);
             this.rtbNotities.TabIndex = 12;
             this.rtbNotities.Text = "";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(630, 25);
+            this.label6.Location = new System.Drawing.Point(633, 14);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(97, 17);
             this.label6.TabIndex = 13;
@@ -138,9 +138,9 @@
             // tbVolledig_naam
             // 
             this.tbVolledig_naam.Enabled = false;
-            this.tbVolledig_naam.Location = new System.Drawing.Point(769, 20);
+            this.tbVolledig_naam.Location = new System.Drawing.Point(748, 11);
             this.tbVolledig_naam.Name = "tbVolledig_naam";
-            this.tbVolledig_naam.Size = new System.Drawing.Size(143, 22);
+            this.tbVolledig_naam.Size = new System.Drawing.Size(169, 22);
             this.tbVolledig_naam.TabIndex = 14;
             // 
             // dtVraag
@@ -159,14 +159,14 @@
             this.dtVraag.RowTemplate.Height = 24;
             this.dtVraag.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dtVraag.ShowEditingIcon = false;
-            this.dtVraag.Size = new System.Drawing.Size(604, 290);
+            this.dtVraag.Size = new System.Drawing.Size(604, 387);
             this.dtVraag.TabIndex = 16;
             this.dtVraag.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtVraag_CellClick);
             // 
             // tbGevraagdDocent
             // 
             this.tbGevraagdDocent.Enabled = false;
-            this.tbGevraagdDocent.Location = new System.Drawing.Point(769, 128);
+            this.tbGevraagdDocent.Location = new System.Drawing.Point(767, 184);
             this.tbGevraagdDocent.Name = "tbGevraagdDocent";
             this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
             this.tbGevraagdDocent.TabIndex = 15;
@@ -174,16 +174,16 @@
             // cobGeholpenDocent
             // 
             this.cobGeholpenDocent.FormattingEnabled = true;
-            this.cobGeholpenDocent.Location = new System.Drawing.Point(769, 159);
+            this.cobGeholpenDocent.Location = new System.Drawing.Point(767, 212);
             this.cobGeholpenDocent.Name = "cobGeholpenDocent";
-            this.cobGeholpenDocent.Size = new System.Drawing.Size(141, 24);
+            this.cobGeholpenDocent.Size = new System.Drawing.Size(143, 24);
             this.cobGeholpenDocent.TabIndex = 17;
             // 
             // rtbVraag
             // 
-            this.rtbVraag.Location = new System.Drawing.Point(769, 49);
+            this.rtbVraag.Location = new System.Drawing.Point(703, 39);
             this.rtbVraag.Name = "rtbVraag";
-            this.rtbVraag.Size = new System.Drawing.Size(143, 45);
+            this.rtbVraag.Size = new System.Drawing.Size(214, 103);
             this.rtbVraag.TabIndex = 18;
             this.rtbVraag.Text = "";
             // 
@@ -192,7 +192,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(917, 301);
+            this.ClientSize = new System.Drawing.Size(926, 404);
             this.Controls.Add(this.rtbVraag);
             this.Controls.Add(this.cobGeholpenDocent);
             this.Controls.Add(this.dtVraag);

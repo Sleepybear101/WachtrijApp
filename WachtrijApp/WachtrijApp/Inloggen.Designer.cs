@@ -70,6 +70,7 @@
             this.tbEmail.Name = "tbEmail";
             this.tbEmail.Size = new System.Drawing.Size(114, 22);
             this.tbEmail.TabIndex = 1;
+            this.tbEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
             // 
             // tbWachtwoord
             // 
@@ -79,7 +80,7 @@
             this.tbWachtwoord.Size = new System.Drawing.Size(114, 22);
             this.tbWachtwoord.TabIndex = 2;
             this.tbWachtwoord.UseSystemPasswordChar = true;
-            this.tbWachtwoord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tbWachtwoord_KeyDown);
+            this.tbWachtwoord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
             // 
             // btnRegisteren
             // 

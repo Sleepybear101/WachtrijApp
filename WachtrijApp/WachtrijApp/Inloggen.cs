@@ -47,7 +47,7 @@ namespace WachtrijApp
             Registreren registreren = new Registreren(new Inloggen());
             registreren.ShowDialog();
         }
-        private void tbWachtwoord_KeyDown(object sender, KeyEventArgs e)
+        private void Enter_Pressed(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)
             {
