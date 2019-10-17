@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(KeuzeScherm));
             this.btnVraagStellen = new System.Windows.Forms.Button();
             this.btnVraagbekijken = new System.Windows.Forms.Button();
             this.SuspendLayout();
@@ -60,6 +61,7 @@
             this.Controls.Add(this.btnVraagbekijken);
             this.Controls.Add(this.btnVraagStellen);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "KeuzeScherm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

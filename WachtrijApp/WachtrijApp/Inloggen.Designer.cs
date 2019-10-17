@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Inloggen));
             this.lblVolledigNaam = new System.Windows.Forms.Label();
             this.lblWachtwoord = new System.Windows.Forms.Label();
             this.lblRegisteren = new System.Windows.Forms.Label();
@@ -115,6 +116,7 @@
             this.Controls.Add(this.lblWachtwoord);
             this.Controls.Add(this.lblVolledigNaam);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Inloggen";
