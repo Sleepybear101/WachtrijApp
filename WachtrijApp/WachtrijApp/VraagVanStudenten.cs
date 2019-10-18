@@ -13,7 +13,6 @@ namespace WachtrijApp
 
     public partial class VraagVanStudenten : Form
     {
-
         private SqlDbConnection con = new SqlDbConnection();
         public KeuzeScherm KeuzeScherm;
         public string vraag;
@@ -32,8 +31,6 @@ namespace WachtrijApp
         {
             //datagridview wordt gerefresht
             dtVraag.Refresh();
-            tbOnderwerp.ReadOnly = true;
-            rtbVraag.ReadOnly = true;
             con = new SqlDbConnection();
             txbGeholpendocent.ReadOnly = true;
             con.SqlQuery("SELECT `Volledige_Naam` FROM `docent` WHERE `id_docent`=@docent");
@@ -95,7 +92,6 @@ namespace WachtrijApp
                 tbGevraagdDocent.Text = row.Cells["Gevraagde docent"].Value.ToString();
             }
         }
-
         private void VraagVanStudenten_FormClosed(object sender, FormClosedEventArgs e)
         {
             //als docent form sluit sluiten alle achtergrond processen

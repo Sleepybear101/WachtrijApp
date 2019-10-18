@@ -99,6 +99,7 @@
             // 
             this.tbOnderwerp.Location = new System.Drawing.Point(767, 156);
             this.tbOnderwerp.Name = "tbOnderwerp";
+            this.tbOnderwerp.ReadOnly = true;
             this.tbOnderwerp.Size = new System.Drawing.Size(143, 22);
             this.tbOnderwerp.TabIndex = 7;
             // 
@@ -139,9 +140,9 @@
             // 
             // tbVolledig_naam
             // 
-            this.tbVolledig_naam.Enabled = false;
             this.tbVolledig_naam.Location = new System.Drawing.Point(748, 11);
             this.tbVolledig_naam.Name = "tbVolledig_naam";
+            this.tbVolledig_naam.ReadOnly = true;
             this.tbVolledig_naam.Size = new System.Drawing.Size(169, 22);
             this.tbVolledig_naam.TabIndex = 14;
             // 
@@ -167,9 +168,9 @@
             // 
             // tbGevraagdDocent
             // 
-            this.tbGevraagdDocent.Enabled = false;
             this.tbGevraagdDocent.Location = new System.Drawing.Point(767, 184);
             this.tbGevraagdDocent.Name = "tbGevraagdDocent";
+            this.tbGevraagdDocent.ReadOnly = true;
             this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
             this.tbGevraagdDocent.TabIndex = 15;
             // 
@@ -177,6 +178,7 @@
             // 
             this.rtbVraag.Location = new System.Drawing.Point(703, 39);
             this.rtbVraag.Name = "rtbVraag";
+            this.rtbVraag.ReadOnly = true;
             this.rtbVraag.Size = new System.Drawing.Size(214, 103);
             this.rtbVraag.TabIndex = 18;
             this.rtbVraag.Text = "";
@@ -193,9 +195,10 @@
             // 
             // txbGeholpendocent
             // 
-            this.txbGeholpendocent.Enabled = false;
+            this.txbGeholpendocent.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txbGeholpendocent.Location = new System.Drawing.Point(767, 215);
             this.txbGeholpendocent.Name = "txbGeholpendocent";
+            this.txbGeholpendocent.ReadOnly = true;
             this.txbGeholpendocent.Size = new System.Drawing.Size(143, 22);
             this.txbGeholpendocent.TabIndex = 20;
             // 
