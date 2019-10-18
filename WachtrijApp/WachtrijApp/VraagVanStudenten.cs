@@ -124,6 +124,10 @@ namespace WachtrijApp
 
             GetInfo();
             vraag = null;
+            lbNotitie.Text = "";
+            tbVolledig_naam.Text = "";
+            tbOnderwerp.Text = "";
+            tbGevraagdDocent.Text = "";
         }
 
         private void btnLijst_vernieuw_Click(object sender, EventArgs e)
