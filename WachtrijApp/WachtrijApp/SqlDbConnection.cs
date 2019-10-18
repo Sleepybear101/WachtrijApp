@@ -20,14 +20,12 @@ namespace WachtrijApp
             //_con = new MySqlConnection("Server=remotemysql.com; port=3306;  Database=sPjBjePdtf; username=sPjBjePdtf; password=DvLp0RVQAX ");
             _con = new MySqlConnection("Server=localhost;  Database=sPjBjePdtf; username=root; password= ");
             _con.Open();
-
         }
 
         public void SqlQuery(string queryText)
         {
             Cmd = new MySqlCommand(queryText, _con); 
             _con.Close();
-
         }
         public DataTable QueryEx()
         {
@@ -42,7 +40,5 @@ namespace WachtrijApp
             Cmd.ExecuteNonQuery();
             _con.Close();
         }
-
-     
     }
 }
