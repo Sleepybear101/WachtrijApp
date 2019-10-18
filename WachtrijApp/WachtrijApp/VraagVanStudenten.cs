@@ -60,10 +60,10 @@ namespace WachtrijApp
                 {
                     foreach (DataRow dr in con.QueryEx().Rows)
                     {
-                        tbVolledig_naam.Text = dr[0].ToString();
-                        rtbVraag.Text = dr[1].ToString();
-                        tbOnderwerp.Text = dr[2].ToString();
-                        tbGevraagdDocent.Text = dr[3].ToString();
+                        tbVolledig_naam.Text = dr[1].ToString();
+                        rtbVraag.Text = dr[2].ToString();
+                        tbOnderwerp.Text = dr[3].ToString();
+                        tbGevraagdDocent.Text = dr[4].ToString();
                     }
                 }
                 dtVraag.DataSource = con.QueryEx();
@@ -113,28 +113,23 @@ namespace WachtrijApp
             string status = "opgelost";
             string idGeholpenDocent = id;
             //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
-            if (rtbVraag.Text == "persoonlijke vraag")
-            {
-                con.SqlQuery("DELETE FROM `vragenlijst` WHERE `id_Vraag`=@idVraag AND `Persoonlijke_Vraag`=1");
-                con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
-                con.NonQueryEx();
-            }
-            else
-            {
+     
                 con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
                 con.Cmd.Parameters.AddWithValue("@GeholpenDocent", idGeholpenDocent);
                 con.Cmd.Parameters.AddWithValue("@Status", status);
                 con.Cmd.Parameters.AddWithValue("@Notitie", rtbNotities.Text);
                 con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
                 con.NonQueryEx();
-            }
 
             GetInfo();
-            vraag = null;
-            lbNotitie.Text = "";
-            tbVolledig_naam.Text = "";
-            tbOnderwerp.Text = "";
-            tbGevraagdDocent.Text = "";
+
+                vraag = null;
+                lbNotitie.Text = "";
+                rtbVraag.Text="";
+                tbVolledig_naam.Text = "";
+                tbOnderwerp.Text = "";
+                tbGevraagdDocent.Text = "";
+            
         }
 
         private void btnLijst_vernieuw_Click(object sender, EventArgs e)
