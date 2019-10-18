@@ -27,7 +27,6 @@ namespace WachtrijApp
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
             Email = tbEmail.Text;
-            
             //Kijkt of er een email is ingevuld
             try
             {
