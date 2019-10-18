@@ -91,7 +91,7 @@ namespace WachtrijApp
                     id_user = dr[0].ToString();
                     rol = "0";
                     this.Hide();
-                    KeuzeScherm keuzescherm = new KeuzeScherm(this);
+                  KeuzeScherm keuzescherm = new KeuzeScherm(this);
                     this.Close();
                     try
                     {

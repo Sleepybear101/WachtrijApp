@@ -36,18 +36,21 @@ namespace WachtrijApp
             rtbVraag.ReadOnly = true;
             con = new SqlDbConnection();
             txbGeholpendocent.ReadOnly = true;
-            con.SqlQuery("SELECT `Volledige_Naam` FROM `docent` WHERE `id_docent`=@docent");
+        
+            if ("0" == rol)
+            {
+                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' AND `Status`='open' ");
+
+                dtVraag.DataSource = con.QueryEx();  
+
+                con.SqlQuery("SELECT `Volledige_Naam` FROM `docent` WHERE `id_docent`=@docent");
             con.Cmd.Parameters.AddWithValue("@docent", id);
+
             foreach (DataRow dr in con.QueryEx().Rows)
             {
                txbGeholpendocent.Text = dr[0].ToString();
             }
 
-            if ("0" == rol)
-            {
-                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' AND `Status`='open' ");
-
-                dtVraag.DataSource = con.QueryEx();
             }
             else if ("1" == rol)
             {

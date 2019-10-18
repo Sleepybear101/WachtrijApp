@@ -25,7 +25,7 @@ namespace WachtrijApp
         public void SqlQuery(string queryText)
         {
             Cmd = new MySqlCommand(queryText, _con); 
-            _con.Close();
+
         }
         public DataTable QueryEx()
         {
