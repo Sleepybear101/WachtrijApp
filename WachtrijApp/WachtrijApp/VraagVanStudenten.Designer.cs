@@ -42,9 +42,9 @@
             this.tbVolledig_naam = new System.Windows.Forms.TextBox();
             this.dtVraag = new System.Windows.Forms.DataGridView();
             this.tbGevraagdDocent = new System.Windows.Forms.TextBox();
-            this.cobGeholpenDocent = new System.Windows.Forms.ComboBox();
             this.rtbVraag = new System.Windows.Forms.RichTextBox();
             this.btnLijst_vernieuw = new System.Windows.Forms.Button();
+            this.txbGeholpendocent = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dtVraag)).BeginInit();
             this.SuspendLayout();
             // 
@@ -173,14 +173,6 @@
             this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
             this.tbGevraagdDocent.TabIndex = 15;
             // 
-            // cobGeholpenDocent
-            // 
-            this.cobGeholpenDocent.FormattingEnabled = true;
-            this.cobGeholpenDocent.Location = new System.Drawing.Point(767, 212);
-            this.cobGeholpenDocent.Name = "cobGeholpenDocent";
-            this.cobGeholpenDocent.Size = new System.Drawing.Size(143, 24);
-            this.cobGeholpenDocent.TabIndex = 17;
-            // 
             // rtbVraag
             // 
             this.rtbVraag.Location = new System.Drawing.Point(703, 39);
@@ -199,15 +191,23 @@
             this.btnLijst_vernieuw.UseVisualStyleBackColor = true;
             this.btnLijst_vernieuw.Click += new System.EventHandler(this.btnLijst_vernieuw_Click);
             // 
+            // txbGeholpendocent
+            // 
+            this.txbGeholpendocent.Enabled = false;
+            this.txbGeholpendocent.Location = new System.Drawing.Point(767, 215);
+            this.txbGeholpendocent.Name = "txbGeholpendocent";
+            this.txbGeholpendocent.Size = new System.Drawing.Size(143, 22);
+            this.txbGeholpendocent.TabIndex = 20;
+            // 
             // VraagVanStudenten
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(926, 404);
+            this.Controls.Add(this.txbGeholpendocent);
             this.Controls.Add(this.btnLijst_vernieuw);
             this.Controls.Add(this.rtbVraag);
-            this.Controls.Add(this.cobGeholpenDocent);
             this.Controls.Add(this.dtVraag);
             this.Controls.Add(this.tbGevraagdDocent);
             this.Controls.Add(this.tbVolledig_naam);
@@ -248,8 +248,8 @@
         private System.Windows.Forms.TextBox tbVolledig_naam;
         private System.Windows.Forms.DataGridView dtVraag;
         private System.Windows.Forms.TextBox tbGevraagdDocent;
-        private System.Windows.Forms.ComboBox cobGeholpenDocent;
         private System.Windows.Forms.RichTextBox rtbVraag;
         private System.Windows.Forms.Button btnLijst_vernieuw;
+        private System.Windows.Forms.TextBox txbGeholpendocent;
     }
 }
