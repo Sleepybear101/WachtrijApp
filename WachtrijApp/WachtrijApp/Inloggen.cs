@@ -56,17 +56,16 @@ namespace WachtrijApp
                 e.Handled = true;
             }
         }
-
         void inloggen()
         {
             // hash de ingevoerd wachtwoord
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
-
+            //Kijkt of de gegevens in de tabel student staat
             con.SqlQuery("SELECT `id_student` FROM `student` WHERE `Email_Adres`=@Email AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
             con.QueryEx();
-
+         
             foreach (DataRow dr in con.QueryEx().Rows)
             {
                 if (Convert.ToInt32(dr[0]) >= 0)
@@ -78,10 +77,8 @@ namespace WachtrijApp
                     keuzescherm.ShowDialog();
                     this.Close();
                 }
-
             }
-
-
+            //Kijkt of de gegevens in de tabel docent staat
             con.SqlQuery("SELECT `id_docent` FROM `docent` WHERE `Email_Adres`=@Email AND `Wachtwoord`=@Wachtwoord");
             con.Cmd.Parameters.AddWithValue("@Email", tbEmail.Text);
             con.Cmd.Parameters.AddWithValue("@Wachtwoord", hWachtwoord);
@@ -104,13 +101,9 @@ namespace WachtrijApp
                     {
                         Application.Exit();
                     }
-
                 }
             }
-
             MessageBox.Show("Combinatie Email/wachtwoord niet gevonden.", "Verkeerde invoer", MessageBoxButtons.OK, MessageBoxIcon.Error);
-
         }
-
     }
 }
