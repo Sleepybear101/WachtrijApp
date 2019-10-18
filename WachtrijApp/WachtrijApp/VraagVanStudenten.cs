@@ -62,7 +62,7 @@ namespace WachtrijApp
                         tbOnderwerp.Text = dr[2].ToString();
                         tbGevraagdDocent.Text = dr[3].ToString();
                     }
-                }           
+                }
                 dtVraag.DataSource = con.QueryEx();
 
                     //Wordt niet zichtbaar voor studenten
@@ -119,12 +119,13 @@ namespace WachtrijApp
             else
             {
                 con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
-                con.Cmd.Parameters.AddWithValue("@GeholpenDocent", id);
+                con.Cmd.Parameters.AddWithValue("@GeholpenDocent", idGeholpenDocent);
                 con.Cmd.Parameters.AddWithValue("@Status", status);
                 con.Cmd.Parameters.AddWithValue("@Notitie", rtbNotities.Text);
                 con.Cmd.Parameters.AddWithValue("@idVraag", vraag);
                 con.NonQueryEx();
             }
+
             GetInfo();
             vraag = null;
         }

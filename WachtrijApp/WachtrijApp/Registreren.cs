@@ -107,7 +107,7 @@ namespace WachtrijApp
         {
             MailMessage mailMessage = new MailMessage("testersmailbloem1@gmail.com",tbEmail.Text); 
             mailMessage.Subject = "Je bent ingeschreven";
-            mailMessage.Body = "Beste "+VolledigNaam+", \n \nJe account is aangemaakt, je kunt nu gebruikmaken van je account.\n \nFijn weekend ";
+            mailMessage.Body = "Beste "+VolledigNaam+", \n \nUw account is aangemaakt, u kunt nu gebruikmaken van uw account.\n \n";
 
             SmtpClient smtpClient = new SmtpClient();
             smtpClient.EnableSsl = true;
