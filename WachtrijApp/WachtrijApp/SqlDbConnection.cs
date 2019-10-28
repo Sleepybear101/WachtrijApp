@@ -38,7 +38,7 @@ namespace WachtrijApp
         public void NonQueryEx()
         {
             Cmd.ExecuteNonQuery();
-            _con.Close();
+            //_con.Close();
         }
     }
 }

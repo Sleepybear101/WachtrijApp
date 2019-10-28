@@ -13,7 +13,6 @@ namespace WachtrijApp
 
     public partial class VraagVanStudenten : Form
     {
-
         private SqlDbConnection con = new SqlDbConnection();
         public KeuzeScherm KeuzeScherm;
         public string vraag;
@@ -32,17 +31,16 @@ namespace WachtrijApp
         {
             //datagridview wordt gerefresht
             dtVraag.Refresh();
-       
             con = new SqlDbConnection();
             txbGeholpendocent.ReadOnly = true;
-        
+
             if ("0" == rol)
             {
                 con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` " +
                     "INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' " +
                     "AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' AND `Status`='open' ");
 
-                dtVraag.DataSource = con.QueryEx();  
+                dtVraag.DataSource = con.QueryEx();
 
                 con.SqlQuery("SELECT `Volledige_Naam` FROM `docent` WHERE `id_docent`=@docent");
             con.Cmd.Parameters.AddWithValue("@docent", id);
@@ -101,7 +99,6 @@ namespace WachtrijApp
                 tbGevraagdDocent.Text = row.Cells["Gevraagde docent"].Value.ToString();
             }
         }
-
         private void VraagVanStudenten_FormClosed(object sender, FormClosedEventArgs e)
         {
             //als docent form sluit sluiten alle achtergrond processen
@@ -116,7 +113,7 @@ namespace WachtrijApp
             string status = "opgelost";
             string idGeholpenDocent = id;
             //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
-     
+
                 con.SqlQuery("UPDATE `vragenlijst` SET `Geholpen_Docent`=@GeholpenDocent, `Notities`=@Notitie,`Status`=@Status WHERE `id_Vraag`=@idVraag");
                 con.Cmd.Parameters.AddWithValue("@GeholpenDocent", idGeholpenDocent);
                 con.Cmd.Parameters.AddWithValue("@Status", status);
@@ -132,7 +129,7 @@ namespace WachtrijApp
                 tbVolledig_naam.Text = "";
                 tbOnderwerp.Text = "";
                 tbGevraagdDocent.Text = "";
-            
+
         }
 
         private void btnLijst_vernieuw_Click(object sender, EventArgs e)
