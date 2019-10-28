@@ -63,8 +63,6 @@ namespace WachtrijApp
 
         private void btnStelVraag_Click(object sender, EventArgs e)
         {
-
-
             if (cbxPersoonlijkeVraag.Checked == true)
             {
                 vraag = "persoonlijke vraag";
@@ -77,7 +75,6 @@ namespace WachtrijApp
                 onderwerp = tbOnderwerp.Text;
                 idDocent = cobGevraagdDocent.SelectedValue.ToString();
                 persoonlijke = 0;
-                ;
             }
 
             con.SqlQuery("INSERT INTO `vragenlijst` (`id_students`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`, `Persoonlijke_Vraag`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent, @Persoonlijke)");
@@ -89,7 +86,6 @@ namespace WachtrijApp
             con.NonQueryEx();
             MessageBox.Show("vraag gestelt");
             this.Close();
-
         }
 
 

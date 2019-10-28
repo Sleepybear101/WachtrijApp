@@ -75,9 +75,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(14, 134);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(118, 17);
+            this.label3.Size = new System.Drawing.Size(126, 17);
             this.label3.TabIndex = 3;
-            this.label3.Text = "Gevraagd docent";
+            this.label3.Text = "Gevraagde docent";
             // 
             // cbxGegoogled
             // 
