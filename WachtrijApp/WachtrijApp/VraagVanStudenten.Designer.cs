@@ -177,6 +177,7 @@
             // 
             this.rtbVraag.Location = new System.Drawing.Point(703, 39);
             this.rtbVraag.Name = "rtbVraag";
+            this.rtbVraag.ReadOnly = true;
             this.rtbVraag.Size = new System.Drawing.Size(214, 103);
             this.rtbVraag.TabIndex = 18;
             this.rtbVraag.Text = "";
