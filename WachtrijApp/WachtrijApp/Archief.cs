@@ -68,6 +68,8 @@ namespace WachtrijApp
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dtArchief.Rows[e.RowIndex];
+                dtArchief.DefaultCellStyle.SelectionBackColor = Color.Blue;
+
                 vraag = row.Cells["id_Vraag"].Value.ToString();
                 textBox1.Text = row.Cells["Notities"].Value.ToString();
             }
