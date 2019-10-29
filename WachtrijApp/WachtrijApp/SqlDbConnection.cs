@@ -21,12 +21,12 @@ namespace WachtrijApp
             _con = new MySqlConnection("Server=localhost;  Database=sPjBjePdtf; username=root; password= ");
             _con.Close();
             _con.Open();
-               
+
         }
 
         public void SqlQuery(string queryText)
         {
-            Cmd = new MySqlCommand(queryText, _con); 
+            Cmd = new MySqlCommand(queryText, _con);
 
         }
         public DataTable QueryEx()
@@ -40,7 +40,6 @@ namespace WachtrijApp
         public void NonQueryEx()
         {
             Cmd.ExecuteNonQuery();
-            //_con.Close();
         }
     }
 }
