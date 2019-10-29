@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace WachtrijApp
@@ -65,14 +59,24 @@ namespace WachtrijApp
 
         private void DtArchief_CellClick(object sender, DataGridViewCellEventArgs e)
         {
+         
             if (e.RowIndex >= 0)
             {
                 DataGridViewRow row = dtArchief.Rows[e.RowIndex];
-                dtArchief.DefaultCellStyle.SelectionBackColor = Color.Blue;
-
+                row.DefaultCellStyle.BackColor = SystemColors.Highlight;
+                row.DefaultCellStyle.ForeColor = Color.White;
                 vraag = row.Cells["id_Vraag"].Value.ToString();
                 textBox1.Text = row.Cells["Notities"].Value.ToString();
             }
+
+        }
+
+        private void dtArchief_CellLeave(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dtArchief.Rows[e.RowIndex];
+            row.DefaultCellStyle.ForeColor = Color.Black;
+            row.DefaultCellStyle.BackColor = Color.White;
+
         }
     }
 }

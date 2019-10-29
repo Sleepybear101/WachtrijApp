@@ -52,6 +52,7 @@
             this.dtArchief.Size = new System.Drawing.Size(738, 355);
             this.dtArchief.TabIndex = 0;
             this.dtArchief.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtArchief_CellClick);
+            this.dtArchief.CellLeave += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtArchief_CellLeave);
             // 
             // button1
             // 

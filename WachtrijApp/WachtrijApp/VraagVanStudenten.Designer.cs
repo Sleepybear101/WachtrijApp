@@ -81,7 +81,7 @@
             this.btnOpgelost.Name = "btnOpgelost";
             this.btnOpgelost.Size = new System.Drawing.Size(88, 33);
             this.btnOpgelost.TabIndex = 5;
-            this.btnOpgelost.Text = "Opgelost?";
+            this.btnOpgelost.Text = "Opgelost";
             this.btnOpgelost.UseVisualStyleBackColor = true;
             this.btnOpgelost.Click += new System.EventHandler(this.btnOpgelost_Click);
             // 
