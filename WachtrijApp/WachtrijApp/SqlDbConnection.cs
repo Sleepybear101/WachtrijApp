@@ -18,10 +18,10 @@ namespace WachtrijApp
         public SqlDbConnection()
         {
             //externe database
-            //_con = new MySqlConnection("Server=remotemysql.com; port=3306;  Database=sPjBjePdtf; username=sPjBjePdtf; password=DvLp0RVQAX ");
+           _con = new MySqlConnection("Server=remotemysql.com; port=3306;  Database=sPjBjePdtf; username=sPjBjePdtf; password=DvLp0RVQAX ");
 
             //locale database
-            _con = new MySqlConnection("Server=localhost;  Database=sPjBjePdtf; username=root; password= ");
+             //_con = new MySqlConnection("Server=localhost;  Database=sPjBjePdtf; username=root; password= ");
 
             _con.Close();
             _con.Open();

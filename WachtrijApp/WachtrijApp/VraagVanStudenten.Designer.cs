@@ -189,7 +189,7 @@
             this.btnLijst_vernieuw.Name = "btnLijst_vernieuw";
             this.btnLijst_vernieuw.Size = new System.Drawing.Size(108, 33);
             this.btnLijst_vernieuw.TabIndex = 19;
-            this.btnLijst_vernieuw.Text = "Lijst vernieuw";
+            this.btnLijst_vernieuw.Text = "Vernieuw lijst";
             this.btnLijst_vernieuw.UseVisualStyleBackColor = true;
             this.btnLijst_vernieuw.Click += new System.EventHandler(this.btnLijst_vernieuw_Click);
             // 
