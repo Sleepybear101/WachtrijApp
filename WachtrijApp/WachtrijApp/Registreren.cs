@@ -22,7 +22,7 @@ namespace WachtrijApp
         bool EmailBestaat = false;
         private SqlDbConnection con = new SqlDbConnection();
         public void VoegGebruiker(object sender, EventArgs e)
-        {         
+        {
             VolledigNaam = tbVolledigNaam.Text;
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
@@ -44,7 +44,7 @@ namespace WachtrijApp
 
             //Hash de ingevuld wachtwoord
             var hPassword =  ComputeSha256Hash(Wachtwoord);
-            
+
             //Kijkt of de docentcode gelijk is met ingevuld docentcode
             if (tbDocentCode.Text != DocentCode || tbDocentCode.Text == null)
             {
@@ -72,12 +72,12 @@ namespace WachtrijApp
 
         static string ComputeSha256Hash(string rawData)
         {
-            // Create a SHA256   
+            // Create a SHA256
             using (SHA256 sha256Hash = SHA256.Create())
             {
-                // ComputeHash - returns byte array  
+                // ComputeHash - returns byte array
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-                // Convert byte array to a string   
+                // Convert byte array to a string
                 StringBuilder builder = new StringBuilder();
                 for (int i = 0; i < bytes.Length; i++)
                 {
@@ -104,8 +104,8 @@ namespace WachtrijApp
         }
         public void sendMail(string VolledigNaam)
         {
-            MailMessage mailMessage = new MailMessage("testersmailbloem1@gmail.com",tbEmail.Text); 
-            mailMessage.Subject = "Je bent ingeschreven";
+            MailMessage mailMessage = new MailMessage("testersmailbloem1@gmail.com",tbEmail.Text);
+            mailMessage.Subject = "Je bent ingeschreven als ";
             mailMessage.Body = "Beste "+VolledigNaam+", \n \nUw account is aangemaakt, u kunt nu gebruikmaken van uw account.\n \n";
 
             SmtpClient smtpClient = new SmtpClient();
@@ -115,8 +115,8 @@ namespace WachtrijApp
 
             smtpClient.Credentials = new System.Net.NetworkCredential()
             {
-                UserName = "testersmailbloem1@gmail.com",
-                Password = "1234test@"
+                UserName = "wachtrijteam@gmail.com",
+                Password = "Wachtrij1!"
             };
             smtpClient.Send(mailMessage);
             MessageBox.Show("Mail delivered successfully!!!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -157,7 +157,7 @@ namespace WachtrijApp
                     e.Handled = true;
                     return;
                 }
-               
+
             }
         }
     }

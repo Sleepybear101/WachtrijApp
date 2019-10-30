@@ -5,7 +5,7 @@ namespace WachtrijApp
 {
     public partial class VraagStellen : Form
     {
-        public string id_user;
+        public string idGebruiker;
         public string vraag;
         public string onderwerp;
         private string idDocent;
@@ -14,15 +14,18 @@ namespace WachtrijApp
         public VraagStellen(KeuzeScherm keuzeScherm)
         {
             InitializeComponent();
-            id_user = keuzeScherm.id_user;
+            //id van gebruiker wordt opgehaald
+            idGebruiker = keuzeScherm.id_user;
             VoegGevraagdeDocent();
             EnableButton();
         }
         
         public void EnableButton()
         {
+            //Kijkt of persoonelijke vraag is aangevinkt
             if (cbxPersoonlijkeVraag.Checked)
             {
+                //velden worden niet gebruikbaar gemaakt
                 tbVraag.Enabled = false;
                 tbOnderwerp.Enabled = false;
                 cbxGegoogled.Enabled = false;
@@ -43,6 +46,7 @@ namespace WachtrijApp
                 tbOnderwerp.Enabled = true;
                 cbxGegoogled.Enabled = true;
                 cbxAnderegesteld.Enabled = true;
+                //Kijkt of er een veld niet is ingevoerd
                 if (tbVraag.Text == "" || tbOnderwerp.Text == "" || cobGevraagdDocent.SelectedItem == null || cbxGegoogled.Checked == false || cbxAnderegesteld.Checked == false)
                 {
                     btnStelVraag.Enabled = false;
@@ -56,9 +60,11 @@ namespace WachtrijApp
 
         private void btnStelVraag_Click(object sender, EventArgs e)
         {
+            //Kijkt na of checkbox persoonlijke vraag is aangevinkt
             if (cbxPersoonlijkeVraag.Checked == true)
             {
                 vraag = "persoonlijke vraag";
+                onderwerp = "persoonlijke vraag";
                 idDocent = cobGevraagdDocent.SelectedValue.ToString();
                 persoonlijke = 1;
             }
@@ -69,15 +75,22 @@ namespace WachtrijApp
                 idDocent = cobGevraagdDocent.SelectedValue.ToString();
                 persoonlijke = 0;
             }
-
+           
             con.SqlQuery("INSERT INTO `vragenlijst` (`id_students`, `Vraag`, `Onderwerp`, `Gevraagde_Docent`, `Status`,`Geholpen_Docent`, `Persoonlijke_Vraag`) VALUES (@IdUser, @vraag, @onderwerp, @gevraagdeDocent, 'Open',@gevraagdeDocent, @Persoonlijke)");
-            con.Cmd.Parameters.AddWithValue("@IdUser", id_user);
+            con.Cmd.Parameters.AddWithValue("@IdUser", idGebruiker);
             con.Cmd.Parameters.AddWithValue("@vraag", vraag);
             con.Cmd.Parameters.AddWithValue("@onderwerp", onderwerp);
             con.Cmd.Parameters.AddWithValue("@gevraagdeDocent", idDocent);
             con.Cmd.Parameters.AddWithValue("@Persoonlijke", persoonlijke);
-            con.NonQueryEx();
-            MessageBox.Show("vraag gestelt");
+
+            DialogResult resultaat = MessageBox.Show("Je vraag voor docent is:\n" + vraag + " \n", "Is vraag juist gesteld?",
+            MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            if(resultaat == DialogResult.Cancel)
+            {
+                return;
+            }
+                //Query wordt uitgevoerd     
+                con.NonQueryEx();
             this.Close();
         }
 

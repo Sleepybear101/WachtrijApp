@@ -9,9 +9,11 @@ namespace WachtrijApp
         public MySqlCommand Cmd;
         private MySqlDataAdapter _da;
         private DataTable _dt;
-
+        
+        
         public SqlDbConnection()
         {
+            //Connectie wordt gemaakt.
             //externe database
            //_con = new MySqlConnection("Server=remotemysql.com; port=3306;  Database=sPjBjePdtf; username=sPjBjePdtf; password=DvLp0RVQAX ");
 
@@ -22,11 +24,12 @@ namespace WachtrijApp
             _con.Open();
 
         }
-
+        //Query wordt gemaakt naar command
         public void SqlQuery(string queryText)
         {
             Cmd = new MySqlCommand(queryText, _con);
         }
+        //Query wordt uitgevoerd en krijgt informatie terug
         public DataTable QueryEx()
         {
             _da = new MySqlDataAdapter(Cmd);
@@ -35,6 +38,7 @@ namespace WachtrijApp
 
             return _dt;
         }
+        //Query wordt uitgevoerd met geen resultaat
         public void NonQueryEx()
         {
             Cmd.ExecuteNonQuery();
