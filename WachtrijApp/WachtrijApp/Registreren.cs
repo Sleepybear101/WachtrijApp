@@ -151,15 +151,13 @@ namespace WachtrijApp
             if (e.KeyCode == Keys.Enter)
             {
                 e.SuppressKeyPress = true;
-                if(!lbl_Incorrect.Visible || tbWachtwoord.Text.Length != 0 || tbWachtwoordRe.Text.Length != 0 || tbVolledigNaam.Text.Length != 0 || tbEmail.Text.Length != 0)
-                {
-                    VoegGebruiker(sender, e);
-                }
-                else
+                if (lbl_Incorrect.Visible || tbWachtwoord.Text.Length == 0 || tbWachtwoordRe.Text.Length == 0 || tbVolledigNaam.Text.Length == 0 || tbEmail.Text.Length == 0)
                 {
                     MessageBox.Show("Niet alle velden zijn ingevuld");
+                    e.Handled = true;
+                    return;
                 }
-                e.Handled = true;
+               
             }
         }
     }
