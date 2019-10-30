@@ -28,7 +28,6 @@ namespace WachtrijApp
         public void SqlQuery(string queryText)
         {
             Cmd = new MySqlCommand(queryText, _con);
-
         }
         //Query wordt uitgevoerd en krijgt informatie terug
         public DataTable QueryEx()
