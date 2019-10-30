@@ -37,7 +37,8 @@ namespace WachtrijApp
             {
                 if (Convert.ToInt32(dr[0]) >= 1)
                 {
-                    MessageBox.Show("Je hebt al 1 vraag gestelt");
+                    MessageBox.Show("Er staat nog een vraag open", "1 vraag per keer",
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
             }

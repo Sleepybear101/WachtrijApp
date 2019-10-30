@@ -16,32 +16,39 @@ namespace WachtrijApp
         public VraagVanStudenten(KeuzeScherm keuzeScherm)
         {
             InitializeComponent();
+            //rol en id van gebruiker wordt opgehaald van keuzescherm
             rol = keuzeScherm.rol;
             id = keuzeScherm.id_user;
+            //informatie wordt neergezet in de velden en datagridview
             GetInfo();
         }
 
         public void GetInfo()
         {
-            //datagridview wordt gerefresht
+            //datagridview wordt vernieuwed
             dtVraag.Refresh();
             
-      
+            //Kijkt welke rol is ingelogd
             if ("0" == rol)
             {
+                //Vragen van student wordt opgehaald
                 con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' AND `Status`='open' ");
+                //Vragen van studenten worden neergezet in datagridview
                 dtVraag.DataSource = con.QueryEx();
+                //Naam van docent wordt opgehaald met id van ingelogd
                 con.SqlQuery("SELECT `Volledige_Naam` FROM `docent` WHERE `id_docent`=@docent");
                 con.Cmd.Parameters.AddWithValue("@docent", id);
-
+             
                 foreach (DataRow dr in con.QueryEx().Rows)
                 {
+                    //Resultaat van Query wordt neergezet in textsbox
                    txbGeholpendocent.Text = dr[0].ToString();
                 }
 
             }
             else if ("1" == rol)
-            {
+
+            {   //Vragen van student wordt opgehaald en neergezet in de velden
                 con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` " +
                     "INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' " +
                     "AND `Persoonlijke_Vraag`='0'  OR  `id_student`=@Gebruiker AND `Status`='open' AND `Persoonlijke_Vraag`='1'");
@@ -57,7 +64,7 @@ namespace WachtrijApp
                     }
                 }
                 dtVraag.DataSource = con.QueryEx();
-                    //Wordt niet zichtbaar voor studenten
+                    //Velden worden niet zichtbaar voor studenten
                     rtbNotities.Visible = false;
                     lbNotitie.Visible = false;
                     lbGeholpenDoor.Visible = false;
@@ -122,6 +129,7 @@ namespace WachtrijApp
 
         private void btnLijst_vernieuw_Click(object sender, EventArgs e)
         {
+            //Het gehele datagridview en velden worden vernieuwed 
             GetInfo();
         }
     }

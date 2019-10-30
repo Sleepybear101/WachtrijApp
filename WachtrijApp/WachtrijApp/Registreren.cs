@@ -105,7 +105,7 @@ namespace WachtrijApp
         public void sendMail(string VolledigNaam)
         {
             MailMessage mailMessage = new MailMessage("testersmailbloem1@gmail.com",tbEmail.Text); 
-            mailMessage.Subject = "Je bent ingeschreven";
+            mailMessage.Subject = "Je bent ingeschreven als ";
             mailMessage.Body = "Beste "+VolledigNaam+", \n \nUw account is aangemaakt, u kunt nu gebruikmaken van uw account.\n \n";
 
             SmtpClient smtpClient = new SmtpClient();
@@ -115,8 +115,8 @@ namespace WachtrijApp
 
             smtpClient.Credentials = new System.Net.NetworkCredential()
             {
-                UserName = "testersmailbloem1@gmail.com",
-                Password = "1234test@"
+                UserName = "wachtrijteam@gmail.com",
+                Password = "Wachtrij1!"
             };
             smtpClient.Send(mailMessage);
             MessageBox.Show("Mail delivered successfully!!!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -148,19 +148,7 @@ namespace WachtrijApp
         }
         private void Enter_Pressed(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                e.SuppressKeyPress = true;
-                if(!lbl_Incorrect.Visible || tbWachtwoord.Text.Length != 0 || tbWachtwoordRe.Text.Length != 0 || tbVolledigNaam.Text.Length != 0 || tbEmail.Text.Length != 0)
-                {
-                    VoegGebruiker(sender, e);
-                }
-                else
-                {
-                    MessageBox.Show("Niet alle velden zijn ingevuld");
-                }
-                e.Handled = true;
-            }
+           
         }
     }
 }
