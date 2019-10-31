@@ -77,20 +77,22 @@
             // 
             // btnOpgelost
             // 
+            this.btnOpgelost.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnOpgelost.Location = new System.Drawing.Point(822, 361);
             this.btnOpgelost.Name = "btnOpgelost";
             this.btnOpgelost.Size = new System.Drawing.Size(88, 33);
-            this.btnOpgelost.TabIndex = 5;
+            this.btnOpgelost.TabIndex = 1;
             this.btnOpgelost.Text = "Opgelost";
             this.btnOpgelost.UseVisualStyleBackColor = true;
             this.btnOpgelost.Click += new System.EventHandler(this.btnOpgelost_Click);
             // 
             // btnArchiefOpenen
             // 
+            this.btnArchiefOpenen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnArchiefOpenen.Location = new System.Drawing.Point(622, 361);
             this.btnArchiefOpenen.Name = "btnArchiefOpenen";
             this.btnArchiefOpenen.Size = new System.Drawing.Size(80, 33);
-            this.btnArchiefOpenen.TabIndex = 6;
+            this.btnArchiefOpenen.TabIndex = 9;
             this.btnArchiefOpenen.Text = "Archief ";
             this.btnArchiefOpenen.UseVisualStyleBackColor = true;
             this.btnArchiefOpenen.Click += new System.EventHandler(this.btnArchief_Click);
@@ -101,7 +103,7 @@
             this.tbOnderwerp.Name = "tbOnderwerp";
             this.tbOnderwerp.ReadOnly = true;
             this.tbOnderwerp.Size = new System.Drawing.Size(143, 22);
-            this.tbOnderwerp.TabIndex = 7;
+            this.tbOnderwerp.TabIndex = 3;
             // 
             // lbGeholpenDoor
             // 
@@ -126,7 +128,7 @@
             this.rtbNotities.Location = new System.Drawing.Point(696, 242);
             this.rtbNotities.Name = "rtbNotities";
             this.rtbNotities.Size = new System.Drawing.Size(214, 110);
-            this.rtbNotities.TabIndex = 12;
+            this.rtbNotities.TabIndex = 6;
             this.rtbNotities.Text = "";
             // 
             // label6
@@ -144,7 +146,7 @@
             this.tbVolledig_naam.Name = "tbVolledig_naam";
             this.tbVolledig_naam.ReadOnly = true;
             this.tbVolledig_naam.Size = new System.Drawing.Size(169, 22);
-            this.tbVolledig_naam.TabIndex = 14;
+            this.tbVolledig_naam.TabIndex = 2;
             // 
             // dtVraag
             // 
@@ -172,7 +174,7 @@
             this.tbGevraagdDocent.Name = "tbGevraagdDocent";
             this.tbGevraagdDocent.ReadOnly = true;
             this.tbGevraagdDocent.Size = new System.Drawing.Size(143, 22);
-            this.tbGevraagdDocent.TabIndex = 15;
+            this.tbGevraagdDocent.TabIndex = 4;
             // 
             // rtbVraag
             // 
@@ -180,15 +182,16 @@
             this.rtbVraag.Name = "rtbVraag";
             this.rtbVraag.ReadOnly = true;
             this.rtbVraag.Size = new System.Drawing.Size(214, 103);
-            this.rtbVraag.TabIndex = 18;
+            this.rtbVraag.TabIndex = 2;
             this.rtbVraag.Text = "";
             // 
             // btnLijst_vernieuw
             // 
+            this.btnLijst_vernieuw.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLijst_vernieuw.Location = new System.Drawing.Point(708, 361);
             this.btnLijst_vernieuw.Name = "btnLijst_vernieuw";
             this.btnLijst_vernieuw.Size = new System.Drawing.Size(108, 33);
-            this.btnLijst_vernieuw.TabIndex = 19;
+            this.btnLijst_vernieuw.TabIndex = 8;
             this.btnLijst_vernieuw.Text = "Vernieuw lijst";
             this.btnLijst_vernieuw.UseVisualStyleBackColor = true;
             this.btnLijst_vernieuw.Click += new System.EventHandler(this.btnLijst_vernieuw_Click);
@@ -200,7 +203,7 @@
             this.txbGeholpendocent.Name = "txbGeholpendocent";
             this.txbGeholpendocent.ReadOnly = true;
             this.txbGeholpendocent.Size = new System.Drawing.Size(143, 22);
-            this.txbGeholpendocent.TabIndex = 20;
+            this.txbGeholpendocent.TabIndex = 5;
             // 
             // VraagVanStudenten
             // 

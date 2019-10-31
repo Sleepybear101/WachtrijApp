@@ -129,6 +129,7 @@
             // 
             // btnRegistreer
             // 
+            this.btnRegistreer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistreer.Enabled = false;
             this.btnRegistreer.Location = new System.Drawing.Point(181, 201);
             this.btnRegistreer.Name = "btnRegistreer";

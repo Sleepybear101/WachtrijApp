@@ -64,6 +64,7 @@
             // 
             // BtnOpslaan
             // 
+            this.BtnOpslaan.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnOpslaan.Location = new System.Drawing.Point(948, 369);
             this.BtnOpslaan.Name = "BtnOpslaan";
             this.BtnOpslaan.Size = new System.Drawing.Size(88, 30);

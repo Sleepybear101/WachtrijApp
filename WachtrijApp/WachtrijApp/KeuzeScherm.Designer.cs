@@ -35,6 +35,7 @@
             // 
             // btnVraagStellen
             // 
+            this.btnVraagStellen.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVraagStellen.Location = new System.Drawing.Point(26, 36);
             this.btnVraagStellen.Name = "btnVraagStellen";
             this.btnVraagStellen.Size = new System.Drawing.Size(118, 51);
@@ -45,6 +46,7 @@
             // 
             // btnVraagbekijken
             // 
+            this.btnVraagbekijken.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnVraagbekijken.Location = new System.Drawing.Point(165, 36);
             this.btnVraagbekijken.Name = "btnVraagbekijken";
             this.btnVraagbekijken.Size = new System.Drawing.Size(150, 51);
@@ -63,6 +65,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "KeuzeScherm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "KeuzeScherm";

@@ -58,6 +58,7 @@ namespace WachtrijApp
         }
         void inloggen()
         {
+       
             // hash de ingevoerd wachtwoord
             var hWachtwoord = ComputeSha256Hash(tbWachtwoord.Text);
             //Kijkt of de gegevens in de tabel student staat
@@ -104,6 +105,7 @@ namespace WachtrijApp
                 }
             }
             MessageBox.Show("Combinatie Email/wachtwoord niet gevonden.", "Verkeerde invoer", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        
         }
     }
 }
