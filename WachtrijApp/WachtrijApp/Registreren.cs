@@ -23,6 +23,7 @@ namespace WachtrijApp
         private SqlDbConnection con = new SqlDbConnection();
         public void VoegGebruiker(object sender, EventArgs e)
         {
+            UseWaitCursor = true;
             VolledigNaam = tbVolledigNaam.Text;
             Wachtwoord = tbWachtwoord.Text;
             WachtwoordR = tbWachtwoordRe.Text;
@@ -61,12 +62,14 @@ namespace WachtrijApp
                 con.Cmd.Parameters.AddWithValue("@VolledigNaam", VolledigNaam);
                 con.Cmd.Parameters.AddWithValue("@Email", Email);
                 con.Cmd.Parameters.AddWithValue("@Wachtwoord", hPassword);
-                MessageBox.Show("Gelukt met opslaan ", "docent Gegevens", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Gelukt met opslaan ", "Docent Gegevens", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+          
             //verstuurt mail naar de nieuw gebruiker
             sendMail(VolledigNaam);
             //Voert Query uit naar database
             con.NonQueryEx();
+          
             this.Close();
         }
 
@@ -157,7 +160,7 @@ namespace WachtrijApp
                     e.Handled = true;
                     return;
                 }
-
+                VoegGebruiker(sender,  e);
             }
         }
     }

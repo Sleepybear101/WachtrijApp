@@ -92,18 +92,18 @@
             // 
             // tbVolledigNaam
             // 
-            this.tbVolledigNaam.Location = new System.Drawing.Point(169, 40);
+            this.tbVolledigNaam.Location = new System.Drawing.Point(193, 40);
             this.tbVolledigNaam.Name = "tbVolledigNaam";
-            this.tbVolledigNaam.Size = new System.Drawing.Size(100, 22);
+            this.tbVolledigNaam.Size = new System.Drawing.Size(219, 22);
             this.tbVolledigNaam.TabIndex = 2;
             this.tbVolledigNaam.TextChanged += new System.EventHandler(this.Incorrect);
             this.tbVolledigNaam.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
             // 
             // tbWachtwoord
             // 
-            this.tbWachtwoord.Location = new System.Drawing.Point(169, 68);
+            this.tbWachtwoord.Location = new System.Drawing.Point(193, 66);
             this.tbWachtwoord.Name = "tbWachtwoord";
-            this.tbWachtwoord.Size = new System.Drawing.Size(100, 22);
+            this.tbWachtwoord.Size = new System.Drawing.Size(219, 22);
             this.tbWachtwoord.TabIndex = 3;
             this.tbWachtwoord.UseSystemPasswordChar = true;
             this.tbWachtwoord.TextChanged += new System.EventHandler(this.Incorrect);
@@ -111,9 +111,9 @@
             // 
             // tbWachtwoordRe
             // 
-            this.tbWachtwoordRe.Location = new System.Drawing.Point(169, 96);
+            this.tbWachtwoordRe.Location = new System.Drawing.Point(193, 94);
             this.tbWachtwoordRe.Name = "tbWachtwoordRe";
-            this.tbWachtwoordRe.Size = new System.Drawing.Size(100, 22);
+            this.tbWachtwoordRe.Size = new System.Drawing.Size(219, 22);
             this.tbWachtwoordRe.TabIndex = 4;
             this.tbWachtwoordRe.UseSystemPasswordChar = true;
             this.tbWachtwoordRe.TextChanged += new System.EventHandler(this.Incorrect);
@@ -121,7 +121,7 @@
             // 
             // tbDocentCode
             // 
-            this.tbDocentCode.Location = new System.Drawing.Point(169, 173);
+            this.tbDocentCode.Location = new System.Drawing.Point(312, 176);
             this.tbDocentCode.Name = "tbDocentCode";
             this.tbDocentCode.Size = new System.Drawing.Size(100, 22);
             this.tbDocentCode.TabIndex = 5;
@@ -131,9 +131,9 @@
             // 
             this.btnRegistreer.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRegistreer.Enabled = false;
-            this.btnRegistreer.Location = new System.Drawing.Point(181, 201);
+            this.btnRegistreer.Location = new System.Drawing.Point(312, 204);
             this.btnRegistreer.Name = "btnRegistreer";
-            this.btnRegistreer.Size = new System.Drawing.Size(88, 33);
+            this.btnRegistreer.Size = new System.Drawing.Size(100, 37);
             this.btnRegistreer.TabIndex = 6;
             this.btnRegistreer.Text = "Registreer";
             this.btnRegistreer.UseVisualStyleBackColor = true;
@@ -152,9 +152,9 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(169, 12);
+            this.tbEmail.Location = new System.Drawing.Point(193, 10);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(100, 22);
+            this.tbEmail.Size = new System.Drawing.Size(219, 22);
             this.tbEmail.TabIndex = 1;
             this.tbEmail.TextChanged += new System.EventHandler(this.Incorrect);
             this.tbEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
@@ -172,7 +172,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(291, 245);
+            this.ClientSize = new System.Drawing.Size(426, 252);
             this.Controls.Add(this.tbEmail);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lbl_Incorrect);

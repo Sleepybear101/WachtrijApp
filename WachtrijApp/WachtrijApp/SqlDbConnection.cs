@@ -15,7 +15,7 @@ namespace WachtrijApp
         {
             //Connectie wordt gemaakt.
             //externe database
-           //_con = new MySqlConnection("Server=remotemysql.com; port=3306;  Database=sPjBjePdtf; username=sPjBjePdtf; password=DvLp0RVQAX ");
+            //_con = new MySqlConnection("Server=remotemysql.com; port=3306;  Database=sPjBjePdtf; username=sPjBjePdtf; password=DvLp0RVQAX");
 
             //locale database
              _con = new MySqlConnection("Server=localhost;  Database=sPjBjePdtf; username=root; password= ");

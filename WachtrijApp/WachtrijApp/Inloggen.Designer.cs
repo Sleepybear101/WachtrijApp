@@ -59,7 +59,7 @@
             // lblRegisteren
             // 
             this.lblRegisteren.AutoSize = true;
-            this.lblRegisteren.Location = new System.Drawing.Point(10, 143);
+            this.lblRegisteren.Location = new System.Drawing.Point(10, 152);
             this.lblRegisteren.Name = "lblRegisteren";
             this.lblRegisteren.Size = new System.Drawing.Size(132, 17);
             this.lblRegisteren.TabIndex = 2;
@@ -67,9 +67,9 @@
             // 
             // tbEmail
             // 
-            this.tbEmail.Location = new System.Drawing.Point(124, 11);
+            this.tbEmail.Location = new System.Drawing.Point(124, 14);
             this.tbEmail.Name = "tbEmail";
-            this.tbEmail.Size = new System.Drawing.Size(114, 22);
+            this.tbEmail.Size = new System.Drawing.Size(209, 22);
             this.tbEmail.TabIndex = 1;
             this.tbEmail.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
             // 
@@ -78,7 +78,7 @@
             this.tbWachtwoord.Location = new System.Drawing.Point(124, 50);
             this.tbWachtwoord.Name = "tbWachtwoord";
             this.tbWachtwoord.ShortcutsEnabled = false;
-            this.tbWachtwoord.Size = new System.Drawing.Size(114, 22);
+            this.tbWachtwoord.Size = new System.Drawing.Size(209, 22);
             this.tbWachtwoord.TabIndex = 2;
             this.tbWachtwoord.UseSystemPasswordChar = true;
             this.tbWachtwoord.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Enter_Pressed);
@@ -86,7 +86,7 @@
             // btnRegisteren
             // 
             this.btnRegisteren.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnRegisteren.Location = new System.Drawing.Point(150, 135);
+            this.btnRegisteren.Location = new System.Drawing.Point(245, 144);
             this.btnRegisteren.Name = "btnRegisteren";
             this.btnRegisteren.Size = new System.Drawing.Size(88, 33);
             this.btnRegisteren.TabIndex = 4;
@@ -97,7 +97,7 @@
             // btnInloggen
             // 
             this.btnInloggen.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btnInloggen.Location = new System.Drawing.Point(150, 92);
+            this.btnInloggen.Location = new System.Drawing.Point(245, 101);
             this.btnInloggen.Name = "btnInloggen";
             this.btnInloggen.Size = new System.Drawing.Size(88, 33);
             this.btnInloggen.TabIndex = 3;
@@ -110,7 +110,7 @@
             this.AccessibleRole = System.Windows.Forms.AccessibleRole.MenuBar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 181);
+            this.ClientSize = new System.Drawing.Size(345, 183);
             this.Controls.Add(this.btnInloggen);
             this.Controls.Add(this.btnRegisteren);
             this.Controls.Add(this.tbWachtwoord);
