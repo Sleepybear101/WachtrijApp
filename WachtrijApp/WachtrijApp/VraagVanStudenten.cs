@@ -105,6 +105,12 @@ namespace WachtrijApp
 
         private void btnOpgelost_Click(object sender, EventArgs e)
         {
+            DialogResult resultaat = MessageBox.Show("De vraag die u wilt oplossen is:\n" + rtbVraag.Text + " \n", "Weet u zeker dat u daze vraag wilt oplossen? ",
+            MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (resultaat == DialogResult.Cancel)
+            {
+                return;
+            }
             string status = "opgelost";
             string idGeholpenDocent = id;
             //Query voor het opgelost vraag en persoonlijke vraag wordt verwijderd
