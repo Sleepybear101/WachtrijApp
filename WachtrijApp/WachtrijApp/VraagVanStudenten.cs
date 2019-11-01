@@ -12,7 +12,7 @@ namespace WachtrijApp
         public string vraag;
         public string id;
         public string rol;
-
+        public string id_docent;
         public VraagVanStudenten(KeuzeScherm keuzeScherm)
         {
             InitializeComponent();
@@ -32,12 +32,13 @@ namespace WachtrijApp
             if ("0" == rol)
             {
                 //Vragen van student wordt opgehaald
-                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' AND `Status`='open' ");
+                con.SqlQuery("SELECT `id_Vraag`,  `id_students`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent`, `Datum vraag` FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' AND `Persoonlijke_Vraag`='1'  OR `Persoonlijke_Vraag`= '0' AND `Status`='open' ");
                 //Vragen van studenten worden neergezet in datagridview
                 dtVraag.DataSource = con.QueryEx();
                 //Naam van docent wordt opgehaald met id van ingelogd
                 con.SqlQuery("SELECT `Volledige_Naam` FROM `docent` WHERE `id_docent`=@docent");
                 con.Cmd.Parameters.AddWithValue("@docent", id);
+               id_docent = id;
              
                 foreach (DataRow dr in con.QueryEx().Rows)
                 {
@@ -49,7 +50,7 @@ namespace WachtrijApp
             else if ("1" == rol)
 
             {   //Vragen van student wordt opgehaald en neergezet in de velden
-                con.SqlQuery("SELECT `id_Vraag`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` FROM `vragenlijst` " +
+                con.SqlQuery("SELECT `id_Vraag`, `id_students`, student.Volledige_Naam AS `Naam student`, `Vraag`, `Onderwerp`, docent.Volledige_Naam AS `Gevraagde docent` , `Datum vraag`  FROM `vragenlijst` " +
                     "INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Gevraagde_Docent=docent.id_docent WHERE `Status`='open' " +
                     "AND `Persoonlijke_Vraag`='0'  OR  `id_student`=@Gebruiker AND `Status`='open' AND `Persoonlijke_Vraag`='1'");
                  con.Cmd.Parameters.AddWithValue("@Gebruiker", id);
@@ -71,8 +72,11 @@ namespace WachtrijApp
                     txbGeholpendocent.Visible = false;
                     btnArchiefOpenen.Visible = false;
                     btnOpgelost.Visible = false;
+               
                 }
-          dtVraag.Columns[0].Visible = false;
+           dtVraag.Columns[0].Visible = false;
+            dtVraag.Columns[1].Visible = false;
+
         }
         private void btnArchief_Click(object sender, EventArgs e)
         {
@@ -92,7 +96,17 @@ namespace WachtrijApp
                 rtbVraag.Text = row.Cells["Vraag"].Value.ToString();
                 tbOnderwerp.Text = row.Cells["Onderwerp"].Value.ToString();
                 tbGevraagdDocent.Text = row.Cells["Gevraagde docent"].Value.ToString();
+                txbDatumVraag.Text = row.Cells["Datum vraag"].Value.ToString();
+                if(e.ColumnIndex == 1)
+                 {  
+                    rol = "1";
+                    id = row.Cells["id_students"].Value.ToString();
+                    btnArchief_Click(sender, e);
+                    id = id_docent;
+                    rol = "0";
+                }
             }
+       
         }
         private void VraagVanStudenten_FormClosed(object sender, FormClosedEventArgs e)
         {
@@ -131,6 +145,19 @@ namespace WachtrijApp
         {
             //Het gehele datagridview en velden worden vernieuwed 
             GetInfo();
+        }
+
+        private void dtVraag_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridViewRow row = dtVraag.Rows[e.RowIndex];
+            if (e.ColumnIndex >= 0)
+            {
+                rol = "1";
+                id = row.Cells["id_students"].Value.ToString();
+                btnArchief_Click(sender, e);
+                id = id_docent;
+                rol = "0";
+            }
         }
     }
 }

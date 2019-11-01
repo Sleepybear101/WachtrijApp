@@ -10,19 +10,30 @@ namespace WachtrijApp
         public VraagVanStudenten _VraagVanStudenten;
         public string idGebruiker;
         public string Vraag;
+        public string rol;
         public Archief(VraagVanStudenten vraagVanStudenten)
         {
             InitializeComponent();
             _VraagVanStudenten = vraagVanStudenten;
             //id van gebruiker wordt opgehaald
             idGebruiker = vraagVanStudenten.id;
-            GetInfo();
+            rol = vraagVanStudenten.rol;
+            if (rol == "0")
+            {
+                GetInfoArchief();
+
+            } else if (rol == "1")
+            {
+                GetinfoStudent();
+            }
+
         }
-        public void GetInfo()
+        public void GetInfoArchief()
         {
             //Datagridview wordt ververst
             dtArchief.Refresh();
-           //Wordt gekeken of alle docenten checkbox is gefilterd
+            //Wordt gekeken of alle docenten checkbox is gefilterd
+
             if (cbxAlleDocenten.Checked == true)
             {
                 //Opgelosten vragen worden opgehaald van alle docenten
@@ -30,10 +41,10 @@ namespace WachtrijApp
                     " FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students=student.id_student INNER JOIN docent ON vragenlijst.Geholpen_Docent=docent.id_docent " +
                     "WHERE `Status`='opgelost' AND `Persoonlijke_Vraag`=0 OR `Status`='opgelost' AND `Geholpen_Docent`= @GeholpenDocent AND `Persoonlijke_Vraag`=1 ");
                 con.Cmd.Parameters.AddWithValue("@GeholpenDocent", idGebruiker);
-              //Opgehaald informatie wordt neergezet dtArchief
+                //Opgehaald informatie wordt neergezet dtArchief
                 dtArchief.DataSource = con.QueryEx();
                 dtArchief.Columns[0].Visible = false;
-                
+
             }
             else
             {
@@ -46,23 +57,44 @@ namespace WachtrijApp
                 dtArchief.DataSource = con.QueryEx();
                 dtArchief.Columns[0].Visible = false;
             }
-            
         }
+        public void GetinfoStudent()
+        {
+            //Opgelosten en persoonlijke vragen die ingelogd docent wordt opgehaald
+            con.SqlQuery("SELECT`id_Vraag`,  student.Volledige_Naam AS 'Naam student',`Vraag`, `Onderwerp`, docent.Volledige_Naam AS 'geholpen docent', `Notities`, `status`  FROM `vragenlijst` INNER JOIN `student` ON vragenlijst.id_students = student.id_student INNER JOIN `docent` ON vragenlijst.Geholpen_Docent = docent.id_docent WHERE `id_students`=@GeholpenDocent ");
+            con.Cmd.Parameters.AddWithValue("@GeholpenDocent", idGebruiker);
+            //Opgehaald informatie wordt neergezet dtArchief
+            dtArchief.DataSource = con.QueryEx();
+            dtArchief.Columns[0].Visible = false;
+            dtArchief.Columns[1].Visible = false;
+            cbxAlleDocenten.Visible = false;
+      
+            
 
+
+        }
         private void BtnOpslaan_Click(object sender, EventArgs e)
         {
-            
             con.SqlQuery("UPDATE `vragenlijst` SET  `Notities`=@Notitie WHERE `id_Vraag`=@idVraag");
             con.Cmd.Parameters.AddWithValue("@Notitie", NotitiesVeld.Text);
             con.Cmd.Parameters.AddWithValue("@idVraag", Vraag);
             con.NonQueryEx();
-            GetInfo();
+            if (rol =="0")
+            {
+                GetInfoArchief();
+            }
+            else
+            {
+                GetinfoStudent();
+            }
+           
+          
         }
- 
+
 
         private void CbxAlleDocenten_CheckedChanged(object sender, EventArgs e)
         {
-            GetInfo();
+            GetInfoArchief();
         }
 
         private void DtArchief_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -70,23 +102,21 @@ namespace WachtrijApp
             //Kijkt of de rij groter is dan nul
             if (e.RowIndex >= 0)
             {
-               
+
                 DataGridViewRow row = dtArchief.Rows[e.RowIndex];
                 //geselecteerde rij achtergrond krijgt een kleur
                 row.DefaultCellStyle.BackColor = SystemColors.Highlight;
                 //kleur van letter worden wit wordt beter leesbaar
                 row.DefaultCellStyle.ForeColor = Color.White;
-              
+
                 Vraag = row.Cells["id_Vraag"].Value.ToString();
                 rtbVraag.Text = row.Cells["Vraag"].Value.ToString();
                 NotitiesVeld.Text = row.Cells["Notities"].Value.ToString();
-                tbOnderwerp.Text =  row.Cells["Onderwerp"].Value.ToString();
+                tbOnderwerp.Text = row.Cells["Onderwerp"].Value.ToString();
                 tbVolledig_naam.Text = row.Cells["Naam student"].Value.ToString();
                 txbGeholpendocent.Text = row.Cells["geholpen docent"].Value.ToString();
-                
 
             }
-
         }
 
         private void dtArchief_CellLeave(object sender, DataGridViewCellEventArgs e)
