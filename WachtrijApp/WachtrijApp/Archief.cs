@@ -75,6 +75,7 @@ namespace WachtrijApp
         }
         private void BtnOpslaan_Click(object sender, EventArgs e)
         {
+            //het wijzigen van notitie's 
             con.SqlQuery("UPDATE `vragenlijst` SET  `Notities`=@Notitie WHERE `id_Vraag`=@idVraag");
             con.Cmd.Parameters.AddWithValue("@Notitie", NotitiesVeld.Text);
             con.Cmd.Parameters.AddWithValue("@idVraag", Vraag);
