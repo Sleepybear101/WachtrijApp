@@ -68,7 +68,7 @@ namespace WachtrijApp
             dtArchief.Columns[0].Visible = false;
             dtArchief.Columns[1].Visible = false;
             cbxAlleDocenten.Visible = false;
-      
+       
             
 
 

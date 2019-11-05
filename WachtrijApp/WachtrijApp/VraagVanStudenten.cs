@@ -97,14 +97,7 @@ namespace WachtrijApp
                 tbOnderwerp.Text = row.Cells["Onderwerp"].Value.ToString();
                 tbGevraagdDocent.Text = row.Cells["Gevraagde docent"].Value.ToString();
                 txbDatumVraag.Text = row.Cells["Datum vraag"].Value.ToString();
-                if(e.ColumnIndex == 1)
-                 {  
-                    rol = "1";
-                    id = row.Cells["id_students"].Value.ToString();
-                    btnArchief_Click(sender, e);
-                    id = id_docent;
-                    rol = "0";
-                }
+               
             }
        
         }
@@ -158,12 +151,16 @@ namespace WachtrijApp
             DataGridViewRow row = dtVraag.Rows[e.RowIndex];
             if (e.ColumnIndex >= 0)
             {
+                if (rol ==  "0")
+                {
                 rol = "1";
                 id = row.Cells["id_students"].Value.ToString();
                 btnArchief_Click(sender, e);
                 id = id_docent;
                 rol = "0";
             }
+                }
+              
         }
     }
 }
